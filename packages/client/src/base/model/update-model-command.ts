@@ -78,7 +78,7 @@ export class FeedbackAwareUpdateModelCommand extends UpdateModelCommand {
 
     protected performUpdate(oldRoot: SModelRoot, newRoot: SModelRoot, context: CommandExecutionContext): CommandReturn {
         if (this.feedbackActionDispatcher && this.actionHandlerRegistry) {
-            // Create a temporary context wich defines the `newRoot` as `root`
+            // Create a temporary context which defines the `newRoot` as `root`
             // This way we do not corrupt the redo/undo behavior of the super class
             const tempContext: CommandExecutionContext = {
                 root: newRoot,

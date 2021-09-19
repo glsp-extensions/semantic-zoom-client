@@ -20,13 +20,28 @@ import {
     Point,
     RenderingContext,
     SEdge,
-    toDegrees
+    SLabel,
+    toDegrees,
+    isEdgeLayoutable,
+    getSubType,
+    setAttr,
+    SLabelView,
+    SGraphView,
+    SGraph,
+    GLSPActionDispatcher,
+    RequestBoundsAction
 } from '@eclipse-glsp/client';
-import { injectable } from 'inversify';
+import {inject, injectable} from 'inversify';
 import * as snabbdom from 'snabbdom-jsx';
 import { VNode } from 'snabbdom/vnode';
 
+import { LevelOfDetailRenderer } from './level-of-detail/level-of-detail-renderer';
 import { Icon } from './model';
+import { WORKFLOW_TYPES } from './workflow-types';
+import { TYPES} from 'sprotty';
+import {RequestBoundsListener} from './level-of-detail/request-bounds-listener';
+// import {IVNodePostprocessor} from 'sprotty/src/base/views/vnode-postprocessor';
+// import {ModelRenderer, ModelRendererFactory} from 'sprotty/src/base/views/viewer';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const JSX = { createElement: snabbdom.svg };
@@ -45,13 +60,87 @@ export class WorkflowEdgeView extends GEdgeView {
 }
 
 @injectable()
+export class SvgRootView extends SGraphView {
+    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
+    protected levelOfDetailRenderer: LevelOfDetailRenderer;
+
+    @inject(TYPES.IActionDispatcher)
+    protected actionDispatcher: GLSPActionDispatcher;
+
+    @inject(WORKFLOW_TYPES.RequestBoundsListener)
+    protected requestBoundsListener: RequestBoundsListener;
+
+    /*
+    @multiInject(TYPES.HiddenVNodePostprocessor) @optional()
+    hiddenPostprocessors: IVNodePostprocessor[];
+
+    @inject(TYPES.ModelRendererFactory)
+    modelRendererFactory: ModelRendererFactory;
+
+    protected hiddenRenderer: ModelRenderer;
+     */
+
+    render(model: Readonly<SGraph>, context: RenderingContext): VNode {
+        // stop the rendering process when an element's level of detail changes
+        // call rerender only once, even when multiple elements have to be adjusted
+        if(this.levelOfDetailRenderer.needsRerender(model.children)) {
+            const root = this.requestBoundsListener.currentBoundsRootSchema;
+
+            console.log('rerender');
+
+            // this.hiddenRenderer = this.modelRendererFactory('hidden', this.hiddenPostprocessors);
+            // console.log(this.hiddenRenderer.renderElement(root));
+
+            // TODO: the additional server round trip can probably be avoided by making a client-side rerender
+            // RequestBoundsAction triggers a rerender and adjusts all elements
+            this.actionDispatcher.dispatch(new RequestBoundsAction(root));
+
+            /*
+            this.actionDispatcher.dispatch(new RerenderModelAction(
+                root,
+                true
+            ));
+             */
+
+            return <svg class-sprotty-graph={true}></svg>;
+        } else {
+            return super.render(model, context);
+        }
+    }
+}
+
+@injectable()
+export class STextLabelView extends SLabelView {
+    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
+    protected levelOfDetailRenderer: LevelOfDetailRenderer;
+
+    render(label: Readonly<SLabel>, context: RenderingContext): VNode | undefined {
+        if (!isEdgeLayoutable(label) && !this.isVisible(label, context)) {
+            return undefined;
+        }
+        const vnode = <text class-sprotty-label={true}>{label.text}</text>;
+        const subType = getSubType(label);
+        if (subType) {
+            setAttr(vnode, 'class', subType);
+        }
+        return this.levelOfDetailRenderer.prepareNode(label, vnode);
+    }
+}
+
+@injectable()
 export class IconView implements IView {
-    render(element: Icon, context: RenderingContext): VNode {
+    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
+    protected levelOfDetailRenderer: LevelOfDetailRenderer;
+
+    render(element: Icon, context: RenderingContext): VNode | undefined {
         const radius = this.getRadius();
-        return <g>
-            <circle class-sprotty-icon={true} r={radius} cx={radius} cy={radius}></circle>
-            {context.renderChildren(element)}
-        </g>;
+        return this.levelOfDetailRenderer.prepareNode(
+            element,
+            <g>
+                <circle class-sprotty-icon={true} r={radius} cx={radius} cy={radius}></circle>
+                {context.renderChildren(element)}
+            </g>
+        );
     }
 
     getRadius(): number {

@@ -38,6 +38,7 @@ import {
     glspContextMenuModule,
     glspDecorationModule,
     glspEditLabelModule,
+    GLSPGraph,
     glspHoverModule,
     glspMouseToolModule,
     glspSelectModule,
@@ -74,8 +75,16 @@ import {
 import { Container, ContainerModule } from 'inversify';
 
 import { directTaskEditor } from './direct-task-editing/di.config';
+import { levelOfDetailModule } from './level-of-detail/di.config';
 import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
-import { IconView, WorkflowEdgeView } from './workflow-views';
+import {IconView, STextLabelView, SvgRootView, WorkflowEdgeView} from './workflow-views';
+import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail-renderer';
+import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
+import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
+import {LevelOfDetailRuleTriggerDiscrete} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
+import {CssStyleRule} from './level-of-detail/model/rules/css-style-rule';
+import {configureCommand} from 'sprotty';
+import {WorkflowRequestBoundsCommand} from './commands/request-bounds-command';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -86,10 +95,16 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     bind(TYPES.IContextMenuItemProvider).to(DeleteElementContextMenuItemProvider);
     const context = { bind, unbind, isBound, rebind };
 
+    // configureCommand(context, RerenderModelCommand);
+    configureCommand(context, WorkflowRequestBoundsCommand);
+
     configureDefaultModelElements(context);
+    configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, SvgRootView);
+
     configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
-    configureModelElement(context, 'label:heading', SLabel, SLabelView, { enable: [editLabelFeature] });
+    configureModelElement(context, 'label:heading', SLabel, STextLabelView, { enable: [editLabelFeature] });
+    configureModelElement(context, 'label:text', SLabel, STextLabelView);
     configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
     configureModelElement(context, 'comp:header', SCompartment, SCompartmentView);
     configureModelElement(context, 'label:icon', SLabel, SLabelView);
@@ -100,6 +115,11 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureModelElement(context, 'activityNode:decision', ActivityNode, DiamondNodeView);
     configureModelElement(context, 'activityNode:fork', ActivityNode, RectangularNodeView);
     configureModelElement(context, 'activityNode:join', ActivityNode, RectangularNodeView);
+
+    registerLevelOfDetailRule(context,'lod:rule-visibility', VisibilityRule);
+    registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
+    registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
+    registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);
 });
 
 export default function createContainer(widgetId: string): Container {
@@ -108,7 +128,7 @@ export default function createContainer(widgetId: string): Container {
     container.load(defaultModule, defaultGLSPModule, glspMouseToolModule, validationModule, glspSelectModule, boundsModule, glspViewportModule, toolsModule,
         glspHoverModule, fadeModule, exportModule, expandModule, openModule, buttonModule, modelSourceModule, labelEditUiModule, glspEditLabelModule,
         workflowDiagramModule, toolFeedbackModule, modelHintsModule, glspContextMenuModule, glspServerCopyPasteModule, modelSourceWatcherModule,
-        glspCommandPaletteModule, paletteModule, routingModule, glspDecorationModule, edgeLayoutModule, zorderModule,
+        glspCommandPaletteModule, paletteModule, routingModule, glspDecorationModule, edgeLayoutModule, zorderModule, levelOfDetailModule,
         layoutCommandsModule, directTaskEditor, navigationModule, markerNavigatorModule);
 
     overrideViewerOptions(container, {
