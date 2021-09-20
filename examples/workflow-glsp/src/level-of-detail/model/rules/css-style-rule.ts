@@ -57,7 +57,7 @@ export class CssStyleRule extends LevelOfDetailRule {
             }
             value = value.replace(
                 CssStyleRule.C_LEVEL_STRING,
-                String(1/this.levelOfDetail.getContinuousLevelOfDetail())
+                String(this.levelOfDetail.getContinuousLevelOfDetail())
             );
         }
         return value;

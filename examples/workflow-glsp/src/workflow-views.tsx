@@ -29,7 +29,11 @@ import {
     SGraphView,
     SGraph,
     GLSPActionDispatcher,
-    RequestBoundsAction
+    RequestBoundsAction,
+    RoundedCornerNodeView,
+    CornerRadius,
+    RoundedCornerWrapper,
+    toClipPathId
 } from '@eclipse-glsp/client';
 import {inject, injectable} from 'inversify';
 import * as snabbdom from 'snabbdom-jsx';
@@ -38,7 +42,7 @@ import { VNode } from 'snabbdom/vnode';
 import { LevelOfDetailRenderer } from './level-of-detail/level-of-detail-renderer';
 import { Icon } from './model';
 import { WORKFLOW_TYPES } from './workflow-types';
-import { TYPES} from 'sprotty';
+import {Hoverable, Selectable, SShapeElement, TYPES} from 'sprotty';
 import {RequestBoundsListener} from './level-of-detail/request-bounds-listener';
 // import {IVNodePostprocessor} from 'sprotty/src/base/views/vnode-postprocessor';
 // import {ModelRenderer, ModelRendererFactory} from 'sprotty/src/base/views/viewer';
@@ -56,6 +60,32 @@ export class WorkflowEdgeView extends GEdgeView {
             transform={`rotate(${toDegrees(angleOfPoint({ x: p1.x - p2.x, y: p1.y - p2.y }))} ${p2.x} ${p2.y}) translate(${p2.x} ${p2.y})`} />;
         additionals.push(arrow);
         return additionals;
+    }
+}
+
+@injectable()
+export class LoDRoundedCornerNodeView extends RoundedCornerNodeView {
+    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
+    protected levelOfDetailRenderer: LevelOfDetailRenderer;
+
+    render(node: Readonly<SShapeElement & Hoverable & Selectable>, context: RenderingContext): VNode | undefined {
+        const cornerRadius = CornerRadius.from(node);
+        if (!cornerRadius) {
+            return this.renderWithoutRadius(node, context);
+        }
+
+        const wrapper = new RoundedCornerWrapper(node, cornerRadius);
+        const vnode = <g class-node={true}><g>
+            <defs>
+                <clipPath id={toClipPathId(node)}>
+                    <path d={this.renderPath(wrapper, context, this.getClipPathInsets() || 0)}></path>
+                </clipPath>
+            </defs>
+            {this.renderPathNode(wrapper, context)}
+            {context.renderChildren(node)}
+        </g></g>;
+
+        return this.levelOfDetailRenderer.prepareNode(node, vnode);
     }
 }
 

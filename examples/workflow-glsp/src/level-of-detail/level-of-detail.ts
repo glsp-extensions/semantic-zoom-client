@@ -18,7 +18,7 @@ export class LevelOfDetail {
     protected discreteLevel: DiscreteLoD = DiscreteLoD.intermediate;
 
     public getContinuousLevelOfDetail(): number {
-        this.level = this.continuousLevel = this.zoomListener.getZoomLevel();
+        this.level = this.continuousLevel = 1/this.zoomListener.getZoomLevel();
         return this.continuousLevel;
     }
 

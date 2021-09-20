@@ -6,6 +6,7 @@ import {LevelOfDetailRuleTrigger} from './level-of-detail-rule-trigger';
 import {inject, injectable} from 'inversify';
 import {WORKFLOW_TYPES} from '../../workflow-types';
 import {LevelOfDetailRuleTriggerInterface} from './level-of-detail-rule-trigger.interface';
+import {SShapeElement} from 'sprotty';
 
 @injectable()
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
@@ -27,7 +28,7 @@ export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
         this.isTriggered();
     }
 
-    abstract handle(node: VNode | undefined): VNode | undefined;
+    abstract handle(node: VNode | undefined, element: SShapeElement): VNode | undefined;
 
     getIsNewlyTriggered(): boolean {
         return this.lastTriggerState !== this.isTriggered();

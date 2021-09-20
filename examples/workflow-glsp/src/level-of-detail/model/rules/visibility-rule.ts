@@ -15,12 +15,13 @@ export class VisibilityRule extends LevelOfDetailRule {
 
     handle(node: VNode | undefined): VNode | undefined {
         // console.log('handle visibility rule triggered: ' + this.trigger.isTriggered());
-        if(!node) {
+
+        if(!node || this.setVisibility) {
             return node;
         }
 
         node.data = node.data ? node.data : { class: {} };
-        node.data.class = {...node.data.class, hidden: true};
+        node.data.class = { ...node.data.class, hidden: true };
 
         return node;
     }

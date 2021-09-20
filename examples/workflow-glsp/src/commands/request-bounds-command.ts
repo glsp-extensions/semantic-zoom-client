@@ -12,12 +12,10 @@ export class WorkflowRequestBoundsCommand extends RequestBoundsCommand {
     requestBoundsListener: RequestBoundsListener;
 
     execute(context: CommandExecutionContext): CommandResult {
-        // console.log(JSON.stringify(this.action.newRoot, undefined ));
         this.requestBoundsListener.setCurrentBoundsRootSchema(this.action.newRoot);
         console.log('requestboundscommand');
 
         const model = context.modelFactory.createRoot(this.action.newRoot);
-        this.requestBoundsListener.setCurrentBoundsRoot(model);
 
         return {
             model: model,

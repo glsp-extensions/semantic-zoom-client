@@ -9,6 +9,7 @@ import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
 import {LevelOfDetailRuleTriggerInterface} from './model/level-of-detail-rule-trigger.interface';
 import {LevelOfDetailRuleInterface} from './model/level-of-detail-rule.interface';
 import {SChildElement} from '@eclipse-glsp/client';
+import {SShapeElement} from 'sprotty';
 
 @injectable()
 export class LevelOfDetailRenderer {
@@ -51,7 +52,7 @@ export class LevelOfDetailRenderer {
         }
     }
 
-    public prepareNode(element: SChildElement & { levelOfDetailRules?: LevelOfDetailRule[] }, node: VNode): VNode | undefined {
+    public prepareNode(element: SShapeElement & { levelOfDetailRules?: LevelOfDetailRule[] }, node: VNode): VNode | undefined {
         if (!element.levelOfDetailRules || element.levelOfDetailRules.length === 0) {
             return node;
         }
@@ -61,7 +62,7 @@ export class LevelOfDetailRenderer {
 
         for (const rule of element.levelOfDetailRules) {
             if (rule.isTriggered()) {
-                handledNode = rule.handle(handledNode);
+                handledNode = rule.handle(handledNode, element);
             }
         }
 

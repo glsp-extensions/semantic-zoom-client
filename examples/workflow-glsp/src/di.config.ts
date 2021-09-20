@@ -59,7 +59,6 @@ import {
     paletteModule,
     RectangularNodeView,
     RevealNamedElementActionProvider,
-    RoundedCornerNodeView,
     routingModule,
     SCompartment,
     SCompartmentView,
@@ -77,7 +76,7 @@ import { Container, ContainerModule } from 'inversify';
 import { directTaskEditor } from './direct-task-editing/di.config';
 import { levelOfDetailModule } from './level-of-detail/di.config';
 import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
-import {IconView, STextLabelView, SvgRootView, WorkflowEdgeView} from './workflow-views';
+import {IconView, LoDRoundedCornerNodeView, STextLabelView, SvgRootView, WorkflowEdgeView} from './workflow-views';
 import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail-renderer';
 import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
 import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
@@ -85,6 +84,8 @@ import {LevelOfDetailRuleTriggerDiscrete} from './level-of-detail/model/trigger/
 import {CssStyleRule} from './level-of-detail/model/rules/css-style-rule';
 import {configureCommand} from 'sprotty';
 import {WorkflowRequestBoundsCommand} from './commands/request-bounds-command';
+import {CssClassRule} from './level-of-detail/model/rules/css-class-rule';
+import {ScaleRule} from './level-of-detail/model/rules/scale-rule';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -101,8 +102,8 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureDefaultModelElements(context);
     configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, SvgRootView);
 
-    configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
-    configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
+    configureModelElement(context, 'task:automated', TaskNode, LoDRoundedCornerNodeView);
+    configureModelElement(context, 'task:manual', TaskNode, LoDRoundedCornerNodeView);
     configureModelElement(context, 'label:heading', SLabel, STextLabelView, { enable: [editLabelFeature] });
     configureModelElement(context, 'label:text', SLabel, STextLabelView);
     configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
@@ -118,6 +119,8 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
 
     registerLevelOfDetailRule(context,'lod:rule-visibility', VisibilityRule);
     registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
+    registerLevelOfDetailRule(context,'lod:rule-cssclass', CssClassRule);
+    registerLevelOfDetailRule(context,'lod:rule-scale', ScaleRule);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);
 });
