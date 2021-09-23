@@ -4,8 +4,7 @@ import {VNode} from 'snabbdom/vnode';
 import {WORKFLOW_TYPES} from '../../../workflow-types';
 import {LevelOfDetail} from '../../level-of-detail';
 import {inject, injectable} from 'inversify';
-import {SShapeElement} from "sprotty";
-
+import {SShapeElement} from 'sprotty';
 
 @injectable()
 export class ScaleRule extends LevelOfDetailRule {
@@ -35,7 +34,6 @@ export class ScaleRule extends LevelOfDetailRule {
             return node;
         }
 
-
         let scale = this.scale;
         if(this.multiplyWithCLevel) {
             scale = scale * this.levelOfDetail.getContinuousLevelOfDetail();
@@ -44,11 +42,10 @@ export class ScaleRule extends LevelOfDetailRule {
             scale = scale + this.levelOfDetail.getContinuousLevelOfDetail();
         }
 
-
-        if(typeof node.children[0] === "string") {
-            return node
+        if(typeof node.children[0] === 'string') {
+            return node;
         }
-        let scaleNode: VNode = node.children[0];
+        const scaleNode: VNode = node.children[0];
 
         scaleNode.data = scaleNode.data ? scaleNode.data : { attrs: {} };
 

@@ -123,6 +123,9 @@ export class SvgRootView extends SGraphView {
 
             // TODO: the additional server round trip can probably be avoided by making a client-side rerender
             // RequestBoundsAction triggers a rerender and adjusts all elements
+            if(!root.revision || root.revision === 0) {
+                root.revision = 1;
+            }
             this.actionDispatcher.dispatch(new RequestBoundsAction(root));
 
             /*
