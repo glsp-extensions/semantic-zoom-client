@@ -12,7 +12,7 @@ import {LevelOfDetailRuleInterface} from './model/level-of-detail-rule.interface
 import {LevelOfDetailRuleTrigger} from './model/level-of-detail-rule-trigger';
 import {LevelOfDetailRuleTriggerInterface} from './model/level-of-detail-rule-trigger.interface';
 
-export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) => {
+export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound, rebind) => {
     console.log('levelOfDetailModule');
 
     bind(ZoomListener).toSelf().inSingletonScope();
@@ -43,5 +43,7 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
 
             return factory(element);
         });
+
+    // rebind(TYPES.IAnchorComputer).to(RectangleAnchor);
 });
 

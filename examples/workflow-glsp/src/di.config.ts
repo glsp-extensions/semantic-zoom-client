@@ -61,7 +61,6 @@ import {
     RevealNamedElementActionProvider,
     routingModule,
     SCompartment,
-    SCompartmentView,
     SEdge,
     SLabel,
     SLabelView,
@@ -76,7 +75,14 @@ import { Container, ContainerModule } from 'inversify';
 import { directTaskEditor } from './direct-task-editing/di.config';
 import { levelOfDetailModule } from './level-of-detail/di.config';
 import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
-import {IconView, LoDRoundedCornerNodeView, STextLabelView, SvgRootView, WorkflowEdgeView} from './workflow-views';
+import {
+    IconView,
+    LoDRoundedCornerNodeView,
+    LoDSCompartmentView,
+    STextLabelView,
+    SvgRootView,
+    WorkflowEdgeView
+} from './workflow-views';
 import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail-renderer';
 import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
 import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
@@ -86,6 +92,7 @@ import {configureCommand} from 'sprotty';
 import {WorkflowRequestBoundsCommand} from './commands/request-bounds-command';
 import {CssClassRule} from './level-of-detail/model/rules/css-class-rule';
 import {ScaleRule} from './level-of-detail/model/rules/scale-rule';
+import {LayoutRule} from './level-of-detail/model/rules/layout-rule';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -106,8 +113,8 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureModelElement(context, 'task:manual', TaskNode, LoDRoundedCornerNodeView);
     configureModelElement(context, 'label:heading', SLabel, STextLabelView, { enable: [editLabelFeature] });
     configureModelElement(context, 'label:text', SLabel, STextLabelView);
-    configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
-    configureModelElement(context, 'comp:header', SCompartment, SCompartmentView);
+    configureModelElement(context, 'comp:comp', SCompartment, LoDSCompartmentView);
+    configureModelElement(context, 'comp:header', SCompartment, LoDSCompartmentView);
     configureModelElement(context, 'label:icon', SLabel, SLabelView);
     configureModelElement(context, DefaultTypes.EDGE, SEdge, WorkflowEdgeView);
     configureModelElement(context, 'edge:weighted', WeightedEdge, WorkflowEdgeView);
@@ -121,6 +128,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
     registerLevelOfDetailRule(context,'lod:rule-cssclass', CssClassRule);
     registerLevelOfDetailRule(context,'lod:rule-scale', ScaleRule);
+    registerLevelOfDetailRule(context,'lod:rule-layout', LayoutRule);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);
 });

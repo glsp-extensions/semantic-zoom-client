@@ -45,23 +45,63 @@ export class ScaleRule extends LevelOfDetailRule {
         if(typeof node.children[0] === 'string') {
             return node;
         }
+
+        // scaling the root element does not work because the transform property is controlled by sprotty?
+        // currently the scaling is applied to the child note which is supposed to be a <g> element
+        // TODO: figure out a better and more universal solution
+        // const scaleNode: VNode = node;
         const scaleNode: VNode = node.children[0];
+
+        /* creating a new g element and adding changing children did not work
+         let gNode = h("g", node.children[0].children)
+         gNode.data = { "attrs": { transform: `scale(${scale})`}};
+         node.children = [gNode]
+         */
 
         scaleNode.data = scaleNode.data ? scaleNode.data : { attrs: {} };
 
+        // text notes have a different anchor point so they are treated seperately
+        const textNode = this.hasNode(scaleNode, 'text');
+
         // scale from center point
+        let scalex = 0;
+        let scaley = 0;
+
+        if (textNode) {
+            scalex = (79.8 / scale) - 79.8;
+            scaley = (18 / scale) - 18;
+        }
+
         scaleNode.data.attrs = {
             ...scaleNode.data.attrs,
-            transform: `scale(${scale}) translate(${-element.size.width/2},${-element.size.height/2})`
+            transform: `scale(${scale}) translate(${scalex},${scaley})`
+            // transform: `scale(${scale})`
         };
 
-        /* creating a new g element and adding changing children did not work
-        let gNode = h("g", node.children[0].children)
-        gNode.data = { "attrs": { transform: `scale(${scale})`}};
-        node.children = [gNode]
-        */
-
         return node;
+    }
+
+    hasNode(node: VNode | string, nodeName: string): VNode | undefined {
+        if (!node || typeof node === 'string' || !node.children) {
+            return undefined;
+        }
+
+        if (node.data && node.data.class && node.data.class.hidden && node.data.class.hidden === true) {
+            return undefined;
+        }
+
+        for (const n of node.children) {
+            if(typeof n !== 'string' && n.sel && n.sel.startsWith(nodeName)) {
+                return n;
+            } else {
+                const n2 = this.hasNode(n, nodeName);
+                if (n2) {
+                    return n2;
+                }
+            }
+        }
+
+        return undefined;
     }
 
     getIsNewlyTriggered(): boolean {

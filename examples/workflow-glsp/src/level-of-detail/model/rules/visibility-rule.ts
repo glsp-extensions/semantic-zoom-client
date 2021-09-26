@@ -2,6 +2,7 @@
 import {LevelOfDetailRule} from '../level-of-detail-rule';
 import {VNode} from 'snabbdom/vnode';
 import {injectable} from 'inversify';
+import {SShapeElement} from 'sprotty';
 
 @injectable()
 export class VisibilityRule extends LevelOfDetailRule {
@@ -13,7 +14,7 @@ export class VisibilityRule extends LevelOfDetailRule {
         this.setVisibility = element.setVisibility;
     }
 
-    handle(node: VNode | undefined): VNode | undefined {
+    handle(node: VNode | undefined, element: SShapeElement): VNode | undefined {
         // console.log('handle visibility rule triggered: ' + this.trigger.isTriggered());
 
         if(!node || this.setVisibility) {

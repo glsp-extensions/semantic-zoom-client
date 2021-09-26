@@ -29,11 +29,11 @@ import {
     SGraphView,
     SGraph,
     GLSPActionDispatcher,
-    RequestBoundsAction,
     RoundedCornerNodeView,
     CornerRadius,
     RoundedCornerWrapper,
-    toClipPathId
+    toClipPathId,
+    RequestBoundsAction, SCompartment
 } from '@eclipse-glsp/client';
 import {inject, injectable} from 'inversify';
 import * as snabbdom from 'snabbdom-jsx';
@@ -44,8 +44,6 @@ import { Icon } from './model';
 import { WORKFLOW_TYPES } from './workflow-types';
 import {Hoverable, Selectable, SShapeElement, TYPES} from 'sprotty';
 import {RequestBoundsListener} from './level-of-detail/request-bounds-listener';
-// import {IVNodePostprocessor} from 'sprotty/src/base/views/vnode-postprocessor';
-// import {ModelRenderer, ModelRendererFactory} from 'sprotty/src/base/views/viewer';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const JSX = { createElement: snabbdom.svg };
@@ -113,6 +111,7 @@ export class SvgRootView extends SGraphView {
     render(model: Readonly<SGraph>, context: RenderingContext): VNode {
         // stop the rendering process when an element's level of detail changes
         // call rerender only once, even when multiple elements have to be adjusted
+        // TODO: move this to the correct location
         if(this.levelOfDetailRenderer.needsRerender(model.children)) {
             const root = this.requestBoundsListener.currentBoundsRootSchema;
 
@@ -128,6 +127,7 @@ export class SvgRootView extends SGraphView {
             }
             this.actionDispatcher.dispatch(new RequestBoundsAction(root));
 
+            // this.actionDispatcher.dispatch(new UpdateModelAction(root, true));
             /*
             this.actionDispatcher.dispatch(new RerenderModelAction(
                 root,
@@ -178,5 +178,25 @@ export class IconView implements IView {
 
     getRadius(): number {
         return 16;
+    }
+}
+
+@injectable()
+export class LoDSCompartmentView implements IView {
+    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
+    protected levelOfDetailRenderer: LevelOfDetailRenderer;
+
+    render(compartment: Readonly<SCompartment>, context: RenderingContext): VNode | undefined {
+        const translate = `translate(${compartment.bounds.x}, ${compartment.bounds.y})`;
+        const vnode = <g transform={translate} class-sprotty-comp="{true}">
+            <g>
+                {context.renderChildren(compartment)}
+            </g>
+        </g>;
+        const subType = getSubType(compartment);
+        if (subType) {
+            setAttr(vnode, 'class', subType);
+        }
+        return this.levelOfDetailRenderer.prepareNode(compartment, vnode);
     }
 }
