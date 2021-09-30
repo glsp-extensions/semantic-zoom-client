@@ -10,7 +10,8 @@ export class LevelOfDetailRuleTriggerDiscrete extends LevelOfDetailRuleTrigger {
         this.triggerDiscreteLevel = element.triggerDiscreteLevel;
     }
 
-    isTriggered(): boolean {
-        return this.triggerDiscreteLevel.includes(this.levelOfDetail.getDiscreteLevelOfDetail());
+    isTriggered(continuousLevel?: number): boolean {
+        return this.triggerDiscreteLevel.includes(
+            continuousLevel ? this.levelOfDetail.continuousToDiscreteLevelOfDetail(continuousLevel) : this.levelOfDetail.getDiscreteLevelOfDetail());
     }
 }

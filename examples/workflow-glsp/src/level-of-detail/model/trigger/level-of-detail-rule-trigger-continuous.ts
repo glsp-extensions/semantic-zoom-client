@@ -13,8 +13,8 @@ export class LevelOfDetailRuleTriggerContinuous extends LevelOfDetailRuleTrigger
         this.triggerContinuousLevelFrom = element.triggerContinuousLevelFrom;
     }
 
-    isTriggered(): boolean {
-        return this.levelOfDetail.getContinuousLevelOfDetail() >= this.triggerContinuousLevelFrom
-            && this.levelOfDetail.getContinuousLevelOfDetail() <= this.triggerContinuousLevelTo;
+    isTriggered(continuousLevel?: number): boolean {
+        return (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) >= this.triggerContinuousLevelFrom
+            && (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) <= this.triggerContinuousLevelTo;
     }
 }

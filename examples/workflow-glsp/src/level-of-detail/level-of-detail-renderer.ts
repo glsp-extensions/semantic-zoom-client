@@ -14,6 +14,8 @@ import { SShapeElement } from 'sprotty';
 @injectable()
 export class LevelOfDetailRenderer {
 
+    lastZoomLevel = 0;
+
     @inject(WORKFLOW_TYPES.LevelOfDetail)
     levelOfDetail: LevelOfDetail;
 
@@ -21,35 +23,45 @@ export class LevelOfDetailRenderer {
     ruleFactory: (element: LevelOfDetailRuleInterface) => LevelOfDetailRule;
 
     public needsRerender(elements: Readonly<SChildElement[]>): boolean {
+        const b = this.checkForRerender(elements);
+        this.lastZoomLevel = this.levelOfDetail.getContinuousLevelOfDetail();
+        return b;
+    }
+
+    protected checkForRerender(elements: Readonly<SChildElement[]>): boolean {
+        const currentZoomLevel = this.levelOfDetail.getContinuousLevelOfDetail();
+
         for(let i = 0; i < elements.length; i++) {
             const child: SChildElement & { levelOfDetailRules?: LevelOfDetailRule[]} = elements[i];
             if(child.levelOfDetailRules && child.levelOfDetailRules.length > 0) {
-                this.initRules(child);
-                for(const rule of child.levelOfDetailRules) {
-                    if(rule.getIsNewlyTriggered()) {
+                const rules = this.initRules(child);
+                for(const rule of rules) {
+                    if(rule.getIsNewlyTriggered(currentZoomLevel, this.lastZoomLevel)) {
                         return true;
                     }
                 }
             }
-            if(this.needsRerender(child.children)) {
+            if(this.checkForRerender(child.children)) {
                 return true;
             }
         }
         return false;
     }
 
-    protected initRules(element: SChildElement & { levelOfDetailRules?: LevelOfDetailRule[] }): void {
+    protected initRules(element: SChildElement & { levelOfDetailRules?: LevelOfDetailRule[] }): LevelOfDetailRule[] {
         if (!element.levelOfDetailRules || element.levelOfDetailRules.length === 0) {
-            return;
+            return [];
         }
 
+        const r: LevelOfDetailRule[] = [];
+
         for (let i = 0; i < element.levelOfDetailRules.length; i++) {
-            if (typeof element.levelOfDetailRules[i].init !== 'function') {
-                console.log('initializing level-of-detail rule');
-                const lodRule = this.ruleFactory(element.levelOfDetailRules[i]);
-                element.levelOfDetailRules[i] = lodRule;
-            }
+            console.log('initializing level-of-detail rule');
+            r.push(this.ruleFactory(element.levelOfDetailRules[i]));
+            // element.levelOfDetailRules[i] = lodRule;
         }
+
+        return r;
     }
 
     public prepareNode(element: SShapeElement & { levelOfDetailRules?: LevelOfDetailRule[] }, node: VNode): VNode | undefined {
@@ -58,9 +70,9 @@ export class LevelOfDetailRenderer {
         }
         let handledNode: VNode | undefined = node;
 
-        this.initRules(element);
+        const rules = this.initRules(element);
 
-        for (const rule of element.levelOfDetailRules) {
+        for (const rule of rules) {
             if (rule.isTriggered()) {
                 handledNode = rule.handle(handledNode, element);
             }

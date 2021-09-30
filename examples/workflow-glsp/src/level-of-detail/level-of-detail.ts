@@ -18,23 +18,28 @@ export class LevelOfDetail {
     protected discreteLevel: DiscreteLoD = DiscreteLoD.intermediate;
 
     public getContinuousLevelOfDetail(): number {
-        this.level = this.continuousLevel = 1/this.zoomListener.getZoomLevel();
+        this.level = this.zoomListener.getZoomLevel();
+        this.continuousLevel = 1/this.level;
         return this.continuousLevel;
     }
 
-    public getDiscreteLevelOfDetail(): DiscreteLoD {
-        this.level = this.zoomListener.getZoomLevel();
-
-        let newLevel;
-        if (this.level < 0.8) {
-            newLevel = DiscreteLoD.overview;
-        } else if (this.level < 2) {
-            newLevel = DiscreteLoD.intermediate;
-        } else if (this.level < 4) {
-            newLevel = DiscreteLoD.detail;
+    public continuousToDiscreteLevelOfDetail(contLevel: number): DiscreteLoD {
+        if (contLevel >= 1.25) {
+            return DiscreteLoD.overview;
+        } else if (contLevel >= 0.5) {
+            return DiscreteLoD.intermediate;
+        } else if (contLevel >= 0.25) {
+            return DiscreteLoD.detail;
         } else {
-            newLevel = DiscreteLoD.detail2;
+            return DiscreteLoD.detail2;
         }
+    }
+
+    public getDiscreteLevelOfDetail(): DiscreteLoD {
+        this.getContinuousLevelOfDetail();
+
+        const newLevel = this.continuousToDiscreteLevelOfDetail(this.continuousLevel);
+
         if (this.discreteLevel !== newLevel) {
             console.log('New discrete zoom level: ' + DiscreteLoD[newLevel]);
             this.discreteLevel = newLevel;

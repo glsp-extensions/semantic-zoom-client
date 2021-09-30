@@ -15,5 +15,5 @@ export abstract class LevelOfDetailRuleTrigger implements LevelOfDetailRuleTrigg
         this.type = element.type;
     }
 
-    abstract isTriggered(): boolean;
+    abstract isTriggered(continuousLevel?: number): boolean;
 }

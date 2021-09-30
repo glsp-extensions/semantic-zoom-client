@@ -13,7 +13,6 @@ export class ScaleRule extends LevelOfDetailRule {
     protected scale = 1.0;
     protected multiplyWithCLevel = false;
     protected sumWithCLevel = false;
-    protected prevContinuousLevelOfDetail = -1;
     protected referencesCLevel = false;
 
     @inject(WORKFLOW_TYPES.LevelOfDetail)
@@ -24,8 +23,6 @@ export class ScaleRule extends LevelOfDetailRule {
         this.scale = element.scale;
         this.multiplyWithCLevel = element.multiplyWithCLevel;
         this.sumWithCLevel = element.sumWithCLevel;
-
-        this.prevContinuousLevelOfDetail = this.levelOfDetail.getContinuousLevelOfDetail();
     }
 
     handle(node: VNode | undefined, element: SShapeElement): VNode | undefined {
@@ -104,8 +101,9 @@ export class ScaleRule extends LevelOfDetailRule {
         return undefined;
     }
 
-    getIsNewlyTriggered(): boolean {
-        // also trigger when zoom level has been changed an the continuous level is referenced
-        return super.getIsNewlyTriggered() || (this.referencesCLevel && this.isTriggered() && this.levelOfDetail.getContinuousLevelOfDetail() !== this.prevContinuousLevelOfDetail);
+    getIsNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
+        // also trigger when zoom level has been changed and the continuous level is referenced
+        return super.getIsNewlyTriggered(currZoomLevel, prevZoomLevel)
+            || (this.referencesCLevel && this.isTriggered(currZoomLevel) && currZoomLevel !== prevZoomLevel);
     }
 }

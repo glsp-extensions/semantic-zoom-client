@@ -12,8 +12,6 @@ import { SShapeElement } from 'sprotty';
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
     trigger: LevelOfDetailRuleTrigger;
     type: string;
-    protected lastTriggerState = false;
-    protected isNewlyTriggered = false;
     protected levelOfDetail: LevelOfDetail;
 
     @inject(WORKFLOW_TYPES.LevelOfDetailRuleTriggerFactory)
@@ -22,20 +20,15 @@ export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
     init(element: LevelOfDetailRuleInterface): void {
         this.type = element.type;
         this.trigger = this.triggerFactory(element.trigger);
-
-        // call isTriggered() once to set lastTriggeredState to the correct value
-        // this prevents the renderer from causing a rerender immediately after first initialization
-        this.isTriggered();
     }
 
     abstract handle(node: VNode | undefined, element: SShapeElement): VNode | undefined;
 
-    getIsNewlyTriggered(): boolean {
-        return this.lastTriggerState !== this.isTriggered();
+    getIsNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
+        return this.trigger.isTriggered(currZoomLevel) !== this.trigger.isTriggered(prevZoomLevel);
     }
 
-    isTriggered(): boolean {
-        this.lastTriggerState = this.trigger.isTriggered();
-        return this.lastTriggerState;
+    isTriggered(zoomLevel?: number): boolean {
+        return this.trigger.isTriggered(zoomLevel);
     }
 }

@@ -114,7 +114,7 @@ export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
         // call rerender only once, even when multiple elements have to be adjusted
         // TODO: move this to the correct location
         if(this.levelOfDetailRenderer.needsRerender(model.children)) {
-            const root = this.requestBoundsListener.currentBoundsRootSchema;
+            const root = this.requestBoundsListener.getCurrentBoundsRootSchema();
 
             console.log('rerender');
 

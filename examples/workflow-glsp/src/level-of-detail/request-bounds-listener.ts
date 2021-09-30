@@ -15,4 +15,8 @@ export class RequestBoundsListener {
         );*/
         this.currentBoundsRootSchema = JSON.parse(JSON.stringify(schema));
     }
+
+    getCurrentBoundsRootSchema(): SModelRootSchema {
+        return this.currentBoundsRootSchema;
+    }
 }

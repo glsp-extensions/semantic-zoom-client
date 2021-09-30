@@ -10,7 +10,6 @@ export class CssStyleRule extends LevelOfDetailRule {
     static readonly C_LEVEL_STRING = '$clevel';
 
     styles: Record<string, any>;
-    protected prevContinuousLevelOfDetail = -1;
     protected referencesCLevel = false;
 
     @inject(WORKFLOW_TYPES.LevelOfDetail)
@@ -26,8 +25,6 @@ export class CssStyleRule extends LevelOfDetailRule {
                 break;
             }
         }
-
-        this.prevContinuousLevelOfDetail = this.levelOfDetail.getContinuousLevelOfDetail();
     }
 
     handle(node: VNode | undefined): VNode | undefined {
@@ -41,8 +38,6 @@ export class CssStyleRule extends LevelOfDetailRule {
         for(const key of Object.keys(styles)) {
             styles[key] = this.prepareValue(styles[key]);
         }
-
-        this.prevContinuousLevelOfDetail = this.levelOfDetail.getContinuousLevelOfDetail();
 
         node.data = node.data ? node.data : { style: {} };
         node.data.style = { ...node.data.style, ...styles };
@@ -63,8 +58,9 @@ export class CssStyleRule extends LevelOfDetailRule {
         return value;
     }
 
-    getIsNewlyTriggered(): boolean {
-        // also trigger when zoom level has been changed an the continuous level is referenced
-        return super.getIsNewlyTriggered() || (this.referencesCLevel && this.isTriggered() && this.levelOfDetail.getContinuousLevelOfDetail() !== this.prevContinuousLevelOfDetail);
+    getIsNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
+        // also trigger when zoom level has been changed and the continuous level is referenced
+        return super.getIsNewlyTriggered(currZoomLevel, prevZoomLevel)
+            || (this.referencesCLevel && this.isTriggered(currZoomLevel) && currZoomLevel !== prevZoomLevel);
     }
 }
