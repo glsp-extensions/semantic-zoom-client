@@ -1,15 +1,15 @@
 // eslint-disable-next-line header/header
 import { inject, injectable, interfaces } from 'inversify';
-import { VNode } from 'snabbdom/vnode';
+import { VNode } from 'snabbdom';
 
 import { WORKFLOW_TYPES } from '../workflow-types';
 import { LevelOfDetail } from './level-of-detail';
 import { LevelOfDetailRule } from './model/level-of-detail-rule';
 import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
-import {LevelOfDetailRuleTriggerInterface} from './model/level-of-detail-rule-trigger.interface';
-import {LevelOfDetailRuleInterface} from './model/level-of-detail-rule.interface';
-import {SChildElement} from '@eclipse-glsp/client';
-import {SShapeElement} from 'sprotty';
+import { LevelOfDetailRuleTriggerInterface } from './model/level-of-detail-rule-trigger.interface';
+import { LevelOfDetailRuleInterface } from './model/level-of-detail-rule.interface';
+import { SChildElement } from '@eclipse-glsp/client';
+import { SShapeElement } from 'sprotty';
 
 @injectable()
 export class LevelOfDetailRenderer {

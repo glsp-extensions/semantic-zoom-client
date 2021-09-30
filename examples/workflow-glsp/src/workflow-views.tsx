@@ -15,9 +15,9 @@
  ********************************************************************************/
 import {
     angleOfPoint,
-    GEdgeView,
     IView,
     Point,
+    PolylineEdgeViewWithGapsOnIntersections,
     RenderingContext,
     SEdge,
     SLabel,
@@ -33,23 +33,24 @@ import {
     CornerRadius,
     RoundedCornerWrapper,
     toClipPathId,
-    RequestBoundsAction, SCompartment
+    RequestBoundsAction,
+    SCompartment
 } from '@eclipse-glsp/client';
-import {inject, injectable} from 'inversify';
-import * as snabbdom from 'snabbdom-jsx';
-import { VNode } from 'snabbdom/vnode';
+import { inject, injectable } from 'inversify';
+import { VNode } from 'snabbdom';
+import { svg , Hoverable, Selectable, SShapeElement, TYPES } from 'sprotty';
 
 import { LevelOfDetailRenderer } from './level-of-detail/level-of-detail-renderer';
 import { Icon } from './model';
 import { WORKFLOW_TYPES } from './workflow-types';
-import {Hoverable, Selectable, SShapeElement, TYPES} from 'sprotty';
-import {RequestBoundsListener} from './level-of-detail/request-bounds-listener';
+
+import { RequestBoundsListener } from './level-of-detail/request-bounds-listener';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const JSX = { createElement: snabbdom.svg };
+const JSX = { createElement: svg };
 
 @injectable()
-export class WorkflowEdgeView extends GEdgeView {
+export class WorkflowEdgeView extends PolylineEdgeViewWithGapsOnIntersections {
     protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
         const additionals = super.renderAdditionals(edge, segments, context);
         const p1 = segments[segments.length - 2];
@@ -88,7 +89,7 @@ export class LoDRoundedCornerNodeView extends RoundedCornerNodeView {
 }
 
 @injectable()
-export class SvgRootView extends SGraphView {
+export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
     @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
     protected levelOfDetailRenderer: LevelOfDetailRenderer;
 
@@ -108,7 +109,7 @@ export class SvgRootView extends SGraphView {
     protected hiddenRenderer: ModelRenderer;
      */
 
-    render(model: Readonly<SGraph>, context: RenderingContext): VNode {
+    render(model: Readonly<SGraph>, context: RenderingContext, args?: IRenderingArgs): VNode {
         // stop the rendering process when an element's level of detail changes
         // call rerender only once, even when multiple elements have to be adjusted
         // TODO: move this to the correct location
@@ -137,7 +138,7 @@ export class SvgRootView extends SGraphView {
 
             return <svg class-sprotty-graph={true}></svg>;
         } else {
-            return super.render(model, context);
+            return super.render(model, context, args);
         }
     }
 }

@@ -1,12 +1,12 @@
 // eslint-disable-next-line header/header
-import {VNode} from 'snabbdom/vnode';
-import {LevelOfDetailRuleInterface} from './level-of-detail-rule.interface';
-import {LevelOfDetail} from '../level-of-detail';
-import {LevelOfDetailRuleTrigger} from './level-of-detail-rule-trigger';
-import {inject, injectable} from 'inversify';
-import {WORKFLOW_TYPES} from '../../workflow-types';
-import {LevelOfDetailRuleTriggerInterface} from './level-of-detail-rule-trigger.interface';
-import {SShapeElement} from 'sprotty';
+import { VNode } from 'snabbdom';
+import { LevelOfDetailRuleInterface } from './level-of-detail-rule.interface';
+import { LevelOfDetail } from '../level-of-detail';
+import { LevelOfDetailRuleTrigger } from './level-of-detail-rule-trigger';
+import { inject, injectable } from 'inversify';
+import { WORKFLOW_TYPES } from '../../workflow-types';
+import { LevelOfDetailRuleTriggerInterface } from './level-of-detail-rule-trigger.interface';
+import { SShapeElement } from 'sprotty';
 
 @injectable()
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {

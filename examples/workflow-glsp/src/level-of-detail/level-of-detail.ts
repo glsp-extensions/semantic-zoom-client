@@ -2,8 +2,8 @@
 import { ILogger } from '@eclipse-glsp/client';
 import { inject, injectable } from 'inversify';
 import { TYPES } from 'sprotty/lib';
-import {ZoomListener} from './zoom-listener';
-import {WORKFLOW_TYPES} from '../workflow-types';
+import { ZoomListener } from './zoom-listener';
+import { WORKFLOW_TYPES } from '../workflow-types';
 
 @injectable()
 export class LevelOfDetail {

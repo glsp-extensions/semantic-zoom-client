@@ -1,6 +1,6 @@
 // eslint-disable-next-line header/header
-import {LevelOfDetailRuleTrigger} from '../level-of-detail-rule-trigger';
-import { injectable} from 'inversify';
+import { LevelOfDetailRuleTrigger } from '../level-of-detail-rule-trigger';
+import { injectable } from 'inversify';
 
 @injectable()
 export class LevelOfDetailRuleTriggerContinuous extends LevelOfDetailRuleTrigger {

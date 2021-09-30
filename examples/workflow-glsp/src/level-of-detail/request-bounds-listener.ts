@@ -1,6 +1,6 @@
 // eslint-disable-next-line header/header
-import {SModelRootSchema} from '@eclipse-glsp/client';
-import {injectable} from 'inversify';
+import { SModelRootSchema } from '@eclipse-glsp/client';
+import { injectable } from 'inversify';
 
 @injectable()
 export class RequestBoundsListener {

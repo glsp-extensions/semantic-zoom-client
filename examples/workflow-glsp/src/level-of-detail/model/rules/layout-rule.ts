@@ -1,8 +1,8 @@
 // eslint-disable-next-line header/header
-import {LevelOfDetailRule} from '../level-of-detail-rule';
-import {VNode} from 'snabbdom/vnode';
-import {injectable} from 'inversify';
-import {SShapeElement} from 'sprotty';
+import { LevelOfDetailRule } from '../level-of-detail-rule';
+import { VNode } from 'snabbdom';
+import { injectable } from 'inversify';
+import { SShapeElement } from 'sprotty';
 
 @injectable()
 export class LayoutRule extends LevelOfDetailRule {

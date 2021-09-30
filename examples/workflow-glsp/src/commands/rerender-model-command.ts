@@ -1,12 +1,12 @@
 // eslint-disable-next-line header/header
-import {inject, injectable} from 'inversify';
+import { inject, injectable } from 'inversify';
 import {
     CommandExecutionContext,
     CommandReturn,
     FeedbackAwareUpdateModelCommand, SModelRootSchema,
     UpdateModelAction
 } from '@eclipse-glsp/client';
-import {Action, TYPES} from 'sprotty';
+import { Action, TYPES } from 'sprotty';
 
 @injectable()
 export class RerenderModelAction implements UpdateModelAction {
@@ -27,7 +27,7 @@ export class RerenderModelCommand extends FeedbackAwareUpdateModelCommand {
 
     constructor(@inject(TYPES.Action) protected readonly _action: RerenderModelAction | UpdateModelAction) {
         super(_action instanceof RerenderModelAction ?
-            new UpdateModelAction({ type: 'graph', id: 'sprotty'}, _action.animate, _action.cause) :
+            new UpdateModelAction({ type: 'graph', id: 'sprotty' }, _action.animate, _action.cause) :
             _action
         );
     }

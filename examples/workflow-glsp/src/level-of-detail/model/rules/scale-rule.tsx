@@ -1,10 +1,10 @@
 // eslint-disable-next-line header/header
-import {LevelOfDetailRule} from '../level-of-detail-rule';
-import {VNode} from 'snabbdom/vnode';
-import {WORKFLOW_TYPES} from '../../../workflow-types';
-import {LevelOfDetail} from '../../level-of-detail';
-import {inject, injectable} from 'inversify';
-import {SShapeElement} from 'sprotty';
+import { LevelOfDetailRule } from '../level-of-detail-rule';
+import { VNode } from 'snabbdom';
+import { WORKFLOW_TYPES } from '../../../workflow-types';
+import { LevelOfDetail } from '../../level-of-detail';
+import { inject, injectable } from 'inversify';
+import { SShapeElement } from 'sprotty';
 
 @injectable()
 export class ScaleRule extends LevelOfDetailRule {

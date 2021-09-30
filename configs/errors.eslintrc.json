@@ -39,6 +39,7 @@
     "no-unused-vars": "off", // typescript-eslint rule activated instead
     "no-use-before-define": "off", // typescript-eslint rule activated instead
     // Stylistic Issues
+    "object-curly-spacing": ["error", "always"],
     "max-len": [
       "error",
       {

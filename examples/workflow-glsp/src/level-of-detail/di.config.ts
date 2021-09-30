@@ -1,16 +1,16 @@
 // eslint-disable-next-line header/header
-import {ContainerModule, interfaces} from 'inversify';
+import { ContainerModule, interfaces } from 'inversify';
 
 import { WORKFLOW_TYPES } from '../workflow-types';
-import {LevelOfDetailRenderer} from './level-of-detail-renderer';
+import { LevelOfDetailRenderer } from './level-of-detail-renderer';
 import { ZoomListener } from './zoom-listener';
-import {TYPES} from 'sprotty/lib';
-import {LevelOfDetail} from './level-of-detail';
-import {RequestBoundsListener} from './request-bounds-listener';
-import {LevelOfDetailRule} from './model/level-of-detail-rule';
-import {LevelOfDetailRuleInterface} from './model/level-of-detail-rule.interface';
-import {LevelOfDetailRuleTrigger} from './model/level-of-detail-rule-trigger';
-import {LevelOfDetailRuleTriggerInterface} from './model/level-of-detail-rule-trigger.interface';
+import { TYPES } from 'sprotty/lib';
+import { LevelOfDetail } from './level-of-detail';
+import { RequestBoundsListener } from './request-bounds-listener';
+import { LevelOfDetailRule } from './model/level-of-detail-rule';
+import { LevelOfDetailRuleInterface } from './model/level-of-detail-rule.interface';
+import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
+import { LevelOfDetailRuleTriggerInterface } from './model/level-of-detail-rule-trigger.interface';
 
 export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound, rebind) => {
     console.log('levelOfDetailModule');

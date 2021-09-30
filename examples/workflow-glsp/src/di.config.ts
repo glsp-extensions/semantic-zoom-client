@@ -28,6 +28,7 @@ import {
     DefaultTypes,
     DeleteElementContextMenuItemProvider,
     DiamondNodeView,
+    edgeIntersectionModule,
     edgeLayoutModule,
     editLabelFeature,
     expandModule,
@@ -83,16 +84,16 @@ import {
     SvgRootView,
     WorkflowEdgeView
 } from './workflow-views';
-import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail-renderer';
-import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
-import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
-import {LevelOfDetailRuleTriggerDiscrete} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
-import {CssStyleRule} from './level-of-detail/model/rules/css-style-rule';
-import {configureCommand} from 'sprotty';
-import {WorkflowRequestBoundsCommand} from './commands/request-bounds-command';
-import {CssClassRule} from './level-of-detail/model/rules/css-class-rule';
-import {ScaleRule} from './level-of-detail/model/rules/scale-rule';
-import {LayoutRule} from './level-of-detail/model/rules/layout-rule';
+import { registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger } from './level-of-detail/level-of-detail-renderer';
+import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
+import { LevelOfDetailRuleTriggerContinuous } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
+import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
+import { CssStyleRule } from './level-of-detail/model/rules/css-style-rule';
+import { configureCommand } from 'sprotty';
+import { WorkflowRequestBoundsCommand } from './commands/request-bounds-command';
+import { CssClassRule } from './level-of-detail/model/rules/css-class-rule';
+import { ScaleRule } from './level-of-detail/model/rules/scale-rule';
+import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -139,7 +140,7 @@ export default function createContainer(widgetId: string): Container {
     container.load(defaultModule, defaultGLSPModule, glspMouseToolModule, validationModule, glspSelectModule, boundsModule, glspViewportModule, toolsModule,
         glspHoverModule, fadeModule, exportModule, expandModule, openModule, buttonModule, modelSourceModule, labelEditUiModule, glspEditLabelModule,
         workflowDiagramModule, toolFeedbackModule, modelHintsModule, glspContextMenuModule, glspServerCopyPasteModule, modelSourceWatcherModule,
-        glspCommandPaletteModule, paletteModule, routingModule, glspDecorationModule, edgeLayoutModule, zorderModule, levelOfDetailModule,
+        glspCommandPaletteModule, paletteModule, routingModule, glspDecorationModule, edgeLayoutModule, zorderModule, levelOfDetailModule, edgeIntersectionModule,
         layoutCommandsModule, directTaskEditor, navigationModule, markerNavigatorModule);
 
     overrideViewerOptions(container, {

@@ -1,15 +1,15 @@
 // eslint-disable-next-line header/header
-import {injectable} from 'inversify';
-import {IAnchorComputer} from 'sprotty/src/features/routing/anchor';
-import {PolylineEdgeRouter, RECTANGULAR_ANCHOR_KIND} from '@eclipse-glsp/client';
-import {SConnectableElement} from 'sprotty/src/features/routing/model';
-import {Point} from 'sprotty/src/utils/geometry';
+import { injectable } from 'inversify';
+import { IAnchorComputer } from 'sprotty/src/features/routing/anchor';
+import { PolylineEdgeRouter, RECTANGULAR_ANCHOR_KIND } from '@eclipse-glsp/client';
+import { SConnectableElement } from 'sprotty/src/features/routing/model';
+import { Point } from 'sprotty/src/utils/geometry';
 import 'reflect-metadata';
 
 @injectable()
 export class RectangleAnchor implements IAnchorComputer {
 
-    get kind() {
+    get kind(): string {
         return PolylineEdgeRouter.KIND + ':' + RECTANGULAR_ANCHOR_KIND;
     }
 

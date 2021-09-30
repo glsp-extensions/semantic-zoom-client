@@ -1,9 +1,9 @@
 // eslint-disable-next-line header/header
-import {LevelOfDetailRule} from '../level-of-detail-rule';
-import {VNode} from 'snabbdom/vnode';
-import {WORKFLOW_TYPES} from '../../../workflow-types';
-import {LevelOfDetail} from '../../level-of-detail';
-import {inject, injectable} from 'inversify';
+import { LevelOfDetailRule } from '../level-of-detail-rule';
+import { VNode } from 'snabbdom';
+import { WORKFLOW_TYPES } from '../../../workflow-types';
+import { LevelOfDetail } from '../../level-of-detail';
+import { inject, injectable } from 'inversify';
 
 @injectable()
 export class CssStyleRule extends LevelOfDetailRule {
@@ -45,7 +45,7 @@ export class CssStyleRule extends LevelOfDetailRule {
         this.prevContinuousLevelOfDetail = this.levelOfDetail.getContinuousLevelOfDetail();
 
         node.data = node.data ? node.data : { style: {} };
-        node.data.style = { ...node.data.style, ...styles};
+        node.data.style = { ...node.data.style, ...styles };
 
         return node;
     }
