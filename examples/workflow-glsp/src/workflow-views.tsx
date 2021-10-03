@@ -33,8 +33,8 @@ import {
     CornerRadius,
     RoundedCornerWrapper,
     toClipPathId,
-    RequestBoundsAction,
-    SCompartment
+    SCompartment,
+    RequestModelAction
 } from '@eclipse-glsp/client';
 import { inject, injectable } from 'inversify';
 import { VNode } from 'snabbdom';
@@ -45,6 +45,7 @@ import { Icon } from './model';
 import { WORKFLOW_TYPES } from './workflow-types';
 
 import { RequestBoundsListener } from './level-of-detail/request-bounds-listener';
+import { LevelOfDetail } from './level-of-detail/level-of-detail';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const JSX = { createElement: svg };
@@ -93,6 +94,9 @@ export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
     @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
     protected levelOfDetailRenderer: LevelOfDetailRenderer;
 
+    @inject(WORKFLOW_TYPES.LevelOfDetail)
+    protected levelOfDetail: LevelOfDetail;
+
     @inject(TYPES.IActionDispatcher)
     protected actionDispatcher: GLSPActionDispatcher;
 
@@ -114,7 +118,7 @@ export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
         // call rerender only once, even when multiple elements have to be adjusted
         // TODO: move this to the correct location
         if(this.levelOfDetailRenderer.needsRerender(model.children)) {
-            const root = this.requestBoundsListener.getCurrentBoundsRootSchema();
+            // const root = this.requestBoundsListener.getCurrentBoundsRootSchema();
 
             console.log('rerender');
 
@@ -122,11 +126,18 @@ export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
             // console.log(this.hiddenRenderer.renderElement(root));
 
             // TODO: the additional server round trip can probably be avoided by making a client-side rerender
-            // RequestBoundsAction triggers a rerender and adjusts all elements
+
+            // To match the revision change which is done by the server to stop full resets of the stage
+            // not needed anymore with RequestModelActions
+            /*
             if(!root.revision || root.revision === 0) {
                 root.revision = 1;
-            }
-            this.actionDispatcher.dispatch(new RequestBoundsAction(root));
+            }*/
+
+            this.actionDispatcher.dispatch(new RequestModelAction({
+                levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
+            }));
+            // this.actionDispatcher.dispatch(new RequestBoundsAction(root));
 
             // this.actionDispatcher.dispatch(new UpdateModelAction(root, true));
             /*
