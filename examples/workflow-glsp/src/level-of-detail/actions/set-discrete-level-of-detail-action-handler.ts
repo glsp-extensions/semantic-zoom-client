@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2019-2021 EclipseSource and others.
+ * Copyright (c) 2021 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -13,10 +13,19 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import createWorkflowDiagramContainer from './di.config';
+import {inject, injectable} from "inversify";
+import {IActionHandler, ICommand} from "@eclipse-glsp/client";
+import {Action} from "sprotty";
+import {SetDiscreteLevelOfDetailAction} from "./set-discrete-level-of-detail-action";
+import {WORKFLOW_TYPES} from "../../workflow-types";
+import {LevelOfDetail} from "../level-of-detail";
 
-export * from './model';
-export * from './workflow-views';
-export * from './direct-task-editing/direct-task-editor';
-export * from './level-of-detail/actions/request-discrete-level-of-detail-action';
-export { createWorkflowDiagramContainer };
+@injectable()
+export class SetDiscreteLevelOfDetailActionHandler implements IActionHandler {
+     @inject(WORKFLOW_TYPES.LevelOfDetail)
+    protected levelOfDetail: LevelOfDetail;
+
+    handle (action: SetDiscreteLevelOfDetailAction): ICommand | Action | void {
+        this.levelOfDetail.setDiscreteLevelsOfDetail(action.discreteLevels);
+    }
+}

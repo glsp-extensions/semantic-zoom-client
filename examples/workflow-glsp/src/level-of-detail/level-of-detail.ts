@@ -4,6 +4,7 @@ import { inject, injectable } from 'inversify';
 import { TYPES } from 'sprotty/lib';
 import { ZoomListener } from './zoom-listener';
 import { WORKFLOW_TYPES } from '../workflow-types';
+import {DiscreteLevelOfDetail} from "./model/discrete-rules/discrete-level-of-detail";
 
 @injectable()
 export class LevelOfDetail {
@@ -15,7 +16,9 @@ export class LevelOfDetail {
 
     protected level: number;
     protected continuousLevel: number;
-    protected discreteLevel: DiscreteLoD = DiscreteLoD.intermediate;
+    protected discreteLevel: DiscreteLevelOfDetail
+
+    protected discreteLevelsOfDetail: DiscreteLevelOfDetail[] = [];
 
     public getContinuousLevelOfDetail(): number {
         this.level = this.zoomListener.getZoomLevel();
@@ -23,25 +26,31 @@ export class LevelOfDetail {
         return this.continuousLevel;
     }
 
-    public continuousToDiscreteLevelOfDetail(contLevel: number): DiscreteLoD {
-        if (contLevel >= 1.25) {
-            return DiscreteLoD.overview;
-        } else if (contLevel >= 0.5) {
-            return DiscreteLoD.intermediate;
-        } else if (contLevel >= 0.25) {
-            return DiscreteLoD.detail;
-        } else {
-            return DiscreteLoD.detail2;
+    public continuousToDiscreteLevelOfDetail(contLevel: number): DiscreteLevelOfDetail {
+        for (const level of this.discreteLevelsOfDetail) {
+            if(level.from === undefined && level.to === undefined) {
+                return level
+            }
+            else if (level.from === undefined && contLevel < level.to) {
+                return level
+            }
+            else if (level.to === undefined && contLevel >= level.from) {
+                return level
+            }
+            else if (contLevel >= level.from && contLevel < level.to) {
+                return level
+            }
         }
+        throw Error("No discrete level of detail found. Has the requestDiscreteModelsOfDetailAction not been called yet?")
     }
 
-    public getDiscreteLevelOfDetail(): DiscreteLoD {
+    public getDiscreteLevelOfDetail(): DiscreteLevelOfDetail {
         this.getContinuousLevelOfDetail();
 
         const newLevel = this.continuousToDiscreteLevelOfDetail(this.continuousLevel);
 
         if (this.discreteLevel !== newLevel) {
-            console.log('New discrete zoom level: ' + DiscreteLoD[newLevel]);
+            console.log('New discrete zoom level: ' + newLevel.name);
             this.discreteLevel = newLevel;
         }
 
@@ -51,11 +60,9 @@ export class LevelOfDetail {
     public setCurrentZoomLevel(level: number): void {
         this.level = level;
     }
-}
 
-export enum DiscreteLoD {
-    detail2 = 0,
-    detail = 1,
-    intermediate = 2,
-    overview = 3
+    public setDiscreteLevelsOfDetail(discreteLevels: DiscreteLevelOfDetail[]) {
+        this.discreteLevelsOfDetail = discreteLevels;
+        this.discreteLevel = this.continuousToDiscreteLevelOfDetail(this.getContinuousLevelOfDetail())
+    }
 }

@@ -1,9 +1,9 @@
 // eslint-disable-next-line header/header
 import { LevelOfDetailRuleTrigger } from '../level-of-detail-rule-trigger';
-import { DiscreteLoD } from '../../level-of-detail';
+import {DiscreteLevelOfDetail} from "../discrete-rules/discrete-level-of-detail";
 
 export class LevelOfDetailRuleTriggerDiscrete extends LevelOfDetailRuleTrigger {
-    triggerDiscreteLevel: DiscreteLoD[];
+    triggerDiscreteLevel: DiscreteLevelOfDetail[];
 
     init(element: LevelOfDetailRuleTriggerDiscrete): void {
         super.init(element);

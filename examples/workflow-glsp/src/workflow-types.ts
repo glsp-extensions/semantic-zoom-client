@@ -5,5 +5,6 @@ export const WORKFLOW_TYPES = {
     ZoomMouseListener: Symbol('ZoomMouseListener'),
     RequestBoundsListener: Symbol('RequestBoundsListener'),
     LevelOfDetailRuleFactory: Symbol('LevelOfDetailRuleFactory'),
-    LevelOfDetailRuleTriggerFactory: Symbol('LevelOfDetailRuleTriggerFactory')
+    LevelOfDetailRuleTriggerFactory: Symbol('LevelOfDetailRuleTriggerFactory'),
+    SetDiscreteLevelOfDetailActionHandler: Symbol('SetDiscreteLevelOfDetailActionHandler')
 };
