@@ -6,5 +6,6 @@ export const WORKFLOW_TYPES = {
     RequestBoundsListener: Symbol('RequestBoundsListener'),
     LevelOfDetailRuleFactory: Symbol('LevelOfDetailRuleFactory'),
     LevelOfDetailRuleTriggerFactory: Symbol('LevelOfDetailRuleTriggerFactory'),
-    SetDiscreteLevelOfDetailActionHandler: Symbol('SetDiscreteLevelOfDetailActionHandler')
+    SetDiscreteLevelOfDetailActionHandler: Symbol('SetDiscreteLevelOfDetailActionHandler'),
+    SetLevelOfDetailRuleActionHandler: Symbol('SetLevelOfDetailRuleActionHandler')
 };

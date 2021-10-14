@@ -10,7 +10,7 @@ import { SShapeElement } from 'sprotty';
 
 @injectable()
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
-    trigger: LevelOfDetailRuleTrigger;
+    trigger: LevelOfDetailRuleTrigger[];
     type: string;
     protected levelOfDetail: LevelOfDetail;
 
@@ -19,16 +19,16 @@ export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
 
     init(element: LevelOfDetailRuleInterface): void {
         this.type = element.type;
-        this.trigger = this.triggerFactory(element.trigger);
+        this.trigger = element.trigger.map((trigger) => this.triggerFactory(trigger));
     }
 
     abstract handle(node: VNode | undefined, element: SShapeElement): VNode | undefined;
 
     getIsNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
-        return this.trigger.isTriggered(currZoomLevel) !== this.trigger.isTriggered(prevZoomLevel);
+        return this.trigger.some(trigger => trigger.isTriggered(currZoomLevel) !== trigger.isTriggered(prevZoomLevel))
     }
 
     isTriggered(zoomLevel?: number): boolean {
-        return this.trigger.isTriggered(zoomLevel);
+        return this.trigger.some(trigger => trigger.isTriggered(zoomLevel))
     }
 }

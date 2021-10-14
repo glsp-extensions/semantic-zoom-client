@@ -19,4 +19,6 @@ export * from './model';
 export * from './workflow-views';
 export * from './direct-task-editing/direct-task-editor';
 export * from './level-of-detail/actions/request-discrete-level-of-detail-action';
+export * from './level-of-detail/actions/request-level-of-detail-rules-action';
+
 export { createWorkflowDiagramContainer };

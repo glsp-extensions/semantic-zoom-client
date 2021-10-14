@@ -4,17 +4,17 @@ import { injectable } from 'inversify';
 
 @injectable()
 export class LevelOfDetailRuleTriggerContinuous extends LevelOfDetailRuleTrigger {
-    triggerContinuousLevelFrom: number;
-    triggerContinuousLevelTo: number;
+    private triggerFrom: number;
+    private triggerTo: number;
 
     init(element: LevelOfDetailRuleTriggerContinuous): void {
         super.init(element);
-        this.triggerContinuousLevelTo = element.triggerContinuousLevelTo;
-        this.triggerContinuousLevelFrom = element.triggerContinuousLevelFrom;
+        this.triggerFrom = element.triggerFrom;
+        this.triggerTo = element.triggerTo;
     }
 
     isTriggered(continuousLevel?: number): boolean {
-        return (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) >= this.triggerContinuousLevelFrom
-            && (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) <= this.triggerContinuousLevelTo;
+        return (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) >= this.triggerFrom
+            && (continuousLevel ?? this.levelOfDetail.getContinuousLevelOfDetail()) < this.triggerTo;
     }
 }

@@ -13,19 +13,14 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import {inject, injectable} from "inversify";
-import {IActionHandler, ICommand} from "@eclipse-glsp/client";
 import {Action} from "sprotty";
-import {SetDiscreteLevelOfDetailAction} from "./set-discrete-level-of-detail-action";
-import {WORKFLOW_TYPES} from "../../workflow-types";
-import {LevelOfDetail} from "../level-of-detail";
+import {LevelOfDetailRuleAssignment} from "../model/level-of-detail-rule-assignment";
 
-@injectable()
-export class SetDiscreteLevelOfDetailActionHandler implements IActionHandler {
-    @inject(WORKFLOW_TYPES.LevelOfDetail)
-    protected levelOfDetail: LevelOfDetail;
+export class SetLevelOfDetailRulesAction implements Action {
+    static readonly KIND = 'setLevelOfDetailRules';
 
-    handle (action: SetDiscreteLevelOfDetailAction): ICommand | Action | void {
-        this.levelOfDetail.setDiscreteLevelsOfDetail(action.discreteLevels);
+    constructor(
+        public readonly ruleAssignments: LevelOfDetailRuleAssignment[],
+        public readonly kind: string = SetLevelOfDetailRulesAction.KIND) {
     }
 }

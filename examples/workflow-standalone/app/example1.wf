@@ -1,2101 +1,1495 @@
 {
-    "id": "sprotty",
-    "children": [{
-            "name": "AutomatedTask0",
-            "taskType": "automated",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544",
-            "cssClasses": ["task", "automated"],
-            "children": [{
-                    "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+  "id": "sprotty",
+  "children": [
+                    {
+                        "name": "AutomatedTask0",
+                        "taskType": "automated",
+                        "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b",
+                        "cssClasses": ["task", "automated"],
+                        "children": [
+                            {
+                                "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_header",
+                                "children": [
+                                    {
+                                        "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_icon",
+                                        "children": [
+                                            {
+                                                "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 9.308333396911621,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 13.383333206176758,
+                                                    "height": 22.0
+                                                },
+                                                "text": "A",
+                                                "alignment":
+                                                {
+                                                    "x": 6.683333396911621,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_icon",
-                            "children": [{
-                                    "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 9.308333396911621,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 13.383333206176758,
-                                        "height": 22.0
-                                    },
-                                    "text": "A",
-                                    "alignment": {
-                                        "x": 6.683333396911621,
-                                        "y": 18.0
+                                    {
+                                        "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 63.33333206176758,
+                                                    "height": 22.0
+                                                },
+                                                "text": "ChkWt",
+                                                "alignment":
+                                                {
+                                                    "x": 31.66666603088379,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 36.66666603088379,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "fa85bbc7-16a1-460d-98cd-906f3fc3528b_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 36.66666603088379,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: automated"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 73.33333206176758,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 116.33333206176758,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 63.33333206176758,
-                                        "height": 22.0
-                                    },
-                                    "text": "ChkWt",
-                                    "alignment": {
-                                        "x": 31.66666603088379,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 36.66666603088379,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "211c0ec2-bc86-4fab-a8f9-c8012672a544_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 36.66666603088379,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: automated",
-                                    "alignment": {
-                                        "x": 23.10000228881836,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 73.33333206176758,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:automated",
+                        "position":
+                        {
+                            "x": 150.0,
+                            "y": 120.0
+                        },
+                        "size":
+                        {
+                            "width": 126.33333206176758,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 116.33333206176758,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:automated",
-            "position": {
-                "x": 280.0,
-                "y": 440.0
-            },
-            "size": {
-                "width": 126.33333206176758,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "AutomatedTask1",
-            "taskType": "automated",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c",
-            "cssClasses": ["task", "automated"],
-            "children": [{
-                    "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "AutomatedTask1",
+                        "taskType": "automated",
+                        "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8",
+                        "cssClasses": ["task", "automated"],
+                        "children": [
+                            {
+                                "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_header",
+                                "children": [
+                                    {
+                                        "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_icon",
+                                        "children": [
+                                            {
+                                                "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 9.308333396911621,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 13.383333206176758,
+                                                    "height": 22.0
+                                                },
+                                                "text": "A",
+                                                "alignment":
+                                                {
+                                                    "x": 6.683333396911621,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_icon",
-                            "children": [{
-                                    "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 9.308333396911621,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 13.383333206176758,
-                                        "height": 22.0
-                                    },
-                                    "text": "A",
-                                    "alignment": {
-                                        "x": 6.683333396911621,
-                                        "y": 18.0
+                                    {
+                                        "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 55.54999923706055,
+                                                    "height": 22.0
+                                                },
+                                                "text": "WtOK",
+                                                "alignment":
+                                                {
+                                                    "x": 27.774999618530273,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 32.77499961853027,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "41aa34c0-3216-48e4-abb1-a47e31dacfd8_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 32.77499961853027,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: automated"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 65.54999923706055,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 108.54999923706055,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 55.54999923706055,
-                                        "height": 22.0
-                                    },
-                                    "text": "WtOK",
-                                    "alignment": {
-                                        "x": 27.774999618530273,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 32.77499961853027,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "39a40e7a-c94c-44d0-816c-65cdf318c40c_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 32.77499961853027,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: automated",
-                                    "alignment": {
-                                        "x": 23.10000228881836,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 65.54999923706055,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:automated",
+                        "position":
+                        {
+                            "x": 450.0,
+                            "y": 160.0
+                        },
+                        "size":
+                        {
+                            "width": 118.54999923706055,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 108.54999923706055,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:automated",
-            "position": {
-                "x": 540.0,
-                "y": 470.0
-            },
-            "size": {
-                "width": 118.54999923706055,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask2",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "0fbd973d-b486-4c25-a154-959e9b0df256",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "0fbd973d-b486-4c25-a154-959e9b0df256_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask2",
+                        "taskType": "manual",
+                        "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_header",
+                                "children": [
+                                    {
+                                        "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_icon",
+                                        "children": [
+                                            {
+                                                "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "0fbd973d-b486-4c25-a154-959e9b0df256_icon",
-                            "children": [{
-                                    "id": "0fbd973d-b486-4c25-a154-959e9b0df256_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 62.21666717529297,
+                                                    "height": 22.0
+                                                },
+                                                "text": "ChkTp",
+                                                "alignment":
+                                                {
+                                                    "x": 31.108333587646484,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 36.108333587646484,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 36.108333587646484,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 72.21666717529297,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 115.21666717529297,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "0fbd973d-b486-4c25-a154-959e9b0df256_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "0fbd973d-b486-4c25-a154-959e9b0df256_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 48.88333511352539,
-                                        "height": 22.0
-                                    },
-                                    "text": "Push",
-                                    "alignment": {
-                                        "x": 24.441667556762695,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "0fbd973d-b486-4c25-a154-959e9b0df256_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 29.441667556762695,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "0fbd973d-b486-4c25-a154-959e9b0df256_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 29.441667556762695,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 58.88333511352539,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": 150.0,
+                            "y": 310.0
+                        },
+                        "size":
+                        {
+                            "width": 125.21666717529297,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 101.88333511352539,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 50.0,
-                "y": 520.0
-            },
-            "size": {
-                "width": 111.88333511352539,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask3",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask3",
+                        "taskType": "manual",
+                        "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_header",
+                                "children": [
+                                    {
+                                        "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_icon",
+                                        "children": [
+                                            {
+                                                "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_icon",
-                            "children": [{
-                                    "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 48.88333511352539,
+                                                    "height": 22.0
+                                                },
+                                                "text": "Push",
+                                                "alignment":
+                                                {
+                                                    "x": 24.441667556762695,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 29.441667556762695,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 29.441667556762695,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 58.88333511352539,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 101.88333511352539,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 62.21666717529297,
-                                        "height": 22.0
-                                    },
-                                    "text": "ChkTp",
-                                    "alignment": {
-                                        "x": 31.108333587646484,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 36.108333587646484,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "e56dcda6-1a80-478d-a756-60dc9eb79a5a_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 36.108333587646484,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 72.21666717529297,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": -90.0,
+                            "y": 220.0
+                        },
+                        "size":
+                        {
+                            "width": 111.88333511352539,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 115.21666717529297,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 280.0,
-                "y": 600.0
-            },
-            "size": {
-                "width": 125.21666717529297,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask4",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask4",
+                        "taskType": "manual",
+                        "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_header",
+                                "children": [
+                                    {
+                                        "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_icon",
+                                        "children": [
+                                            {
+                                                "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_icon",
-                            "children": [{
-                                    "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 73.33333587646484,
+                                                    "height": 22.0
+                                                },
+                                                "text": "KeepTp",
+                                                "alignment":
+                                                {
+                                                    "x": 36.66666793823242,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 41.66666793823242,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "2a4aaa09-53a1-4344-96b2-e43eda183d50_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 41.66666793823242,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 83.33333587646484,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 126.33333587646484,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 73.33333587646484,
-                                        "height": 22.0
-                                    },
-                                    "text": "KeepTp",
-                                    "alignment": {
-                                        "x": 36.66666793823242,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 41.66666793823242,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "d257ff06-b86e-44c1-b603-dcb0774a05a3_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 41.66666793823242,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 83.33333587646484,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": 450.0,
+                            "y": 250.0
+                        },
+                        "size":
+                        {
+                            "width": 136.33333587646484,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 126.33333587646484,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 540.0,
-                "y": 560.0
-            },
-            "size": {
-                "width": 136.33333587646484,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask5",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask5",
+                        "taskType": "manual",
+                        "id": "b509cb97-3880-4be9-9a0c-244884063b72",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "b509cb97-3880-4be9-9a0c-244884063b72_header",
+                                "children": [
+                                    {
+                                        "id": "b509cb97-3880-4be9-9a0c-244884063b72_icon",
+                                        "children": [
+                                            {
+                                                "id": "b509cb97-3880-4be9-9a0c-244884063b72_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_icon",
-                            "children": [{
-                                    "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "b509cb97-3880-4be9-9a0c-244884063b72_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "b509cb97-3880-4be9-9a0c-244884063b72_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 75.58333587646484,
+                                                    "height": 22.0
+                                                },
+                                                "text": "PreHeat",
+                                                "alignment":
+                                                {
+                                                    "x": 37.79166793823242,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "b509cb97-3880-4be9-9a0c-244884063b72_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 42.79166793823242,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "b509cb97-3880-4be9-9a0c-244884063b72_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 42.79166793823242,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 85.58333587646484,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 128.58333587646484,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 75.58333587646484,
-                                        "height": 22.0
-                                    },
-                                    "text": "PreHeat",
-                                    "alignment": {
-                                        "x": 37.79166793823242,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 42.79166793823242,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "bf4fc440-2420-4d3d-8df0-d214e510f9a0_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 42.79166793823242,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 85.58333587646484,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": 450.0,
+                            "y": 350.0
+                        },
+                        "size":
+                        {
+                            "width": 138.58333587646484,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 128.58333587646484,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 540.0,
-                "y": 640.0
-            },
-            "size": {
-                "width": 138.58333587646484,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask6",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "8f6e790e-4419-4076-bb00-9b7688f3085b",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask6",
+                        "taskType": "manual",
+                        "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_header",
+                                "children": [
+                                    {
+                                        "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_icon",
+                                        "children": [
+                                            {
+                                                "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_icon",
-                            "children": [{
-                                    "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 52.21666717529297,
+                                                    "height": 22.0
+                                                },
+                                                "text": "RflWt",
+                                                "alignment":
+                                                {
+                                                    "x": 26.108333587646484,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 31.108333587646484,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "eaee2f81-ff01-4d36-8a56-47389b51c56d_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 31.108333587646484,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 62.21666717529297,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 105.21666717529297,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 48.900001525878906,
-                                        "height": 22.0
-                                    },
-                                    "text": "Brew",
-                                    "alignment": {
-                                        "x": 24.450000762939453,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 29.450000762939453,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "8f6e790e-4419-4076-bb00-9b7688f3085b_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 29.450000762939453,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 58.900001525878906,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": 450.0,
+                            "y": 80.0
+                        },
+                        "size":
+                        {
+                            "width": 115.21666717529297,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 101.9000015258789,
-                        "height": 44.0
-                    },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 910.0,
-                "y": 510.0
-            },
-            "size": {
-                "width": 111.9000015258789,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "name": "ManualTask7",
-            "taskType": "manual",
-            "levelOfDetailRules": [{
-                    "layoutOptions": {
-                        "paddingBottom": 3.0,
-                        "paddingTop": 3.0
-                    },
-                    "trigger": {
-                        "type": "lod:rule-trigger-discrete",
-                        "triggerDiscreteLevel": [3]
-                    },
-                    "type": "lod:rule-layout"
-                }
-            ],
-            "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d",
-            "cssClasses": ["task", "manual"],
-            "children": [{
-                    "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_header",
-                    "children": [{
-                            "levelOfDetailRules": [{
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
+                    {
+                        "name": "ManualTask7",
+                        "taskType": "manual",
+                        "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083",
+                        "cssClasses": ["task", "manual"],
+                        "children": [
+                            {
+                                "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_header",
+                                "children": [
+                                    {
+                                        "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_icon",
+                                        "children": [
+                                            {
+                                                "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_ticon",
+                                                "type": "label:icon",
+                                                "position":
+                                                {
+                                                    "x": 7.6666669845581055,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 16.66666603088379,
+                                                    "height": 22.0
+                                                },
+                                                "text": "M",
+                                                "alignment":
+                                                {
+                                                    "x": 8.333333015441895,
+                                                    "y": 18.0
+                                                }
+                                            }
+                                        ],
+                                        "type": "icon",
+                                        "position":
+                                        {
+                                            "x": 5.0,
+                                            "y": 6.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 32.0,
+                                            "height": 32.0
+                                        },
+                                        "layout": "stack",
+                                        "layoutOptions":
+                                        {
+                                            "hAlign": "center",
+                                            "resizeContainer": false
+                                        }
                                     },
-                                    "type": "lod:rule-visibility"
-                                }, {
-                                    "layoutOptions": {
-                                        "resizeContainer": true
-                                    },
-                                    "trigger": {
-                                        "type": "lod:rule-trigger-discrete",
-                                        "triggerDiscreteLevel": [3]
-                                    },
-                                    "type": "lod:rule-layout",
-                                    "handleAlways": true
-                                }
-                            ],
-                            "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_icon",
-                            "children": [{
-                                    "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_ticon",
-                                    "type": "label:icon",
-                                    "position": {
-                                        "x": 7.6666669845581055,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 16.66666603088379,
-                                        "height": 22.0
-                                    },
-                                    "text": "M",
-                                    "alignment": {
-                                        "x": 8.333333015441895,
-                                        "y": 18.0
+                                    {
+                                        "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_header_compartment",
+                                        "children": [
+                                            {
+                                                "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_classname",
+                                                "type": "label:heading",
+                                                "position":
+                                                {
+                                                    "x": 5.0,
+                                                    "y": 5.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 48.900001525878906,
+                                                    "height": 22.0
+                                                },
+                                                "text": "Brew",
+                                                "alignment":
+                                                {
+                                                    "x": 24.450000762939453,
+                                                    "y": 18.0
+                                                }
+                                            },
+                                            {
+                                                "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_duration",
+                                                "type": "label:text",
+                                                "position":
+                                                {
+                                                    "x": 29.450000762939453,
+                                                    "y": 28.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Duration: 0"
+                                            },
+                                            {
+                                                "id": "050396ae-c1a9-4cda-bc96-8a3907b4f083_type",
+                                                "type": "label:type-text",
+                                                "position":
+                                                {
+                                                    "x": 29.450000762939453,
+                                                    "y": 29.0
+                                                },
+                                                "size":
+                                                {
+                                                    "width": 0.0,
+                                                    "height": 0.0
+                                                },
+                                                "text": "Type: manual"
+                                            }
+                                        ],
+                                        "type": "comp:header",
+                                        "position":
+                                        {
+                                            "x": 38.0,
+                                            "y": 5.0
+                                        },
+                                        "size":
+                                        {
+                                            "width": 58.900001525878906,
+                                            "height": 34.0
+                                        },
+                                        "layout": "vbox"
                                     }
-                                }
-                            ],
-                            "type": "icon",
-                            "position": {
-                                "x": 5.0,
-                                "y": 6.0
-                            },
-                            "size": {
-                                "width": 32.0,
-                                "height": 32.0
-                            },
-                            "layout": "stack",
-                            "layoutOptions": {
-                                "hAlign": "center",
-                                "resizeContainer": false
+                                ],
+                                "type": "comp:header",
+                                "position":
+                                {
+                                    "x": 5.0,
+                                    "y": 5.0
+                                },
+                                "size":
+                                {
+                                    "width": 101.9000015258789,
+                                    "height": 44.0
+                                },
+                                "layout": "hbox"
                             }
-                        }, {
-                            "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_header_compartment",
-                            "children": [{
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [1]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [3]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "150%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_classname",
-                                    "type": "label:heading",
-                                    "position": {
-                                        "x": 5.0,
-                                        "y": 5.0
-                                    },
-                                    "size": {
-                                        "width": 52.21666717529297,
-                                        "height": 22.0
-                                    },
-                                    "text": "RflWt",
-                                    "alignment": {
-                                        "x": 26.108333587646484,
-                                        "y": 18.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-continuous",
-                                                "triggerContinuousLevelFrom": 0.25,
-                                                "triggerContinuousLevelTo": 0.5
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "50%"
-                                            }
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_duration",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 31.108333587646484,
-                                        "y": 28.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Duration: 0",
-                                    "alignment": {
-                                        "x": 27.0,
-                                        "y": 9.0
-                                    }
-                                }, {
-                                    "levelOfDetailRules": [{
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [2, 3, 1]
-                                            },
-                                            "type": "lod:rule-visibility"
-                                        }, {
-                                            "trigger": {
-                                                "type": "lod:rule-trigger-discrete",
-                                                "triggerDiscreteLevel": [0]
-                                            },
-                                            "type": "lod:rule-cssstyle",
-                                            "styles": {
-                                                "font-size": "33%"
-                                            }
-                                        }
-                                    ],
-                                    "id": "c33c2445-e4ec-44e3-8c53-9124e9045e1d_type",
-                                    "type": "label:text",
-                                    "position": {
-                                        "x": 31.108333587646484,
-                                        "y": 29.0
-                                    },
-                                    "size": {
-                                        "width": 0.0,
-                                        "height": 0.0
-                                    },
-                                    "text": "Type: manual",
-                                    "alignment": {
-                                        "x": 18.975000381469727,
-                                        "y": 5.77500057220459
-                                    }
-                                }
-                            ],
-                            "type": "comp:header",
-                            "position": {
-                                "x": 38.0,
-                                "y": 5.0
-                            },
-                            "size": {
-                                "width": 62.21666717529297,
-                                "height": 34.0
-                            },
-                            "layout": "vbox"
+                        ],
+                        "type": "task:manual",
+                        "position":
+                        {
+                            "x": 790.0,
+                            "y": 220.0
+                        },
+                        "size":
+                        {
+                            "width": 111.9000015258789,
+                            "height": 54.0
+                        },
+                        "layout": "vbox",
+                        "args":
+                        {
+                            "radiusTopLeft": 5.0,
+                            "radiusBottomLeft": 5.0,
+                            "radiusTopRight": 5.0,
+                            "radiusBottomRight": 5.0
                         }
-                    ],
-                    "type": "comp:header",
-                    "position": {
-                        "x": 5.0,
-                        "y": 5.0
                     },
-                    "size": {
-                        "width": 105.21666717529297,
-                        "height": 44.0
+                    {
+                        "nodeType": "forkNode",
+                        "id": "9b3bdb43-b5e1-46c3-91f7-fcd22ccc7c3f",
+                        "cssClasses": ["forkOrJoin"],
+                        "type": "activityNode:fork",
+                        "position":
+                        {
+                            "x": 40.0,
+                            "y": 220.0
+                        },
+                        "size":
+                        {
+                            "width": 10.0,
+                            "height": 50.0
+                        }
                     },
-                    "layout": "hbox"
-                }
-            ],
-            "type": "task:manual",
-            "position": {
-                "x": 540.0,
-                "y": 400.0
-            },
-            "size": {
-                "width": 115.21666717529297,
-                "height": 54.0
-            },
-            "layout": "vbox",
-            "args": {
-                "radiusBottomLeft": 5.0,
-                "radiusTopLeft": 5.0,
-                "radiusTopRight": 5.0,
-                "radiusBottomRight": 5.0
-            }
-        }, {
-            "nodeType": "forkNode",
-            "id": "ec5f5e31-286d-4cab-a658-e607b00c9853",
-            "cssClasses": ["forkOrJoin"],
-            "type": "activityNode:fork",
-            "position": {
-                "x": 180.0,
-                "y": 520.0
-            },
-            "size": {
-                "width": 10.0,
-                "height": 50.0
-            }
-        }, {
-            "id": "eabc7092-3b69-4f53-a26d-668874c7d6ea",
-            "type": "edge",
-            "sourceId": "0fbd973d-b486-4c25-a154-959e9b0df256",
-            "targetId": "ec5f5e31-286d-4cab-a658-e607b00c9853",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "c28795e1-78f5-4c6b-99ba-0a902f096dfb",
-            "type": "edge",
-            "sourceId": "ec5f5e31-286d-4cab-a658-e607b00c9853",
-            "targetId": "211c0ec2-bc86-4fab-a8f9-c8012672a544",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "96b4cb4f-ef5a-4a7d-be8d-1448f35b724e",
-            "type": "edge",
-            "sourceId": "ec5f5e31-286d-4cab-a658-e607b00c9853",
-            "targetId": "e56dcda6-1a80-478d-a756-60dc9eb79a5a",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "nodeType": "decisionNode",
-            "id": "edcd13b5-0ed7-44bd-b63b-1fba82da26d9",
-            "type": "activityNode:decision",
-            "position": {
-                "x": 450.0,
-                "y": 450.0
-            },
-            "size": {
-                "width": 32.0,
-                "height": 32.0
-            },
-            "layoutOptions": {
-                "minWidth": 32.0,
-                "minHeight": 32.0
-            }
-        }, {
-            "nodeType": "decisionNode",
-            "id": "aa12cba6-b56e-4aa3-8a58-c30364710c35",
-            "type": "activityNode:decision",
-            "position": {
-                "x": 450.0,
-                "y": 610.0
-            },
-            "size": {
-                "width": 32.0,
-                "height": 32.0
-            },
-            "layoutOptions": {
-                "minWidth": 32.0,
-                "minHeight": 32.0
-            }
-        }, {
-            "nodeType": "mergeNode",
-            "id": "35c955fe-d001-4fb4-bbab-48f4d759cc85",
-            "type": "activityNode:merge",
-            "position": {
-                "x": 740.0,
-                "y": 440.0
-            },
-            "size": {
-                "width": 32.0,
-                "height": 32.0
-            }
-        }, {
-            "nodeType": "mergeNode",
-            "id": "6a45beda-b1e9-4d16-aaf3-d49975002d76",
-            "type": "activityNode:merge",
-            "position": {
-                "x": 740.0,
-                "y": 610.0
-            },
-            "size": {
-                "width": 32.0,
-                "height": 32.0
-            }
-        }, {
-            "id": "fa6b9cf1-ed7e-4428-93af-44fd512a85d6",
-            "type": "edge",
-            "sourceId": "211c0ec2-bc86-4fab-a8f9-c8012672a544",
-            "targetId": "edcd13b5-0ed7-44bd-b63b-1fba82da26d9",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "958e85a2-29f1-424c-9017-121f025cc213",
-            "type": "edge",
-            "sourceId": "e56dcda6-1a80-478d-a756-60dc9eb79a5a",
-            "targetId": "aa12cba6-b56e-4aa3-8a58-c30364710c35",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "probability": "medium",
-            "id": "9728954d-fede-4cdb-8628-f92cfb759c7b",
-            "cssClasses": ["medium"],
-            "type": "edge:weighted",
-            "sourceId": "aa12cba6-b56e-4aa3-8a58-c30364710c35",
-            "targetId": "d257ff06-b86e-44c1-b603-dcb0774a05a3"
-        }, {
-            "probability": "medium",
-            "id": "6c374503-f9a5-416b-ba55-4ba2dddb566f",
-            "cssClasses": ["medium"],
-            "type": "edge:weighted",
-            "sourceId": "aa12cba6-b56e-4aa3-8a58-c30364710c35",
-            "targetId": "bf4fc440-2420-4d3d-8df0-d214e510f9a0"
-        }, {
-            "probability": "medium",
-            "id": "c75d9b59-7127-41a6-bb08-5f391a217fab",
-            "cssClasses": ["medium"],
-            "type": "edge:weighted",
-            "sourceId": "edcd13b5-0ed7-44bd-b63b-1fba82da26d9",
-            "targetId": "c33c2445-e4ec-44e3-8c53-9124e9045e1d"
-        }, {
-            "probability": "medium",
-            "id": "8586754e-a9e5-47a6-a153-37487266af68",
-            "cssClasses": ["medium"],
-            "type": "edge:weighted",
-            "sourceId": "edcd13b5-0ed7-44bd-b63b-1fba82da26d9",
-            "targetId": "39a40e7a-c94c-44d0-816c-65cdf318c40c"
-        }, {
-            "id": "dc1ac107-0288-4869-a4c4-2f56699c304e",
-            "type": "edge",
-            "sourceId": "c33c2445-e4ec-44e3-8c53-9124e9045e1d",
-            "targetId": "35c955fe-d001-4fb4-bbab-48f4d759cc85",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "0508dafa-c9d0-4f92-8bc9-4d22f780b4fb",
-            "type": "edge",
-            "sourceId": "39a40e7a-c94c-44d0-816c-65cdf318c40c",
-            "targetId": "35c955fe-d001-4fb4-bbab-48f4d759cc85",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "84b58a34-32c9-4ff4-bbc5-36119159d18f",
-            "type": "edge",
-            "sourceId": "d257ff06-b86e-44c1-b603-dcb0774a05a3",
-            "targetId": "6a45beda-b1e9-4d16-aaf3-d49975002d76",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "93219ce6-dda5-496d-b684-7c97b6679bfa",
-            "type": "edge",
-            "sourceId": "bf4fc440-2420-4d3d-8df0-d214e510f9a0",
-            "targetId": "6a45beda-b1e9-4d16-aaf3-d49975002d76",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "nodeType": "forkNode",
-            "id": "21799f6e-4cf6-4249-bded-d5454a696163",
-            "cssClasses": ["forkOrJoin"],
-            "type": "activityNode:fork",
-            "position": {
-                "x": 870.0,
-                "y": 510.0
-            },
-            "size": {
-                "width": 10.0,
-                "height": 50.0
-            }
-        }, {
-            "id": "19e3b7d5-d34c-4449-9b8a-f7f006860627",
-            "type": "edge",
-            "sourceId": "35c955fe-d001-4fb4-bbab-48f4d759cc85",
-            "targetId": "21799f6e-4cf6-4249-bded-d5454a696163",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "2ab2041a-ad51-4dec-85a5-90e823fb2b78",
-            "type": "edge",
-            "sourceId": "6a45beda-b1e9-4d16-aaf3-d49975002d76",
-            "targetId": "21799f6e-4cf6-4249-bded-d5454a696163",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }, {
-            "id": "eecb5bda-fc84-4589-96f1-db21d76f2911",
-            "type": "edge",
-            "sourceId": "21799f6e-4cf6-4249-bded-d5454a696163",
-            "targetId": "8f6e790e-4419-4076-bb00-9b7688f3085b",
-            "args": {
-                "edgePadding": 10.0
-            }
-        }
-    ],
-    "type": "graph",
-    "revision": 97
+                    {
+                        "nodeType": "joinNode",
+                        "id": "1364e120-5747-4f92-a71c-b5b3d28e78e9",
+                        "cssClasses": ["forkOrJoin"],
+                        "type": "activityNode:join",
+                        "position":
+                        {
+                            "x": 750.0,
+                            "y": 220.0
+                        },
+                        "size":
+                        {
+                            "width": 10.0,
+                            "height": 50.0
+                        }
+                    },
+                    {
+                        "id": "9dd04ef2-c550-442c-80b8-992267a76e51",
+                        "type": "edge",
+                        "sourceId": "10be06cc-112c-4ff7-ad0b-3c7fc815edf3",
+                        "targetId": "9b3bdb43-b5e1-46c3-91f7-fcd22ccc7c3f",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "06f5bfd8-5436-49cf-980b-b31aa4368bbe",
+                        "type": "edge",
+                        "sourceId": "9b3bdb43-b5e1-46c3-91f7-fcd22ccc7c3f",
+                        "targetId": "fa85bbc7-16a1-460d-98cd-906f3fc3528b",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "52983abe-7d40-42e5-9d1e-512011828271",
+                        "type": "edge",
+                        "sourceId": "9b3bdb43-b5e1-46c3-91f7-fcd22ccc7c3f",
+                        "targetId": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "nodeType": "decisionNode",
+                        "id": "414ae752-c7db-4eb9-9361-d61afe8e20d4",
+                        "type": "activityNode:decision",
+                        "position":
+                        {
+                            "x": 320.0,
+                            "y": 130.0
+                        },
+                        "size":
+                        {
+                            "width": 32.0,
+                            "height": 32.0
+                        },
+                        "layoutOptions":
+                        {
+                            "minWidth": 32.0,
+                            "minHeight": 32.0
+                        }
+                    },
+                    {
+                        "id": "0c9cb19c-2cdc-4294-8700-2baec932e95e",
+                        "type": "edge",
+                        "sourceId": "fa85bbc7-16a1-460d-98cd-906f3fc3528b",
+                        "targetId": "414ae752-c7db-4eb9-9361-d61afe8e20d4",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "probability": "medium",
+                        "id": "8cba4663-db74-408c-901a-44396bc69092",
+                        "cssClasses": ["medium"],
+                        "type": "edge:weighted",
+                        "sourceId": "414ae752-c7db-4eb9-9361-d61afe8e20d4",
+                        "targetId": "eaee2f81-ff01-4d36-8a56-47389b51c56d"
+                    },
+                    {
+                        "probability": "medium",
+                        "id": "922b0cd0-4d9d-49ba-9c6c-50bcee39a8d5",
+                        "cssClasses": ["medium"],
+                        "type": "edge:weighted",
+                        "sourceId": "414ae752-c7db-4eb9-9361-d61afe8e20d4",
+                        "targetId": "41aa34c0-3216-48e4-abb1-a47e31dacfd8"
+                    },
+                    {
+                        "nodeType": "decisionNode",
+                        "id": "4a19a848-668a-47f1-a6c9-57ca687dd1f4",
+                        "type": "activityNode:decision",
+                        "position":
+                        {
+                            "x": 310.0,
+                            "y": 320.0
+                        },
+                        "size":
+                        {
+                            "width": 32.0,
+                            "height": 32.0
+                        },
+                        "layoutOptions":
+                        {
+                            "minWidth": 32.0,
+                            "minHeight": 32.0
+                        }
+                    },
+                    {
+                        "nodeType": "decisionNode",
+                        "id": "2f62f3ce-d34f-46a2-b39e-460c4f5122d9",
+                        "type": "activityNode:decision",
+                        "position":
+                        {
+                            "x": 640.0,
+                            "y": 310.0
+                        },
+                        "size":
+                        {
+                            "width": 32.0,
+                            "height": 32.0
+                        },
+                        "layoutOptions":
+                        {
+                            "minWidth": 32.0,
+                            "minHeight": 32.0
+                        }
+                    },
+                    {
+                        "nodeType": "decisionNode",
+                        "id": "536a531e-0591-4413-a1a7-4417040c72d3",
+                        "type": "activityNode:decision",
+                        "position":
+                        {
+                            "x": 640.0,
+                            "y": 130.0
+                        },
+                        "size":
+                        {
+                            "width": 32.0,
+                            "height": 32.0
+                        },
+                        "layoutOptions":
+                        {
+                            "minWidth": 32.0,
+                            "minHeight": 32.0
+                        }
+                    },
+                    {
+                        "id": "0ccfe2ed-8d49-47f2-9649-c59070a6efeb",
+                        "type": "edge",
+                        "sourceId": "eaee2f81-ff01-4d36-8a56-47389b51c56d",
+                        "targetId": "536a531e-0591-4413-a1a7-4417040c72d3",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "83cd4807-9655-49ad-b709-51a2194f8b0e",
+                        "type": "edge",
+                        "sourceId": "41aa34c0-3216-48e4-abb1-a47e31dacfd8",
+                        "targetId": "536a531e-0591-4413-a1a7-4417040c72d3",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "24d4e4e8-2c1e-421e-970a-62c02ff499ee",
+                        "type": "edge",
+                        "sourceId": "536a531e-0591-4413-a1a7-4417040c72d3",
+                        "targetId": "1364e120-5747-4f92-a71c-b5b3d28e78e9",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "3357c9cb-b4a2-4faa-8ac1-356708627029",
+                        "type": "edge",
+                        "sourceId": "1364e120-5747-4f92-a71c-b5b3d28e78e9",
+                        "targetId": "050396ae-c1a9-4cda-bc96-8a3907b4f083",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "544c8d11-7d49-40fc-bdbe-c838f1df6a46",
+                        "type": "edge",
+                        "sourceId": "2a4aaa09-53a1-4344-96b2-e43eda183d50",
+                        "targetId": "2f62f3ce-d34f-46a2-b39e-460c4f5122d9",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "bb4487dc-112e-4920-b833-4b5150c22e10",
+                        "type": "edge",
+                        "sourceId": "b509cb97-3880-4be9-9a0c-244884063b72",
+                        "targetId": "2f62f3ce-d34f-46a2-b39e-460c4f5122d9",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "337b668d-257e-47d6-b0af-93a90486480f",
+                        "type": "edge",
+                        "sourceId": "2f62f3ce-d34f-46a2-b39e-460c4f5122d9",
+                        "targetId": "1364e120-5747-4f92-a71c-b5b3d28e78e9",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "id": "6ad782eb-2f76-47cb-baf9-8e34b0ec6c7c",
+                        "type": "edge",
+                        "sourceId": "a2d5681e-9ee3-469d-8cbe-cd49e098b5b7",
+                        "targetId": "4a19a848-668a-47f1-a6c9-57ca687dd1f4",
+                        "args":
+                        {
+                            "edgePadding": 10.0
+                        }
+                    },
+                    {
+                        "probability": "medium",
+                        "id": "721087b3-3f9f-474d-afcc-1ec4f185214c",
+                        "cssClasses": ["medium"],
+                        "type": "edge:weighted",
+                        "sourceId": "4a19a848-668a-47f1-a6c9-57ca687dd1f4",
+                        "targetId": "2a4aaa09-53a1-4344-96b2-e43eda183d50"
+                    },
+                    {
+                        "probability": "medium",
+                        "id": "0931d0b4-e547-48ec-93a8-60b142dcfe11",
+                        "cssClasses": ["medium"],
+                        "type": "edge:weighted",
+                        "sourceId": "4a19a848-668a-47f1-a6c9-57ca687dd1f4",
+                        "targetId": "b509cb97-3880-4be9-9a0c-244884063b72"
+                    }
+                ],
+  "type": "graph",
+  "revision": 18
 }

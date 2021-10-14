@@ -84,7 +84,6 @@ import {
     SvgRootView,
     WorkflowEdgeView
 } from './workflow-views';
-import { registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger } from './level-of-detail/level-of-detail-renderer';
 import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
 import { LevelOfDetailRuleTriggerContinuous } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
 import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
@@ -94,6 +93,7 @@ import { WorkflowRequestBoundsCommand } from './commands/request-bounds-command'
 import { CssClassRule } from './level-of-detail/model/rules/css-class-rule';
 import { ScaleRule } from './level-of-detail/model/rules/scale-rule';
 import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
+import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from "./level-of-detail/level-of-detail";
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -114,6 +114,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureModelElement(context, 'task:manual', TaskNode, LoDRoundedCornerNodeView);
     configureModelElement(context, 'label:heading', SLabel, STextLabelView, { enable: [editLabelFeature] });
     configureModelElement(context, 'label:text', SLabel, STextLabelView);
+    configureModelElement(context, 'label:type-text', SLabel, STextLabelView);
     configureModelElement(context, 'comp:comp', SCompartment, LoDSCompartmentView);
     configureModelElement(context, 'comp:header', SCompartment, LoDSCompartmentView);
     configureModelElement(context, 'label:icon', SLabel, SLabelView);

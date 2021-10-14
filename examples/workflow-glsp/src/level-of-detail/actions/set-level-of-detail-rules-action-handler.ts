@@ -16,16 +16,16 @@
 import {inject, injectable} from "inversify";
 import {IActionHandler, ICommand} from "@eclipse-glsp/client";
 import {Action} from "sprotty";
-import {SetDiscreteLevelOfDetailAction} from "./set-discrete-level-of-detail-action";
+import {SetLevelOfDetailRulesAction} from "./set-level-of-detail-rules-action";
 import {WORKFLOW_TYPES} from "../../workflow-types";
 import {LevelOfDetail} from "../level-of-detail";
 
 @injectable()
-export class SetDiscreteLevelOfDetailActionHandler implements IActionHandler {
+export class SetLevelOfDetailRulesActionHandler implements IActionHandler {
     @inject(WORKFLOW_TYPES.LevelOfDetail)
     protected levelOfDetail: LevelOfDetail;
 
-    handle (action: SetDiscreteLevelOfDetailAction): ICommand | Action | void {
-        this.levelOfDetail.setDiscreteLevelsOfDetail(action.discreteLevels);
+    handle (action: SetLevelOfDetailRulesAction): ICommand | Action | void {
+        this.levelOfDetail.setRuleAssignments(action.ruleAssignments)
     }
 }

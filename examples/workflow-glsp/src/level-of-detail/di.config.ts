@@ -14,10 +14,10 @@ import { LevelOfDetailRuleTriggerInterface } from './model/level-of-detail-rule-
 import {configureActionHandler } from "@eclipse-glsp/client";
 import {SetDiscreteLevelOfDetailAction} from "./actions/set-discrete-level-of-detail-action";
 import {SetDiscreteLevelOfDetailActionHandler} from "./actions/set-discrete-level-of-detail-action-handler";
+import {SetLevelOfDetailRulesActionHandler} from "./actions/set-level-of-detail-rules-action-handler";
+import {SetLevelOfDetailRulesAction} from "./actions/set-level-of-detail-rules-action";
 
-export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound, rebind) => {
-    console.log('levelOfDetailModule');
-
+export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) => {
     bind(ZoomListener).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.ZoomMouseListener).toService(ZoomListener);
     bind(TYPES.MouseListener).toService(ZoomListener);
@@ -34,7 +34,11 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound, 
     bind(SetDiscreteLevelOfDetailActionHandler).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.SetDiscreteLevelOfDetailActionHandler).toService(SetDiscreteLevelOfDetailActionHandler);
 
+    bind(SetLevelOfDetailRulesActionHandler).toSelf().inSingletonScope();
+    bind(WORKFLOW_TYPES.SetLevelOfDetailRuleActionHandler).toService(SetLevelOfDetailRulesActionHandler);
+
     configureActionHandler({ bind, isBound }, SetDiscreteLevelOfDetailAction.KIND, SetDiscreteLevelOfDetailActionHandler)
+    configureActionHandler({ bind, isBound }, SetLevelOfDetailRulesAction.KIND, SetLevelOfDetailRulesActionHandler)
 
     bind<interfaces.Factory<LevelOfDetailRule>>(WORKFLOW_TYPES.LevelOfDetailRuleFactory).toFactory<LevelOfDetailRule>((ctx: interfaces.Context) =>
         (element: LevelOfDetailRuleInterface) => {

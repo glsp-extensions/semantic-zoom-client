@@ -2,6 +2,6 @@
 import { LevelOfDetailRuleTrigger } from './level-of-detail-rule-trigger';
 
 export interface LevelOfDetailRuleInterface {
-    trigger: LevelOfDetailRuleTrigger;
+    trigger: LevelOfDetailRuleTrigger[];
     type: string;
 }

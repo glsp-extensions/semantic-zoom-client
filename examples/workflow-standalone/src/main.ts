@@ -21,7 +21,7 @@ import { join, resolve } from 'path';
 import { IActionDispatcher, RequestModelAction, TYPES } from 'sprotty';
 
 import createContainer from './di.config';
-import {RequestDiscreteLevelOfDetailAction} from "@eclipse-glsp-examples/workflow-glsp";
+import {RequestDiscreteLevelOfDetailAction,RequestLevelOfDetailRulesAction} from "@eclipse-glsp-examples/workflow-glsp";
 
 const port = 8081;
 const id = 'workflow';
@@ -55,6 +55,7 @@ async function initialize(client: GLSPClient): Promise<void> {
 
     await client.initializeClientSession({ clientSessionId: diagramServer.clientId, diagramType });
     actionDispatcher.dispatch(new RequestDiscreteLevelOfDetailAction());
+    actionDispatcher.dispatch(new RequestLevelOfDetailRulesAction());
     actionDispatcher.dispatch(
         new RequestModelAction({
             sourceUri: `file://${examplePath}`,
