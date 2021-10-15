@@ -106,7 +106,9 @@ export class LevelOfDetail {
 
     public getRulesForElement(element: SChildElement): LevelOfDetailRule[] {
         const r: LevelOfDetailRule[] = []
-
+        if(!this.ruleAssignments) {
+            return [];
+        }
         for(const assignment of Object.values(this.ruleAssignments)) {
             if(this.isAssignedRule(assignment.element, element)) {
                 r.push(...assignment.rules)

@@ -29,7 +29,7 @@
 
 .sprotty-text {
     font-size: 12pt;
-    text-anchor: middle
+    text-anchor: middle;
 }
 
 .sprotty-node {
@@ -123,11 +123,11 @@
     opacity: 0.2;
 }
 
-.task.automated>g>.sprotty-node {
+.task.automated>.sprotty-node {
     fill: gray;
 }
 
-.task.manual>g>.sprotty-node {
+.task.manual>.sprotty-node {
     fill: lightblue;
 }
 

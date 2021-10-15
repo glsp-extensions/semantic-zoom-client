@@ -60,8 +60,10 @@ import {
     paletteModule,
     RectangularNodeView,
     RevealNamedElementActionProvider,
+    RoundedCornerNodeView,
     routingModule,
     SCompartment,
+    SCompartmentView,
     SEdge,
     SLabel,
     SLabelView,
@@ -78,9 +80,6 @@ import { levelOfDetailModule } from './level-of-detail/di.config';
 import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
 import {
     IconView,
-    LoDRoundedCornerNodeView,
-    LoDSCompartmentView,
-    STextLabelView,
     SvgRootView,
     WorkflowEdgeView
 } from './workflow-views';
@@ -90,8 +89,6 @@ import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigge
 import { CssStyleRule } from './level-of-detail/model/rules/css-style-rule';
 import { configureCommand } from 'sprotty';
 import { WorkflowRequestBoundsCommand } from './commands/request-bounds-command';
-import { CssClassRule } from './level-of-detail/model/rules/css-class-rule';
-import { ScaleRule } from './level-of-detail/model/rules/scale-rule';
 import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
 import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from "./level-of-detail/level-of-detail";
 
@@ -110,13 +107,13 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureDefaultModelElements(context);
     configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, SvgRootView);
 
-    configureModelElement(context, 'task:automated', TaskNode, LoDRoundedCornerNodeView);
-    configureModelElement(context, 'task:manual', TaskNode, LoDRoundedCornerNodeView);
-    configureModelElement(context, 'label:heading', SLabel, STextLabelView, { enable: [editLabelFeature] });
-    configureModelElement(context, 'label:text', SLabel, STextLabelView);
-    configureModelElement(context, 'label:type-text', SLabel, STextLabelView);
-    configureModelElement(context, 'comp:comp', SCompartment, LoDSCompartmentView);
-    configureModelElement(context, 'comp:header', SCompartment, LoDSCompartmentView);
+    configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
+    configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
+    configureModelElement(context, 'label:heading', SLabel, SLabelView, { enable: [editLabelFeature] });
+    configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
+    configureModelElement(context, 'comp:header', SCompartment, SCompartmentView);
+    configureModelElement(context, 'label:text', SLabel, SLabelView);
+    configureModelElement(context, 'label:type-text', SLabel, SLabelView);
     configureModelElement(context, 'label:icon', SLabel, SLabelView);
     configureModelElement(context, DefaultTypes.EDGE, SEdge, WorkflowEdgeView);
     configureModelElement(context, 'edge:weighted', WeightedEdge, WorkflowEdgeView);
@@ -128,8 +125,6 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
 
     registerLevelOfDetailRule(context,'lod:rule-visibility', VisibilityRule);
     registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
-    registerLevelOfDetailRule(context,'lod:rule-cssclass', CssClassRule);
-    registerLevelOfDetailRule(context,'lod:rule-scale', ScaleRule);
     registerLevelOfDetailRule(context,'lod:rule-layout', LayoutRule);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
     registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);

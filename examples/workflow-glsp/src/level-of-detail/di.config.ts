@@ -11,11 +11,15 @@ import { LevelOfDetailRule } from './model/level-of-detail-rule';
 import { LevelOfDetailRuleInterface } from './model/level-of-detail-rule.interface';
 import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
 import { LevelOfDetailRuleTriggerInterface } from './model/level-of-detail-rule-trigger.interface';
-import {configureActionHandler } from "@eclipse-glsp/client";
+import {configureActionHandler} from "@eclipse-glsp/client";
 import {SetDiscreteLevelOfDetailAction} from "./actions/set-discrete-level-of-detail-action";
 import {SetDiscreteLevelOfDetailActionHandler} from "./actions/set-discrete-level-of-detail-action-handler";
 import {SetLevelOfDetailRulesActionHandler} from "./actions/set-level-of-detail-rules-action-handler";
 import {SetLevelOfDetailRulesAction} from "./actions/set-level-of-detail-rules-action";
+
+import {IViewArgs, RenderingTargetKind, ViewRegistry} from "sprotty/lib/base/views/view";
+import {IVNodePostprocessor} from "sprotty/lib/base/views/vnode-postprocessor";
+import {LevelOfDetailModelRenderer} from "./level-of-detail-model-renderer";
 
 export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) => {
     bind(ZoomListener).toSelf().inSingletonScope();
@@ -36,6 +40,14 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
 
     bind(SetLevelOfDetailRulesActionHandler).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.SetLevelOfDetailRuleActionHandler).toService(SetLevelOfDetailRulesActionHandler);
+
+    _unbind(TYPES.ModelRendererFactory);
+    bind(TYPES.ModelRendererFactory).toFactory<LevelOfDetailModelRenderer>((ctx) =>
+        (targetKind: RenderingTargetKind, processors: IVNodePostprocessor[], args: IViewArgs = {}) => {
+            const viewRegistry = ctx.container.get<ViewRegistry>(TYPES.ViewRegistry);
+            const levelOfDetailRenderer = ctx.container.get<LevelOfDetailRenderer>(WORKFLOW_TYPES.LevelOfDetailRenderer);
+            return new LevelOfDetailModelRenderer(viewRegistry, targetKind, processors, args, levelOfDetailRenderer);
+        });
 
     configureActionHandler({ bind, isBound }, SetDiscreteLevelOfDetailAction.KIND, SetDiscreteLevelOfDetailActionHandler)
     configureActionHandler({ bind, isBound }, SetLevelOfDetailRulesAction.KIND, SetLevelOfDetailRulesActionHandler)
