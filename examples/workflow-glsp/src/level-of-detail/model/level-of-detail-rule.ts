@@ -12,6 +12,7 @@ import { SShapeElement } from 'sprotty';
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
     trigger: LevelOfDetailRuleTrigger[];
     type: string;
+    isServerRule = false;
     protected levelOfDetail: LevelOfDetail;
 
     @inject(WORKFLOW_TYPES.LevelOfDetailRuleTriggerFactory)
@@ -20,6 +21,7 @@ export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {
     init(element: LevelOfDetailRuleInterface): void {
         this.type = element.type;
         this.trigger = element.trigger.map((trigger) => this.triggerFactory(trigger));
+        this.isServerRule = element.isServerRule ?? false;
     }
 
     abstract handle(node: VNode | undefined, element: SShapeElement): VNode | undefined;

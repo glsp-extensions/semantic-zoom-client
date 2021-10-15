@@ -75,7 +75,9 @@ export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
         // stop the rendering process when an element's level of detail changes
         // call rerender only once, even when multiple elements have to be adjusted
         // TODO: move this to the correct location
-        if(this.levelOfDetailRenderer.needsRerender(model.children)) {
+        // TODO: add logic determine whether a RequestModelAction is required depending on needsClientLayout/needsServerLayout
+        const needsRerender = this.levelOfDetailRenderer.needsRerender(model.children);
+        if(needsRerender.client || needsRerender.server) {
             this.actionDispatcher.dispatch(new RequestModelAction({
                 levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
             }));

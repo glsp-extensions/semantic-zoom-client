@@ -15,32 +15,42 @@ export class LevelOfDetailRenderer {
     @inject(WORKFLOW_TYPES.LevelOfDetail)
     levelOfDetail: LevelOfDetail;
 
-    public needsRerender(elements: Readonly<SChildElement[]>): boolean {
+    public needsRerender(elements: Readonly<SChildElement[]>): { client: boolean, server: boolean } {
         const b = this.checkForRerender(elements);
         this.lastZoomLevel = this.levelOfDetail.getContinuousLevelOfDetail();
         return b;
     }
 
-    protected checkForRerender(elements: Readonly<SChildElement[]>): boolean {
+
+
+    protected checkForRerender(elements: Readonly<SChildElement[]>, currentValues = { client: false, server: false }): { client: boolean, server: boolean } {
+        if(currentValues.client && currentValues.server) {
+            return currentValues;
+        }
+
         const currentZoomLevel = this.levelOfDetail.getContinuousLevelOfDetail();
 
         for(let i = 0; i < elements.length; i++) {
             const rules = this.levelOfDetail.getRulesForElement(elements[i]);
             for(const rule of rules) {
                 if(rule.getIsNewlyTriggered(currentZoomLevel, this.lastZoomLevel)) {
-                    return true;
+                    if(rule.isServerRule) {
+                        currentValues.server = true
+                    }
+                    else {
+                        currentValues.client = true
+                    }
                 }
             }
-            if(this.checkForRerender(elements[i].children)) {
-                return true;
-            }
+            currentValues = this.checkForRerender(elements[i].children, currentValues)
         }
-        return false
+        return currentValues
     }
 
 
 
     public prepareNode(element: SShapeElement, node: VNode): VNode | undefined {
+
         const rules = this.levelOfDetail.getRulesForElement(element);
 
         let handledNode: VNode | undefined = node;

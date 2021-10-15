@@ -4,4 +4,5 @@ import { LevelOfDetailRuleTrigger } from './level-of-detail-rule-trigger';
 export interface LevelOfDetailRuleInterface {
     trigger: LevelOfDetailRuleTrigger[];
     type: string;
+    isServerRule?: boolean;
 }
