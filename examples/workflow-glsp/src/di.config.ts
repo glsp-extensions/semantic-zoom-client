@@ -87,8 +87,6 @@ import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
 import { LevelOfDetailRuleTriggerContinuous } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
 import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
 import { CssStyleRule } from './level-of-detail/model/rules/css-style-rule';
-import { configureCommand } from 'sprotty';
-import { WorkflowRequestBoundsCommand } from './commands/request-bounds-command';
 import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
 import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from "./level-of-detail/level-of-detail";
 
@@ -102,7 +100,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     const context = { bind, unbind, isBound, rebind };
 
     // configureCommand(context, RerenderModelCommand);
-    configureCommand(context, WorkflowRequestBoundsCommand);
+    // configureCommand(context, WorkflowRequestBoundsCommand);
 
     configureDefaultModelElements(context);
     configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, SvgRootView);

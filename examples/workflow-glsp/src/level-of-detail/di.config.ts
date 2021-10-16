@@ -20,6 +20,7 @@ import {SetLevelOfDetailRulesAction} from "./actions/set-level-of-detail-rules-a
 import {IViewArgs, RenderingTargetKind, ViewRegistry} from "sprotty/lib/base/views/view";
 import {IVNodePostprocessor} from "sprotty/lib/base/views/vnode-postprocessor";
 import {LevelOfDetailModelRenderer} from "./level-of-detail-model-renderer";
+import {CommandStackOptions} from "sprotty/src/base/commands/command-stack-options";
 
 export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) => {
     bind(ZoomListener).toSelf().inSingletonScope();
@@ -41,6 +42,7 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
     bind(SetLevelOfDetailRulesActionHandler).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.SetLevelOfDetailRuleActionHandler).toService(SetLevelOfDetailRulesActionHandler);
 
+    // rebind ModelRendererFactory to create custom LevelOfDetailModelRenderer to inject lod handle function before each render
     _unbind(TYPES.ModelRendererFactory);
     bind(TYPES.ModelRendererFactory).toFactory<LevelOfDetailModelRenderer>((ctx) =>
         (targetKind: RenderingTargetKind, processors: IVNodePostprocessor[], args: IViewArgs = {}) => {
@@ -48,6 +50,13 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
             const levelOfDetailRenderer = ctx.container.get<LevelOfDetailRenderer>(WORKFLOW_TYPES.LevelOfDetailRenderer);
             return new LevelOfDetailModelRenderer(viewRegistry, targetKind, processors, args, levelOfDetailRenderer);
         });
+
+    // rebind default CommandStackOptions to overwrite animation duration
+    _unbind(TYPES.CommandStackOptions);
+    bind<CommandStackOptions>(TYPES.CommandStackOptions).toConstantValue({
+        defaultDuration: 50,
+        undoHistoryLimit: 50
+    });
 
     configureActionHandler({ bind, isBound }, SetDiscreteLevelOfDetailAction.KIND, SetDiscreteLevelOfDetailActionHandler)
     configureActionHandler({ bind, isBound }, SetLevelOfDetailRulesAction.KIND, SetLevelOfDetailRulesActionHandler)
