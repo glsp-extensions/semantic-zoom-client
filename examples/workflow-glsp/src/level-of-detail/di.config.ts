@@ -6,7 +6,6 @@ import { LevelOfDetailRenderer } from './level-of-detail-renderer';
 import { ZoomListener } from './zoom-listener';
 import { TYPES } from 'sprotty/lib';
 import { LevelOfDetail } from './level-of-detail';
-import { RequestBoundsListener } from './request-bounds-listener';
 import { LevelOfDetailRule } from './model/level-of-detail-rule';
 import { LevelOfDetailRuleInterface } from './model/level-of-detail-rule.interface';
 import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
@@ -33,9 +32,6 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
     bind(LevelOfDetail).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.LevelOfDetail).toService(LevelOfDetail);
 
-    bind(RequestBoundsListener).toSelf().inSingletonScope();
-    bind(WORKFLOW_TYPES.RequestBoundsListener).toService(RequestBoundsListener);
-
     bind(SetDiscreteLevelOfDetailActionHandler).toSelf().inSingletonScope();
     bind(WORKFLOW_TYPES.SetDiscreteLevelOfDetailActionHandler).toService(SetDiscreteLevelOfDetailActionHandler);
 
@@ -54,7 +50,7 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
     // rebind default CommandStackOptions to overwrite animation duration
     _unbind(TYPES.CommandStackOptions);
     bind<CommandStackOptions>(TYPES.CommandStackOptions).toConstantValue({
-        defaultDuration: 50,
+        defaultDuration: 75,
         undoHistoryLimit: 50
     });
 
