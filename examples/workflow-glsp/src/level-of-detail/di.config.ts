@@ -10,7 +10,7 @@ import { LevelOfDetailRule } from './model/level-of-detail-rule';
 import { LevelOfDetailRuleInterface } from './model/level-of-detail-rule.interface';
 import { LevelOfDetailRuleTrigger } from './model/level-of-detail-rule-trigger';
 import { LevelOfDetailRuleTriggerInterface } from './model/level-of-detail-rule-trigger.interface';
-import {configureActionHandler} from "@eclipse-glsp/client";
+import {configureActionHandler, GLSPActionDispatcher} from "@eclipse-glsp/client";
 import {SetDiscreteLevelOfDetailAction} from "./actions/set-discrete-level-of-detail-action";
 import {SetDiscreteLevelOfDetailActionHandler} from "./actions/set-discrete-level-of-detail-action-handler";
 import {SetLevelOfDetailRulesActionHandler} from "./actions/set-level-of-detail-rules-action-handler";
@@ -44,7 +44,9 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
         (targetKind: RenderingTargetKind, processors: IVNodePostprocessor[], args: IViewArgs = {}) => {
             const viewRegistry = ctx.container.get<ViewRegistry>(TYPES.ViewRegistry);
             const levelOfDetailRenderer = ctx.container.get<LevelOfDetailRenderer>(WORKFLOW_TYPES.LevelOfDetailRenderer);
-            return new LevelOfDetailModelRenderer(viewRegistry, targetKind, processors, args, levelOfDetailRenderer);
+            const levelOfDetail = ctx.container.get<LevelOfDetail>(WORKFLOW_TYPES.LevelOfDetail);
+            const actionDispatcher = ctx.container.get<GLSPActionDispatcher>(TYPES.IActionDispatcher);
+            return new LevelOfDetailModelRenderer(viewRegistry, targetKind, processors, args, levelOfDetailRenderer, levelOfDetail, actionDispatcher);
         });
 
     // rebind default CommandStackOptions to overwrite animation duration

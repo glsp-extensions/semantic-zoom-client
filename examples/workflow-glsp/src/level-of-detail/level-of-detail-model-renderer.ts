@@ -13,13 +13,14 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import {ModelRenderer} from "@eclipse-glsp/client";
+import {GLSPActionDispatcher, ModelRenderer, RequestModelAction, SGraph} from "@eclipse-glsp/client";
 import {SModelElement, SShapeElement} from "sprotty";
 import {VNode} from "snabbdom";
 import {LevelOfDetailRenderer} from "./level-of-detail-renderer";
 import {IViewArgs, RenderingTargetKind, ViewRegistry} from "sprotty/lib/base/views/view";
 import {IVNodePostprocessor} from "sprotty/lib/base/views/vnode-postprocessor";
 import {SParentElement} from "sprotty/lib/base/model/smodel";
+import {LevelOfDetail} from "./level-of-detail";
 
 
 export class LevelOfDetailModelRenderer extends ModelRenderer {
@@ -27,10 +28,24 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
 
     protected _postprocessors: IVNodePostprocessor[];
 
-    constructor(viewRegistry: ViewRegistry, targetKind: RenderingTargetKind, postprocessors: IVNodePostprocessor[], args: IViewArgs, levelOfDetailRenderer: LevelOfDetailRenderer | undefined) {
+    protected actionDispatcher: GLSPActionDispatcher;
+
+    protected levelOfDetail?: LevelOfDetail;
+
+    constructor(
+        viewRegistry: ViewRegistry,
+        targetKind: RenderingTargetKind,
+        postprocessors: IVNodePostprocessor[],
+        args: IViewArgs,
+        levelOfDetailRenderer: LevelOfDetailRenderer | undefined,
+        levelOfDetail: LevelOfDetail | undefined,
+        actionDispatcher: GLSPActionDispatcher
+    ) {
         super(viewRegistry, targetKind, postprocessors, args);
         this._postprocessors = postprocessors;
         this.levelOfDetailRenderer = levelOfDetailRenderer;
+        this.levelOfDetail = levelOfDetail;
+        this.actionDispatcher = actionDispatcher;
     }
 
     renderChildren(element: Readonly<SParentElement>, args?: IViewArgs): VNode[] {
@@ -40,7 +55,9 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
                 this.targetKind,
                 this._postprocessors,
                 { ...args, parentArgs: this.args },
-                this.levelOfDetailRenderer
+                this.levelOfDetailRenderer,
+                this.levelOfDetail,
+                this.actionDispatcher
             ) : this;
         return element.children
             .map(child => context.renderElement(child))
@@ -49,7 +66,19 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
 
     renderElement(element: Readonly<SModelElement>): VNode | undefined {
         const view = this.viewRegistry.get(element.type);
+
+        if (element instanceof SGraph && this.levelOfDetailRenderer && this.levelOfDetail) {
+            const needsRerender = this.levelOfDetailRenderer.needsRerender(element.children);
+            // TODO: add logic to determine whether a RequestModelAction is required depending on needsClientLayout/needsServerLayout
+            if(needsRerender.client || needsRerender.server) {
+                this.actionDispatcher.dispatch(new RequestModelAction({
+                    levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
+                }));
+            }
+        }
+
         let vnode = view.render(element, this, { ...this.args });
+
 
         if (this.levelOfDetailRenderer && vnode !== undefined) {
             vnode = this.levelOfDetailRenderer.prepareNode(element as SShapeElement, vnode)

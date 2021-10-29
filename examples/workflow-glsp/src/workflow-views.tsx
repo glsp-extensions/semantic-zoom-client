@@ -20,21 +20,13 @@ import {
     PolylineEdgeViewWithGapsOnIntersections,
     RenderingContext,
     SEdge,
-    toDegrees,
-    SGraphView,
-    SGraph,
-    GLSPActionDispatcher,
-    RequestModelAction
+    toDegrees
 } from '@eclipse-glsp/client';
-import { inject, injectable } from 'inversify';
+import { injectable } from 'inversify';
 import { VNode } from 'snabbdom';
-import { svg, TYPES } from 'sprotty';
+import { svg } from 'sprotty';
 
-import { LevelOfDetailRenderer } from './level-of-detail/level-of-detail-renderer';
 import { Icon } from './model';
-import { WORKFLOW_TYPES } from './workflow-types';
-
-import { LevelOfDetail } from './level-of-detail/level-of-detail';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const JSX = { createElement: svg };
@@ -60,35 +52,6 @@ export class WorkflowEdgeView extends PolylineEdgeViewWithGapsOnIntersections {
     }
 }
 
-@injectable()
-export class SvgRootView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
-    @inject(WORKFLOW_TYPES.LevelOfDetailRenderer)
-    protected levelOfDetailRenderer: LevelOfDetailRenderer;
-
-    @inject(WORKFLOW_TYPES.LevelOfDetail)
-    protected levelOfDetail: LevelOfDetail;
-
-    @inject(TYPES.IActionDispatcher)
-    protected actionDispatcher: GLSPActionDispatcher;
-
-    render(model: Readonly<SGraph>, context: RenderingContext, args?: IRenderingArgs): VNode {
-        // stop the rendering process when an element's level of detail changes
-        // call rerender only once, even when multiple elements have to be adjusted
-        // TODO: move this to the correct location
-        // TODO: add logic to determine whether a RequestModelAction is required depending on needsClientLayout/needsServerLayout
-        const needsRerender = this.levelOfDetailRenderer.needsRerender(model.children);
-        if(needsRerender.client || needsRerender.server) {
-            this.actionDispatcher.dispatch(new RequestModelAction({
-                levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
-            }));
-
-            // return super.render(model, context, args);
-            return <svg class-sprotty-graph={true}></svg>;
-        } else {
-            return super.render(model, context, args);
-        }
-    }
-}
 @injectable()
 export class IconView implements IView {
     render(element: Icon, context: RenderingContext): VNode {

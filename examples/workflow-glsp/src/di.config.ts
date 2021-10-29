@@ -39,7 +39,6 @@ import {
     glspContextMenuModule,
     glspDecorationModule,
     glspEditLabelModule,
-    GLSPGraph,
     glspHoverModule,
     glspMouseToolModule,
     glspSelectModule,
@@ -80,7 +79,6 @@ import { levelOfDetailModule } from './level-of-detail/di.config';
 import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
 import {
     IconView,
-    SvgRootView,
     WorkflowEdgeView
 } from './workflow-views';
 import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
@@ -99,11 +97,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     bind(TYPES.IContextMenuItemProvider).to(DeleteElementContextMenuItemProvider);
     const context = { bind, unbind, isBound, rebind };
 
-    // configureCommand(context, RerenderModelCommand);
-    // configureCommand(context, WorkflowRequestBoundsCommand);
-
     configureDefaultModelElements(context);
-    configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, SvgRootView);
 
     configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
