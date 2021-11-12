@@ -56,6 +56,9 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
         undoHistoryLimit: 50
     });
 
+    configureActionHandler({ bind, isBound }, RequestDiscreteLevelOfDetailAction.KIND, ServerActionHandler)
+    configureActionHandler({ bind, isBound }, RequestLevelOfDetailRulesAction.KIND, ServerActionHandler)
+
     configureActionHandler({ bind, isBound }, SetDiscreteLevelOfDetailAction.KIND, SetDiscreteLevelOfDetailActionHandler)
     configureActionHandler({ bind, isBound }, SetLevelOfDetailRulesAction.KIND, SetLevelOfDetailRulesActionHandler)
 

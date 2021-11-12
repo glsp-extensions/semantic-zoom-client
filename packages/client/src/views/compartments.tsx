@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2020-2021 EclipseSource and others.
+ * Copyright (c) 2021 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -14,19 +14,24 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
 import { injectable } from 'inversify';
-import { Action } from 'sprotty';
+import { VNode } from 'snabbdom';
+import { BoundsAware, RenderingContext, SChildElement, SCompartment, ShapeView, svg } from 'sprotty/lib';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const JSX = { createElement: svg };
 
 @injectable()
-export class SetEditModeAction implements Action {
-    static readonly KIND = 'setEditMode';
-    constructor(public readonly editMode: string = EditMode.EDITABLE, public readonly kind: string = SetEditModeAction.KIND) {}
-}
+export class StructureCompartmentView extends ShapeView {
+    render(model: Readonly<SCompartment & SChildElement & BoundsAware>, context: RenderingContext): VNode | undefined {
+        if (!this.isVisible(model, context)) {
+            return undefined;
+        }
 
-export function isSetEditModeAction(action: Action): action is SetEditModeAction {
-    return action !== undefined && action.kind === SetEditModeAction.KIND && 'editMode' in action && typeof action['editMode'] === 'string';
-}
-
-export namespace EditMode {
-    export const READONLY = 'readonly';
-    export const EDITABLE = 'editable';
+        return (
+            <g>
+                <rect class-sprotty-comp={true} class-debug={true} x='0' y='0' width={model.size.width} height={model.size.height}></rect>
+                {context.renderChildren(model)}
+            </g>
+        );
+    }
 }

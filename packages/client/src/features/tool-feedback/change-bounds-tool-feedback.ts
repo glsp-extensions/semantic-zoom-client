@@ -13,10 +13,10 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
+import { Action, Point } from '@eclipse-glsp/protocol';
 import { inject, injectable } from 'inversify';
 import { VNode } from 'snabbdom';
 import {
-    Action,
     CommandExecutionContext,
     CommandReturn,
     ElementMove,
@@ -26,15 +26,15 @@ import {
     isViewport,
     MouseListener,
     MoveAction,
-    Point,
+    SChildElement,
     SModelElement,
     SModelRoot,
     TYPES
 } from 'sprotty';
-
 import { isNotUndefined } from '../../utils/smodel-util';
 import { addResizeHandles, isResizable, removeResizeHandles, SResizeHandle } from '../change-bounds/model';
 import { createMovementRestrictionFeedback, removeMovementRestrictionFeedback } from '../change-bounds/movement-restrictor';
+import { CursorCSS, cursorFeedbackAction } from '../tool-feedback/css-feedback';
 import { ChangeBoundsTool } from '../tools/change-bounds-tool';
 import { FeedbackCommand } from './model';
 
@@ -120,20 +120,32 @@ export class FeedbackMoveMouseListener extends MouseListener {
             const moveAction = this.getElementMoves(target, event, false);
             if (moveAction) {
                 result.push(moveAction);
+                result.push(cursorFeedbackAction(CursorCSS.MOVE));
             }
         }
         return result;
     }
 
     protected collectStartPositions(root: SModelRoot): void {
-        root.index
-            .all()
-            .filter(element => isSelectable(element) && element.selected)
+        const selectedElements = root.index.all().filter(element => isSelectable(element) && element.selected);
+        const elementsSet = new Set(selectedElements);
+        selectedElements
+            .filter(element => !this.isChildOfSelected(elementsSet, element))
             .forEach(element => {
                 if (isMoveable(element)) {
                     this.elementId2startPos.set(element.id, element.position);
                 }
             });
+    }
+
+    protected isChildOfSelected(selectedElements: Set<SModelElement>, element: SModelElement): boolean {
+        while (element instanceof SChildElement) {
+            element = element.parent;
+            if (selectedElements.has(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected getElementMoves(target: SModelElement, event: MouseEvent, isFinished: boolean): MoveAction | undefined {
@@ -224,6 +236,7 @@ export class FeedbackMoveMouseListener extends MouseListener {
             if (this.tool.movementRestrictor) {
                 this.tool.deregisterFeedback([removeMovementRestrictionFeedback(target, this.tool.movementRestrictor)], this);
             }
+            result.push(cursorFeedbackAction(CursorCSS.DEFAULT));
         }
         this.hasDragged = false;
         this.startDragPosition = undefined;

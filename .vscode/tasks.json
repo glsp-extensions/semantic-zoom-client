@@ -13,10 +13,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "problemMatcher": [
-        "$tsc",
-        "$eslint-stylish"
-      ]
+      "problemMatcher": ["$tsc", "$eslint-stylish"]
     },
     {
       "label": "[Client] Watch all",
@@ -28,12 +25,10 @@
         "reveal": "always",
         "panel": "new"
       },
-      "problemMatcher": [
-        "$tsc-watch"
-      ]
+      "problemMatcher": ["$tsc-watch"]
     },
     {
-      "label": "[Client] Open Workflow example (Chrome)",
+      "label": "[Client] Open Workflow Standalone example (Chrome)",
       "type": "shell",
       "group": "test",
       "presentation": {

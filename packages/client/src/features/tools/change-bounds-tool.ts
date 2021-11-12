@@ -13,10 +13,18 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import { inject, injectable, optional } from 'inversify';
 import {
     Action,
     Bounds,
+    ChangeBoundsOperation,
+    ChangeRoutingPointsOperation,
+    CompoundOperation,
+    ElementAndRoutingPoints,
+    Operation,
+    Point
+} from '@eclipse-glsp/protocol';
+import { inject, injectable, optional } from 'inversify';
+import {
     BoundsAware,
     Dimension,
     EdgeRouterRegistry,
@@ -26,7 +34,7 @@ import {
     isSelected,
     isViewport,
     MouseListener,
-    Point,
+    SChildElement,
     SConnectableElement,
     SetBoundsAction,
     SModelElement,
@@ -34,15 +42,7 @@ import {
     SParentElement,
     TYPES
 } from 'sprotty';
-
 import { DragAwareMouseListener } from '../../base/drag-aware-mouse-listener';
-import {
-    ChangeBoundsOperation,
-    ChangeRoutingPointsOperation,
-    CompoundOperation,
-    ElementAndRoutingPoints,
-    Operation
-} from '../../base/operations/operation';
 import { GLSP_TYPES } from '../../base/types';
 import { isValidMove, isValidSize, WriteablePoint } from '../../utils/layout-utils';
 import {
@@ -76,8 +76,8 @@ import { BaseGLSPTool } from './base-glsp-tool';
  * | Move      | MoveAction       | ChangeBoundsOperationAction
  * | Resize    | SetBoundsAction  | ChangeBoundsOperationAction
  *
- * To provide a visual client updates during move we install the `FeedbackMoveMouseListener` and to provide visual client updates during resize
- * and send the server updates we install the `ChangeBoundsListener`.
+ * To provide a visual client updates during move we install the `FeedbackMoveMouseListener` and to provide visual client updates during
+ * resize and send the server updates we install the `ChangeBoundsListener`.
  */
 @injectable()
 export class ChangeBoundsTool extends BaseGLSPTool {
@@ -163,7 +163,7 @@ export class ChangeBoundsListener extends DragAwareMouseListener implements Sele
             // rely on the FeedbackMoveMouseListener to update the element bounds of selected elements
             // consider resize handles ourselves
             const actions: Action[] = [
-                cursorFeedbackAction(CursorCSS.RESIZE),
+                cursorFeedbackAction(this.activeResizeHandle.isNwSeResize() ? CursorCSS.RESIZE_NWSE : CursorCSS.RESIZE_NESW),
                 applyCssClasses(this.activeResizeHandle, ChangeBoundsListener.CSS_CLASS_ACTIVE)
             ];
             const positionUpdate = this.updatePosition(target, event);
@@ -208,13 +208,31 @@ export class ChangeBoundsListener extends DragAwareMouseListener implements Sele
     protected handleMoveElementsOnServer(target: SModelElement): Action[] {
         const result: Operation[] = [];
         const newBounds: ElementAndBounds[] = [];
+        const selectedElements: (SModelElement & BoundsAware)[] = [];
         forEachElement(target, isNonRoutableSelectedMovableBoundsAware, element => {
-            this.createElementAndBounds(element).forEach(bounds => newBounds.push(bounds));
+            selectedElements.push(element);
         });
+
+        const selectionSet: Set<SModelElement & BoundsAware> = new Set(selectedElements);
+        selectedElements
+            .filter(element => !this.isChildOfSelected(selectionSet, element))
+            .map(element => this.createElementAndBounds(element))
+            .forEach(bounds => newBounds.push(...bounds));
+
         if (newBounds.length > 0) {
             result.push(new ChangeBoundsOperation(newBounds));
         }
         return result;
+    }
+
+    protected isChildOfSelected(selectedElements: Set<SModelElement>, element: SModelElement): boolean {
+        while (element instanceof SChildElement) {
+            element = element.parent;
+            if (selectedElements.has(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected handleMoveRoutingPointsOnServer(target: SModelElement): Action[] {
@@ -310,14 +328,14 @@ export class ChangeBoundsListener extends DragAwareMouseListener implements Sele
 
             // snap our delta and only send update if the position actually changes
             // otherwise accumulate delta until we do snap to an update
-            const positionUpdate = this.snap(this.positionDelta, target, !event.shiftKey);
+            const positionUpdate = this.snap(this.positionDelta, target, !event.altKey);
             if (positionUpdate.x === 0 && positionUpdate.y === 0) {
                 return undefined;
             }
 
-            // we update our position so we need to reset our delta
-            this.positionDelta.x = 0;
-            this.positionDelta.y = 0;
+            // we update our position so we update our delta by the snapped position
+            this.positionDelta.x -= positionUpdate.x;
+            this.positionDelta.y -= positionUpdate.y;
             return positionUpdate;
         }
         return undefined;

@@ -29,7 +29,7 @@ import {
 
 export const resizeFeature = Symbol('resizeFeature');
 
-export interface Resizable extends BoundsAware, Selectable { }
+export interface Resizable extends BoundsAware, Selectable {}
 
 export function isResizable(element: SModelElement): element is SParentElement & Resizable {
     return isBoundsAware(element) && isSelectable(element) && element instanceof SParentElement && element.hasFeature(resizeFeature);
@@ -60,6 +60,14 @@ export class SResizeHandle extends SChildElement implements Hoverable {
 
     hasFeature(feature: symbol): boolean {
         return feature === hoverFeedbackFeature;
+    }
+
+    isNwSeResize(): boolean {
+        return this.location === ResizeHandleLocation.TopLeft || this.location === ResizeHandleLocation.BottomRight;
+    }
+
+    isNeSwResize(): boolean {
+        return this.location === ResizeHandleLocation.TopRight || this.location === ResizeHandleLocation.BottomLeft;
     }
 }
 

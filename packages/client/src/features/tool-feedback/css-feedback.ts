@@ -13,9 +13,9 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
+import { Action, isStringArray } from '@eclipse-glsp/protocol';
 import { inject, injectable } from 'inversify';
-import { Action, CommandExecutionContext, SModelElement, SModelRoot, TYPES } from 'sprotty';
-import { isStringArray } from '../../utils/array-utils';
+import { CommandExecutionContext, SModelElement, SModelRoot, TYPES } from 'sprotty';
 import { addCssClasses, removeCssClasses } from '../../utils/smodel-util';
 import { FeedbackCommand } from './model';
 
@@ -78,7 +78,9 @@ export enum CursorCSS {
     EDGE_RECONNECT = 'edge-reconnect-select-target-mode',
     OPERATION_NOT_ALLOWED = 'edge-modification-not-allowed-mode',
     ELEMENT_DELETION = 'element-deletion-mode',
-    RESIZE = 'resize-mode',
+    RESIZE_NESW = 'resize-nesw-mode',
+    RESIZE_NWSE = 'resize-nwse-mode',
+    MOVE = 'move-mode',
     MARQUEE = 'marquee-mode'
 }
 

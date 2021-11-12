@@ -13,92 +13,53 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import '../css/diagram.css';
-import 'balloon-css/balloon.min.css';
-import 'sprotty/css/edit-label.css';
-
 import {
-    boundsModule,
-    buttonModule,
     configureDefaultModelElements,
     configureModelElement,
     ConsoleLogger,
-    defaultGLSPModule,
-    defaultModule,
-    DefaultTypes,
+    createClientContainer,
     DeleteElementContextMenuItemProvider,
     DiamondNodeView,
-    edgeIntersectionModule,
-    edgeLayoutModule,
     editLabelFeature,
-    expandModule,
-    exportModule,
-    fadeModule,
-    GLSP_TYPES,
-    glspCommandPaletteModule,
-    glspContextMenuModule,
-    glspDecorationModule,
-    glspEditLabelModule,
-    glspHoverModule,
-    glspMouseToolModule,
-    glspSelectModule,
-    glspServerCopyPasteModule,
-    glspViewportModule,
     GridSnapper,
-    labelEditUiModule,
-    layoutCommandsModule,
     LogLevel,
-    markerNavigatorModule,
-    modelHintsModule,
-    modelSourceModule,
-    modelSourceWatcherModule,
-    navigationModule,
-    NoOverlapMovmentRestrictor,
-    openModule,
     overrideViewerOptions,
-    paletteModule,
     RectangularNodeView,
     RevealNamedElementActionProvider,
     RoundedCornerNodeView,
-    routingModule,
     SCompartment,
     SCompartmentView,
     SEdge,
     SLabel,
     SLabelView,
-    toolFeedbackModule,
-    toolsModule,
-    TYPES,
-    validationModule,
-    zorderModule
+    StructureCompartmentView,
+    TYPES
 } from '@eclipse-glsp/client';
+import { DefaultTypes } from '@eclipse-glsp/protocol';
+import 'balloon-css/balloon.min.css';
 import { Container, ContainerModule } from 'inversify';
-
+import 'sprotty/css/edit-label.css';
+import '../css/diagram.css';
 import { directTaskEditor } from './direct-task-editing/di.config';
-import { levelOfDetailModule } from './level-of-detail/di.config';
-import { ActivityNode, Icon, TaskNode, WeightedEdge } from './model';
-import {
-    IconView,
-    WorkflowEdgeView
-} from './workflow-views';
-import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
-import { LevelOfDetailRuleTriggerContinuous } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
-import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
-import { CssStyleRule } from './level-of-detail/model/rules/css-style-rule';
-import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
-import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from "./level-of-detail/level-of-detail";
+import { ActivityNode, CategoryNode, Icon, TaskNode, WeightedEdge } from './model';
+import { IconView, WorkflowEdgeView } from './workflow-views';
+import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail';
+import {LayoutRule} from './level-of-detail/model/rules/layout-rule';
+import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
+import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
+import {LevelOfDetailRuleTriggerDiscrete} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
+import {CssStyleRule} from './level-of-detail/model/rules/css-style-rule';
+import {levelOfDetailModule} from './level-of-detail/di.config';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
     rebind(TYPES.LogLevel).toConstantValue(LogLevel.warn);
-    bind(GLSP_TYPES.IMovementRestrictor).to(NoOverlapMovmentRestrictor).inSingletonScope();
     bind(TYPES.ISnapper).to(GridSnapper);
     bind(TYPES.ICommandPaletteActionProvider).to(RevealNamedElementActionProvider);
     bind(TYPES.IContextMenuItemProvider).to(DeleteElementContextMenuItemProvider);
     const context = { bind, unbind, isBound, rebind };
 
     configureDefaultModelElements(context);
-
     configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'label:heading', SLabel, SLabelView, { enable: [editLabelFeature] });
@@ -115,6 +76,9 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureModelElement(context, 'activityNode:fork', ActivityNode, RectangularNodeView);
     configureModelElement(context, 'activityNode:join', ActivityNode, RectangularNodeView);
 
+    configureModelElement(context, 'category', CategoryNode, RoundedCornerNodeView);
+    configureModelElement(context, 'struct', SCompartment, StructureCompartmentView);
+
     registerLevelOfDetailRule(context,'lod:rule-visibility', VisibilityRule);
     registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
     registerLevelOfDetailRule(context,'lod:rule-layout', LayoutRule);
@@ -123,46 +87,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
 });
 
 export default function createContainer(widgetId: string): Container {
-    const container = new Container();
-
-    container.load(
-        defaultModule,
-        defaultGLSPModule,
-        glspMouseToolModule,
-        validationModule,
-        glspSelectModule,
-        boundsModule,
-        glspViewportModule,
-        toolsModule,
-        glspHoverModule,
-        fadeModule,
-        exportModule,
-        expandModule,
-        openModule,
-        buttonModule,
-        modelSourceModule,
-        labelEditUiModule,
-        glspEditLabelModule,
-        workflowDiagramModule,
-        toolFeedbackModule,
-        modelHintsModule,
-        glspContextMenuModule,
-        glspServerCopyPasteModule,
-        modelSourceWatcherModule,
-        glspCommandPaletteModule,
-        paletteModule,
-        routingModule,
-        glspDecorationModule,
-        edgeLayoutModule,
-        zorderModule,
-        edgeIntersectionModule,
-        layoutCommandsModule,
-        directTaskEditor,
-        navigationModule,
-        markerNavigatorModule,
-        levelOfDetailModule
-    );
-
+    const container = createClientContainer(workflowDiagramModule, directTaskEditor, levelOfDetailModule);
     overrideViewerOptions(container, {
         baseDiv: widgetId,
         hiddenDiv: widgetId + '_hidden'
