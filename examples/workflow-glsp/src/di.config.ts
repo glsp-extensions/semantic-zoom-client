@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2019-2021 EclipseSource and others.
+ * Copyright (c) 2021 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -43,13 +43,13 @@ import '../css/diagram.css';
 import { directTaskEditor } from './direct-task-editing/di.config';
 import { ActivityNode, CategoryNode, Icon, TaskNode, WeightedEdge } from './model';
 import { IconView, WorkflowEdgeView } from './workflow-views';
-import {registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger} from './level-of-detail/level-of-detail';
-import {LayoutRule} from './level-of-detail/model/rules/layout-rule';
-import {VisibilityRule} from './level-of-detail/model/rules/visibility-rule';
-import {LevelOfDetailRuleTriggerContinuous} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
-import {LevelOfDetailRuleTriggerDiscrete} from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
-import {CssStyleRule} from './level-of-detail/model/rules/css-style-rule';
-import {levelOfDetailModule} from './level-of-detail/di.config';
+import { registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger } from './level-of-detail/level-of-detail';
+import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
+import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
+import { LevelOfDetailRuleTriggerContinuous } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-continuous';
+import { LevelOfDetailRuleTriggerDiscrete } from './level-of-detail/model/trigger/level-of-detail-rule-trigger-discrete';
+import { CssStyleRule } from './level-of-detail/model/rules/css-style-rule';
+import { levelOfDetailModule } from './level-of-detail/di.config';
 
 const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -79,11 +79,11 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     configureModelElement(context, 'category', CategoryNode, RoundedCornerNodeView);
     configureModelElement(context, 'struct', SCompartment, StructureCompartmentView);
 
-    registerLevelOfDetailRule(context,'lod:rule-visibility', VisibilityRule);
-    registerLevelOfDetailRule(context,'lod:rule-cssstyle', CssStyleRule);
-    registerLevelOfDetailRule(context,'lod:rule-layout', LayoutRule);
-    registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
-    registerLevelOfDetailRuleTrigger(context,'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);
+    registerLevelOfDetailRule(context, 'lod:rule-visibility', VisibilityRule);
+    registerLevelOfDetailRule(context, 'lod:rule-cssstyle', CssStyleRule);
+    registerLevelOfDetailRule(context, 'lod:rule-layout', LayoutRule);
+    registerLevelOfDetailRuleTrigger(context, 'lod:rule-trigger-continuous', LevelOfDetailRuleTriggerContinuous);
+    registerLevelOfDetailRuleTrigger(context, 'lod:rule-trigger-discrete', LevelOfDetailRuleTriggerDiscrete);
 });
 
 export default function createContainer(widgetId: string): Container {

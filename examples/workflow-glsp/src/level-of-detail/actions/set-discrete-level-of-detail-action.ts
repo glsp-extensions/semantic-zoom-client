@@ -13,14 +13,14 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import {Action} from "sprotty";
-import {DiscreteLevelOfDetail} from "../model/discrete-rules/discrete-level-of-detail";
+import { Action } from 'sprotty';
+import { DiscreteLevelOfDetail } from '../model/discrete-rules/discrete-level-of-detail';
 
 export class SetDiscreteLevelOfDetailAction implements Action {
     static readonly KIND = 'setDiscreteLevelOfDetail';
 
     constructor(
         public readonly discreteLevels: DiscreteLevelOfDetail[],
-        public readonly kind: string = SetDiscreteLevelOfDetailAction.KIND) {
-    }
+        public readonly kind: string = SetDiscreteLevelOfDetailAction.KIND
+    ) {}
 }

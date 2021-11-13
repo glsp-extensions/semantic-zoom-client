@@ -13,14 +13,14 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import {Action} from "sprotty";
-import {LevelOfDetailRuleAssignment} from "../model/level-of-detail-rule-assignment";
+import { Action } from 'sprotty';
+import { LevelOfDetailRuleAssignment } from '../model/level-of-detail-rule-assignment';
 
 export class SetLevelOfDetailRulesAction implements Action {
     static readonly KIND = 'setLevelOfDetailRules';
 
     constructor(
         public readonly ruleAssignments: LevelOfDetailRuleAssignment[],
-        public readonly kind: string = SetLevelOfDetailRulesAction.KIND) {
-    }
+        public readonly kind: string = SetLevelOfDetailRulesAction.KIND
+    ) {}
 }

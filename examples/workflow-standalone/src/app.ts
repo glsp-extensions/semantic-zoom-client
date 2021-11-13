@@ -18,7 +18,7 @@ import { ApplicationIdProvider, BaseJsonrpcGLSPClient, GLSPClient, JsonrpcGLSPCl
 import { join, resolve } from 'path';
 import { IActionDispatcher, RequestModelAction, TYPES } from 'sprotty';
 import createContainer from './di.config';
-import {RequestDiscreteLevelOfDetailAction,RequestLevelOfDetailRulesAction} from "@eclipse-glsp-examples/workflow-glsp";
+import { RequestDiscreteLevelOfDetailAction, RequestLevelOfDetailRulesAction } from '@eclipse-glsp-examples/workflow-glsp';
 
 const port = 8081;
 const id = 'workflow';
