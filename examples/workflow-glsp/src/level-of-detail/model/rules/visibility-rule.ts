@@ -16,7 +16,6 @@
 import { LevelOfDetailRule } from '../level-of-detail-rule';
 import { VNode } from 'snabbdom';
 import { injectable } from 'inversify';
-import { SShapeElement } from 'sprotty';
 
 @injectable()
 export class VisibilityRule extends LevelOfDetailRule {
@@ -27,8 +26,8 @@ export class VisibilityRule extends LevelOfDetailRule {
         this.setVisibility = element.setVisibility;
     }
 
-    handle(node: VNode | undefined, element: SShapeElement): VNode | undefined {
-        // console.log('handle visibility rule triggered: ' + this.trigger.isTriggered());
+    handle(node: VNode | undefined): VNode | undefined {
+       // console.log('handle visibility rule triggered');
 
         if (!node || this.setVisibility) {
             return node;
@@ -36,6 +35,17 @@ export class VisibilityRule extends LevelOfDetailRule {
 
         node.data = node.data ? node.data : { class: {} };
         node.data.class = { ...node.data.class, hidden: true };
+
+        // because of different implementations of getBBox(), it is not enough to only make the parent element invisible
+        // child elements have to be made invisible as well for this to work in chrome and edge
+        // otherwise, the getBounds action will deliver bounds for elements which are not there (invisible)
+        if (node.children) {
+            for (const child of node.children) {
+                if (typeof child !== 'string') {
+                    this.handle(child);
+                }
+            }
+        }
 
         return node;
     }
