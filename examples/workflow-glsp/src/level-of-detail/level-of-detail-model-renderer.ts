@@ -21,6 +21,7 @@ import { IViewArgs, RenderingTargetKind, ViewRegistry } from 'sprotty/lib/base/v
 import { IVNodePostprocessor } from 'sprotty/lib/base/views/vnode-postprocessor';
 import { SParentElement } from 'sprotty/lib/base/model/smodel';
 import { LevelOfDetail } from './level-of-detail';
+import { ViewerOptions } from 'sprotty/src/base/views/viewer-options';
 
 export class LevelOfDetailModelRenderer extends ModelRenderer {
     protected levelOfDetailRenderer?: LevelOfDetailRenderer;
@@ -31,6 +32,8 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
 
     protected levelOfDetail?: LevelOfDetail;
 
+   protected viewerOptions: ViewerOptions;
+
     constructor(
         viewRegistry: ViewRegistry,
         targetKind: RenderingTargetKind,
@@ -38,13 +41,15 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
         args: IViewArgs,
         levelOfDetailRenderer: LevelOfDetailRenderer | undefined,
         levelOfDetail: LevelOfDetail | undefined,
-        actionDispatcher: GLSPActionDispatcher
+        actionDispatcher: GLSPActionDispatcher,
+        viewerOptions: ViewerOptions
     ) {
         super(viewRegistry, targetKind, postprocessors, args);
         this._postprocessors = postprocessors;
         this.levelOfDetailRenderer = levelOfDetailRenderer;
         this.levelOfDetail = levelOfDetail;
         this.actionDispatcher = actionDispatcher;
+        this.viewerOptions = viewerOptions;
     }
 
     renderChildren(element: Readonly<SParentElement>, args?: IViewArgs): VNode[] {
@@ -56,7 +61,8 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
                   { ...args, parentArgs: this.args },
                   this.levelOfDetailRenderer,
                   this.levelOfDetail,
-                  this.actionDispatcher
+                  this.actionDispatcher,
+                  this.viewerOptions
               )
             : this;
         return element.children.map(child => context.renderElement(child)).filter(vnode => vnode !== undefined) as VNode[];
@@ -67,8 +73,7 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
 
         if (element instanceof SGraph && this.levelOfDetailRenderer && this.levelOfDetail) {
             const needsRerender = this.levelOfDetailRenderer.needsRerender(element.children);
-            // TODO: add logic to determine whether a RequestModelAction is required depending on needsClientLayout/needsServerLayout
-            if (needsRerender.client || needsRerender.server) {
+            if (this.viewerOptions.needsClientLayout && (needsRerender.client || needsRerender.server)) {
                 this.actionDispatcher.dispatch(
                     new RequestModelAction({
                         levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()

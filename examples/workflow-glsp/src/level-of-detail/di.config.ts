@@ -34,9 +34,7 @@ import { IViewArgs, RenderingTargetKind, ViewRegistry } from 'sprotty/lib/base/v
 import { IVNodePostprocessor } from 'sprotty/lib/base/views/vnode-postprocessor';
 import { LevelOfDetailModelRenderer } from './level-of-detail-model-renderer';
 import { CommandStackOptions } from 'sprotty/src/base/commands/command-stack-options';
-import { ServerActionHandler } from './actions/server-action-handler';
-import { RequestDiscreteLevelOfDetailAction } from './actions/request-discrete-level-of-detail-action';
-import { RequestLevelOfDetailRulesAction } from './actions/request-level-of-detail-rules-action';
+import { ViewerOptions } from 'sprotty/src/base/views/viewer-options';
 
 export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) => {
     bind(ZoomListener).toSelf().inSingletonScope();
@@ -64,6 +62,8 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
                 const levelOfDetailRenderer = ctx.container.get<LevelOfDetailRenderer>(WORKFLOW_TYPES.LevelOfDetailRenderer);
                 const levelOfDetail = ctx.container.get<LevelOfDetail>(WORKFLOW_TYPES.LevelOfDetail);
                 const actionDispatcher = ctx.container.get<GLSPActionDispatcher>(TYPES.IActionDispatcher);
+
+                const viewerOptions = ctx.container.get<ViewerOptions>(TYPES.ViewerOptions);
                 return new LevelOfDetailModelRenderer(
                     viewRegistry,
                     targetKind,
@@ -71,7 +71,8 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
                     args,
                     levelOfDetailRenderer,
                     levelOfDetail,
-                    actionDispatcher
+                    actionDispatcher,
+                    viewerOptions
                 );
             }
     );
@@ -83,8 +84,8 @@ export const levelOfDetailModule = new ContainerModule((bind, _unbind, isBound) 
         undoHistoryLimit: 50
     });
 
-    configureActionHandler({ bind, isBound }, RequestDiscreteLevelOfDetailAction.KIND, ServerActionHandler);
-    configureActionHandler({ bind, isBound }, RequestLevelOfDetailRulesAction.KIND, ServerActionHandler);
+    // configureActionHandler({ bind, isBound }, RequestDiscreteLevelOfDetailAction.KIND, ServerActionHandler);
+    // configureActionHandler({ bind, isBound }, RequestLevelOfDetailRulesAction.KIND, ServerActionHandler);
 
     configureActionHandler({ bind, isBound }, SetDiscreteLevelOfDetailAction.KIND, SetDiscreteLevelOfDetailActionHandler);
     configureActionHandler({ bind, isBound }, SetLevelOfDetailRulesAction.KIND, SetLevelOfDetailRulesActionHandler);
