@@ -105,7 +105,6 @@ export class LevelOfDetail {
         const r: LevelOfDetailRule[] = [];
 
         for (let i = 0; i < rules.length; i++) {
-            console.log('initializing level-of-detail rule');
             r.push(this.ruleFactory(rules[i]));
         }
 
@@ -127,10 +126,6 @@ export class LevelOfDetail {
     }
 
     private isAssignedRule(ruleSelector: string, element: SParentElement & { parent?: SParentElement }): boolean {
-        /*
-        if (element.type === ruleSelector) {
-            return true
-        }*/
         if (ruleSelector.includes(',')) {
             return ruleSelector
                 .split(',')

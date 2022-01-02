@@ -47,7 +47,7 @@ export class LevelOfDetailRenderer {
         for (let i = 0; i < elements.length; i++) {
             const rules = this.levelOfDetail.getRulesForElement(elements[i]);
             for (const rule of rules) {
-                if (rule.getIsNewlyTriggered(currentZoomLevel, this.lastZoomLevel)) {
+                if (rule.isNewlyTriggered(currentZoomLevel, this.lastZoomLevel)) {
                     if (rule.isServerRule) {
                         currentValues.server = true;
                     } else {

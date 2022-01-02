@@ -1,4 +1,18 @@
-/* eslint-disable header/header */
+/********************************************************************************
+ * Copyright (c) 2022 EclipseSource and others.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v. 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * This Source Code may also be made available under the following Secondary
+ * Licenses when the conditions for such availability set forth in the Eclipse
+ * Public License v. 2.0 are satisfied: GNU General Public License, version 2
+ * with the GNU Classpath Exception which is available at
+ * https://www.gnu.org/software/classpath/license.html.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+ ********************************************************************************/
 import { injectable } from 'inversify';
 import { Action, MouseListener, SModelElement, SModelRoot } from 'sprotty';
 
@@ -7,32 +21,14 @@ export class ZoomListener extends MouseListener {
 
     protected level = 1;
 
+    protected target: SModelRoot & { zoom?: number };
+
     wheel(target: SModelElement, event: WheelEvent): Action[] {
-        const zoomLevel = this.getCurrentZoomFactor(target.root, event);
-        console.log('Current zoom level: ' + zoomLevel);
-        this.level = zoomLevel;
+        this.target = target.root;
         return [];
     }
 
     public getZoomLevel(): number {
-        return this.level;
-    }
-
-    protected getCurrentZoomFactor(root: SModelRoot & { zoom?: number }, event: WheelEvent): number {
-        let zoom = 1;
-        if (root.zoom) {
-            zoom = root.zoom * this.getZoomFactor(event);
-        }
-        return zoom;
-    }
-
-    protected getZoomFactor(event: WheelEvent): number {
-        if (event.deltaMode === event.DOM_DELTA_PAGE) {
-            return Math.exp(-event.deltaY * 0.5);
-        } else if (event.deltaMode === event.DOM_DELTA_LINE) {
-            return Math.exp(-event.deltaY * 0.05);
-        } else {// deltaMode === DOM_DELTA_PIXEL
-            return Math.exp(-event.deltaY * 0.005);
-        }
+        return this.target?.zoom ?? 1;
     }
 }

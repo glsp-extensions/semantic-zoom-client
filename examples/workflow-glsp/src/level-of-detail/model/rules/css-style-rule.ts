@@ -69,10 +69,10 @@ export class CssStyleRule extends LevelOfDetailRule {
         return value;
     }
 
-    getIsNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
+    isNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
         // also trigger when zoom level has been changed and the continuous level is referenced
         return (
-            super.getIsNewlyTriggered(currZoomLevel, prevZoomLevel) ||
+            super.isNewlyTriggered(currZoomLevel, prevZoomLevel) ||
             (this.referencesCLevel && this.isTriggered(currZoomLevel) && currZoomLevel !== prevZoomLevel)
         );
     }
