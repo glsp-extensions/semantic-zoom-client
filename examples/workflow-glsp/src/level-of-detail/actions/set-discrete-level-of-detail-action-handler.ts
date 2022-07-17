@@ -15,7 +15,7 @@
  ********************************************************************************/
 import { inject, injectable } from 'inversify';
 import { IActionHandler, ICommand } from '@eclipse-glsp/client';
-import { Action } from 'sprotty';
+import { Action } from '@eclipse-glsp/protocol';
 import { SetDiscreteLevelOfDetailAction } from './set-discrete-level-of-detail-action';
 import { WORKFLOW_TYPES } from '../../workflow-types';
 import { LevelOfDetail } from '../level-of-detail';

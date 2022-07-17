@@ -14,8 +14,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
 import { inject, injectable } from 'inversify';
-import { GLSPDiagramServer, IActionHandler } from '@eclipse-glsp/client';
-import { TYPES } from 'sprotty';
+import { GLSPDiagramServer, IActionHandler, TYPES } from '@eclipse-glsp/client';
 import { Action } from '@eclipse-glsp/protocol';
 
 @injectable()

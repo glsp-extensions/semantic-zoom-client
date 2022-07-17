@@ -21,13 +21,13 @@ import { injectable } from 'inversify';
 export class VisibilityRule extends LevelOfDetailRule {
     setVisibility: boolean;
 
-    init(element: VisibilityRule): void {
+    override init(element: VisibilityRule): void {
         super.init(element);
         this.setVisibility = element.setVisibility;
     }
 
     handle(node: VNode | undefined): VNode | undefined {
-       // console.log('handle visibility rule triggered');
+        // console.log('handle visibility rule triggered');
 
         if (!node || this.setVisibility) {
             return node;

@@ -16,13 +16,13 @@
 import { LevelOfDetailRule } from '../level-of-detail-rule';
 import { VNode } from 'snabbdom';
 import { injectable } from 'inversify';
-import { SShapeElement } from 'sprotty';
+import { SShapeElement } from '@eclipse-glsp/client';
 
 @injectable()
 export class LayoutRule extends LevelOfDetailRule {
     layoutOptions: Record<string, any>;
 
-    init(element: LayoutRule): void {
+    override init(element: LayoutRule): void {
         super.init(element);
         this.layoutOptions = element.layoutOptions;
     }

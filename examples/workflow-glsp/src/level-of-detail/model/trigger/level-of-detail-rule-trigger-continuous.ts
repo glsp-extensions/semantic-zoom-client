@@ -21,7 +21,7 @@ export class LevelOfDetailRuleTriggerContinuous extends LevelOfDetailRuleTrigger
     private triggerFrom: number;
     private triggerTo: number;
 
-    init(element: LevelOfDetailRuleTriggerContinuous): void {
+    override init(element: LevelOfDetailRuleTriggerContinuous): void {
         super.init(element);
         this.triggerFrom = element.triggerFrom;
         this.triggerTo = element.triggerTo;

@@ -13,8 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import { GLSPActionDispatcher, ModelRenderer, RequestModelAction, SGraph } from '@eclipse-glsp/client';
-import { SModelElement, SShapeElement } from 'sprotty';
+import { GLSPActionDispatcher, ModelRenderer, SGraph, SModelElement, SShapeElement } from '@eclipse-glsp/client';
 import { VNode } from 'snabbdom';
 import { LevelOfDetailRenderer } from './level-of-detail-renderer';
 import { IViewArgs, RenderingTargetKind, ViewRegistry } from 'sprotty/lib/base/views/view';
@@ -22,6 +21,7 @@ import { IVNodePostprocessor } from 'sprotty/lib/base/views/vnode-postprocessor'
 import { SParentElement } from 'sprotty/lib/base/model/smodel';
 import { LevelOfDetail } from './level-of-detail';
 import { ViewerOptions } from 'sprotty/src/base/views/viewer-options';
+import { RequestModelAction } from '@eclipse-glsp/protocol';
 
 export class LevelOfDetailModelRenderer extends ModelRenderer {
     protected levelOfDetailRenderer?: LevelOfDetailRenderer;
@@ -32,7 +32,7 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
 
     protected levelOfDetail?: LevelOfDetail;
 
-   protected viewerOptions: ViewerOptions;
+    protected viewerOptions: ViewerOptions;
 
     constructor(
         viewRegistry: ViewRegistry,
@@ -52,7 +52,7 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
         this.viewerOptions = viewerOptions;
     }
 
-    renderChildren(element: Readonly<SParentElement>, args?: IViewArgs): VNode[] {
+    override renderChildren(element: Readonly<SParentElement>, args?: IViewArgs): VNode[] {
         const context = args
             ? new LevelOfDetailModelRenderer(
                   this.viewRegistry,
@@ -68,15 +68,17 @@ export class LevelOfDetailModelRenderer extends ModelRenderer {
         return element.children.map(child => context.renderElement(child)).filter(vnode => vnode !== undefined) as VNode[];
     }
 
-    renderElement(element: Readonly<SModelElement>): VNode | undefined {
+    override renderElement(element: Readonly<SModelElement>): VNode | undefined {
         const view = this.viewRegistry.get(element.type);
 
         if (element instanceof SGraph && this.levelOfDetailRenderer && this.levelOfDetail) {
             const needsRerender = this.levelOfDetailRenderer.needsRerender(element.children);
             if (this.viewerOptions.needsClientLayout && (needsRerender.client || needsRerender.server)) {
                 this.actionDispatcher.dispatch(
-                    new RequestModelAction({
-                        levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
+                    RequestModelAction.create({
+                        options: {
+                            levelOfDetail: this.levelOfDetail.getContinuousLevelOfDetail()
+                        }
                     })
                 );
             }

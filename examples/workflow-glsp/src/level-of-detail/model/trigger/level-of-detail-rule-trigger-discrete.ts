@@ -18,7 +18,7 @@ import { LevelOfDetailRuleTrigger } from '../level-of-detail-rule-trigger';
 export class LevelOfDetailRuleTriggerDiscrete extends LevelOfDetailRuleTrigger {
     triggerDiscreteLevel: number[];
 
-    init(element: LevelOfDetailRuleTriggerDiscrete): void {
+    override init(element: LevelOfDetailRuleTriggerDiscrete): void {
         super.init(element);
         this.triggerDiscreteLevel = element.triggerDiscreteLevel;
     }

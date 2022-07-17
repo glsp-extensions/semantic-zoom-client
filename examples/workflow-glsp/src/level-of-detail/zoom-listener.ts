@@ -14,16 +14,15 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
 import { injectable } from 'inversify';
-import { Action, MouseListener, SModelElement, SModelRoot } from 'sprotty';
+import { Action, MouseListener, SModelElement, SModelRoot } from '@eclipse-glsp/client';
 
 @injectable()
 export class ZoomListener extends MouseListener {
-
     protected level = 1;
 
     protected target: SModelRoot & { zoom?: number };
 
-    wheel(target: SModelElement, event: WheelEvent): Action[] {
+    override wheel(target: SModelElement, event: WheelEvent): Action[] {
         this.target = target.root;
         return [];
     }

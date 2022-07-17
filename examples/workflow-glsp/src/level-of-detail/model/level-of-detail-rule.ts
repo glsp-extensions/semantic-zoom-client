@@ -19,7 +19,7 @@ import { LevelOfDetailRuleTrigger } from './level-of-detail-rule-trigger';
 import { inject, injectable } from 'inversify';
 import { WORKFLOW_TYPES } from '../../workflow-types';
 import { LevelOfDetailRuleTriggerInterface } from './level-of-detail-rule-trigger.interface';
-import { SShapeElement } from 'sprotty';
+import { SShapeElement } from '@eclipse-glsp/client';
 
 @injectable()
 export abstract class LevelOfDetailRule implements LevelOfDetailRuleInterface {

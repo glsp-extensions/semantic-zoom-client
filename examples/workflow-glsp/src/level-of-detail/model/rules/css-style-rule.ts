@@ -29,7 +29,7 @@ export class CssStyleRule extends LevelOfDetailRule {
     @inject(WORKFLOW_TYPES.LevelOfDetail)
     levelOfDetail: LevelOfDetail;
 
-    init(element: CssStyleRule): void {
+    override init(element: CssStyleRule): void {
         super.init(element);
         this.styles = element.styles;
 
@@ -69,7 +69,7 @@ export class CssStyleRule extends LevelOfDetailRule {
         return value;
     }
 
-    isNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
+    override isNewlyTriggered(currZoomLevel: number, prevZoomLevel: number): boolean {
         // also trigger when zoom level has been changed and the continuous level is referenced
         return (
             super.isNewlyTriggered(currZoomLevel, prevZoomLevel) ||

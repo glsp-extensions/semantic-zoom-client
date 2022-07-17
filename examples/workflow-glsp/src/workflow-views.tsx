@@ -15,17 +15,19 @@
  ********************************************************************************/
 import {
     angleOfPoint,
+    findParentByFeature,
     getSubType,
     Point,
     PolylineEdgeViewWithGapsOnIntersections,
     RenderingContext,
     SEdge,
     setAttr,
+    ShapeView,
+    svg,
     toDegrees
 } from '@eclipse-glsp/client';
 import { injectable } from 'inversify';
 import { VNode } from 'snabbdom';
-import { findParentByFeature, ShapeView, svg } from 'sprotty';
 import { Icon, isTaskNode } from './model';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -33,7 +35,7 @@ const JSX = { createElement: svg };
 
 @injectable()
 export class WorkflowEdgeView extends PolylineEdgeViewWithGapsOnIntersections {
-    protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
+    protected override renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
         const additionals = super.renderAdditionals(edge, segments, context);
         const p1 = segments[segments.length - 2];
         const p2 = segments[segments.length - 1];
@@ -90,6 +92,7 @@ export class IconView extends ShapeView {
         if (subType) {
             setAttr(vnode, 'class', subType);
         }
+
         return vnode;
     }
 }

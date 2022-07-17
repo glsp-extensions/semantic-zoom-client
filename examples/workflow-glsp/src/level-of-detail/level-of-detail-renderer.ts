@@ -18,8 +18,7 @@ import { VNode } from 'snabbdom';
 
 import { WORKFLOW_TYPES } from '../workflow-types';
 import { LevelOfDetail } from './level-of-detail';
-import { SChildElement } from '@eclipse-glsp/client';
-import { SShapeElement } from 'sprotty';
+import { SChildElement, SShapeElement } from '@eclipse-glsp/client';
 
 @injectable()
 export class LevelOfDetailRenderer {

@@ -1,1165 +1,1156 @@
+
 {
-  "id": "sprotty",
-                "children": [
+    "id": "sprotty",
+    "children": [
+        {
+            "name": "AutomatedTask0",
+            "taskType": "automated",
+            "id": "c9e2a5af-4019-47bf-bcef-305347b90a77",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "c9e2a5af-4019-47bf-bcef-305347b90a77_icon",
+                    "type": "icon",
+                    "position":
                     {
-                        "name": "AutomatedTask0",
-                        "taskType": "automated",
-                        "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572_comp",
-                                "children": [
-                                    {
-                                        "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 45.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "ChkTp",
-                                        "alignment":
-                                        {
-                                            "x": 22.0,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 27.5,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "2cb316eb-d02c-4b34-8a9a-fb34713bb572_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 27.5,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 55.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 410.0,
-                            "y": 240.0
-                        },
-                        "size":
-                        {
-                            "width": 91.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 91.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
+                        "x": 5.0,
+                        "y": 9.0
                     },
+                    "size":
                     {
-                        "name": "AutomatedTask1",
-                        "taskType": "automated",
-                        "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28_comp",
-                                "children": [
-                                    {
-                                        "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 45.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "ChkWt",
-                                        "alignment":
-                                        {
-                                            "x": 22.0,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 27.5,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 27.5,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 55.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 410.0,
-                            "y": 120.0
-                        },
-                        "size":
-                        {
-                            "width": 91.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 91.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "AutomatedTask2",
-                        "taskType": "automated",
-                        "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3_comp",
-                                "children": [
-                                    {
-                                        "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 40.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "WtOK",
-                                        "alignment":
-                                        {
-                                            "x": 19.5,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 25.0,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "f569f70b-2bfa-4489-99c7-4b3fc96695b3_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 25.0,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 50.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 610.0,
-                            "y": 150.0
-                        },
-                        "size":
-                        {
-                            "width": 86.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 86.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "ManualTask3",
-                        "taskType": "manual",
-                        "id": "a2fb0571-7b77-421b-84c3-6a591bab2609",
-                        "cssClasses": ["task", "manual"],
-                        "children": [
-                            {
-                                "id": "a2fb0571-7b77-421b-84c3-6a591bab2609_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "a2fb0571-7b77-421b-84c3-6a591bab2609_comp",
-                                "children": [
-                                    {
-                                        "id": "a2fb0571-7b77-421b-84c3-6a591bab2609_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 35.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "Push",
-                                        "alignment":
-                                        {
-                                            "x": 17.0,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "a2fb0571-7b77-421b-84c3-6a591bab2609_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 22.5,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: manual"
-                                    },
-                                    {
-                                        "id": "a2fb0571-7b77-421b-84c3-6a591bab2609_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 22.5,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 45.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:manual",
-                        "position":
-                        {
-                            "x": 240.0,
-                            "y": 180.0
-                        },
-                        "size":
-                        {
-                            "width": 81.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 81.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "AutomatedTask4",
-                        "taskType": "automated",
-                        "id": "48152ab3-2630-40b3-9ff1-3a964131b593",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "48152ab3-2630-40b3-9ff1-3a964131b593_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "48152ab3-2630-40b3-9ff1-3a964131b593_comp",
-                                "children": [
-                                    {
-                                        "id": "48152ab3-2630-40b3-9ff1-3a964131b593_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 53.000003814697266,
-                                            "height": 16.0
-                                        },
-                                        "text": "KeepTp",
-                                        "alignment":
-                                        {
-                                            "x": 26.0,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "48152ab3-2630-40b3-9ff1-3a964131b593_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 31.500001907348633,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "48152ab3-2630-40b3-9ff1-3a964131b593_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 31.500001907348633,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 63.000003814697266,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 610.0,
-                            "y": 200.0
-                        },
-                        "size":
-                        {
-                            "width": 99.00000381469727,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 99.00000381469727,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "AutomatedTask5",
-                        "taskType": "automated",
-                        "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c_comp",
-                                "children": [
-                                    {
-                                        "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 54.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "PreHeat",
-                                        "alignment":
-                                        {
-                                            "x": 26.5,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 32.0,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "63b8d579-d2ef-4ccc-a0d5-2e924814409c_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 32.0,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 64.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 610.0,
-                            "y": 270.0
-                        },
-                        "size":
-                        {
-                            "width": 100.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 100.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "AutomatedTask6",
-                        "taskType": "automated",
-                        "id": "98928970-6db8-4f42-8adc-abc66d922a84",
-                        "cssClasses": ["task", "automated"],
-                        "children": [
-                            {
-                                "id": "98928970-6db8-4f42-8adc-abc66d922a84_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "98928970-6db8-4f42-8adc-abc66d922a84_comp",
-                                "children": [
-                                    {
-                                        "id": "98928970-6db8-4f42-8adc-abc66d922a84_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 34.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "Brew",
-                                        "alignment":
-                                        {
-                                            "x": 16.5,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "98928970-6db8-4f42-8adc-abc66d922a84_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 22.0,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: automated"
-                                    },
-                                    {
-                                        "id": "98928970-6db8-4f42-8adc-abc66d922a84_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 22.0,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 44.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:automated",
-                        "position":
-                        {
-                            "x": 850.0,
-                            "y": 170.0
-                        },
-                        "size":
-                        {
-                            "width": 80.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 80.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "name": "ManualTask7",
-                        "taskType": "manual",
-                        "id": "5ae63894-85ec-40bc-bacc-39bce29531ab",
-                        "cssClasses": ["task", "manual"],
-                        "children": [
-                            {
-                                "id": "5ae63894-85ec-40bc-bacc-39bce29531ab_icon",
-                                "type": "icon",
-                                "position":
-                                {
-                                    "x": 5.0,
-                                    "y": 9.0
-                                },
-                                "size":
-                                {
-                                    "width": 25.0,
-                                    "height": 20.0
-                                }
-                            },
-                            {
-                                "id": "5ae63894-85ec-40bc-bacc-39bce29531ab_comp",
-                                "children": [
-                                    {
-                                        "id": "5ae63894-85ec-40bc-bacc-39bce29531ab_classname",
-                                        "type": "label:heading",
-                                        "position":
-                                        {
-                                            "x": 5.0,
-                                            "y": 5.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 37.0,
-                                            "height": 16.0
-                                        },
-                                        "text": "RflWt",
-                                        "alignment":
-                                        {
-                                            "x": 18.0,
-                                            "y": 13.0
-                                        }
-                                    },
-                                    {
-                                        "id": "5ae63894-85ec-40bc-bacc-39bce29531ab_type",
-                                        "type": "label:type-text",
-                                        "position":
-                                        {
-                                            "x": 23.5,
-                                            "y": 22.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Type: manual"
-                                    },
-                                    {
-                                        "id": "5ae63894-85ec-40bc-bacc-39bce29531ab_duration",
-                                        "type": "label:text",
-                                        "position":
-                                        {
-                                            "x": 23.5,
-                                            "y": 23.0
-                                        },
-                                        "size":
-                                        {
-                                            "width": 0.0,
-                                            "height": 0.0
-                                        },
-                                        "text": "Duration: 0"
-                                    }
-                                ],
-                                "type": "comp:header",
-                                "position":
-                                {
-                                    "x": 31.0,
-                                    "y": 5.0
-                                },
-                                "size":
-                                {
-                                    "width": 47.0,
-                                    "height": 28.0
-                                },
-                                "layout": "vbox"
-                            }
-                        ],
-                        "type": "task:manual",
-                        "position":
-                        {
-                            "x": 610.0,
-                            "y": 80.0
-                        },
-                        "size":
-                        {
-                            "width": 83.0,
-                            "height": 38.0
-                        },
-                        "layout": "hbox",
-                        "layoutOptions":
-                        {
-                            "prefWidth": 83.0,
-                            "prefHeight": 38.0
-                        },
-                        "args":
-                        {
-                            "radiusTopLeft": 5.0,
-                            "radiusBottomLeft": 5.0,
-                            "radiusTopRight": 5.0,
-                            "radiusBottomRight": 5.0
-                        }
-                    },
-                    {
-                        "nodeType": "forkNode",
-                        "id": "9db989ca-9f6a-4bda-98a4-53f80595e554",
-                        "cssClasses": ["forkOrJoin"],
-                        "type": "activityNode:fork",
-                        "position":
-                        {
-                            "x": 350.0,
-                            "y": 170.0
-                        },
-                        "size":
-                        {
-                            "width": 10.0,
-                            "height": 60.0
-                        }
-                    },
-                    {
-                        "nodeType": "joinNode",
-                        "id": "258564a2-a9f1-4d26-aa77-68cb46053bf4",
-                        "cssClasses": ["forkOrJoin"],
-                        "type": "activityNode:join",
-                        "position":
-                        {
-                            "x": 810.0,
-                            "y": 160.0
-                        },
-                        "size":
-                        {
-                            "width": 10.0,
-                            "height": 60.0
-                        }
-                    },
-                    {
-                        "nodeType": "mergeNode",
-                        "id": "d22424f2-2df8-4f3d-8296-6dc0d65cb1ce",
-                        "type": "activityNode:merge",
-                        "position":
-                        {
-                            "x": 750.0,
-                            "y": 120.0
-                        },
-                        "size":
-                        {
-                            "width": 32.0,
-                            "height": 32.0
-                        }
-                    },
-                    {
-                        "nodeType": "mergeNode",
-                        "id": "252761dd-a50b-4638-859d-8012f89ab843",
-                        "type": "activityNode:merge",
-                        "position":
-                        {
-                            "x": 750.0,
-                            "y": 240.0
-                        },
-                        "size":
-                        {
-                            "width": 32.0,
-                            "height": 32.0
-                        }
-                    },
-                    {
-                        "nodeType": "decisionNode",
-                        "id": "b28ae42b-71f1-44d1-8c24-09d8695be837",
-                        "type": "activityNode:decision",
-                        "position":
-                        {
-                            "x": 530.0,
-                            "y": 120.0
-                        },
-                        "size":
-                        {
-                            "width": 32.0,
-                            "height": 32.0
-                        },
-                        "layoutOptions":
-                        {
-                            "minWidth": 32.0,
-                            "minHeight": 32.0
-                        }
-                    },
-                    {
-                        "nodeType": "decisionNode",
-                        "id": "4d7a2a41-25a3-41d3-a20b-fafa4f93da8f",
-                        "type": "activityNode:decision",
-                        "position":
-                        {
-                            "x": 530.0,
-                            "y": 240.0
-                        },
-                        "size":
-                        {
-                            "width": 32.0,
-                            "height": 32.0
-                        },
-                        "layoutOptions":
-                        {
-                            "minWidth": 32.0,
-                            "minHeight": 32.0
-                        }
-                    },
-                    {
-                        "id": "58cf38c4-7853-4603-8ab5-df4f88d15906",
-                        "type": "edge",
-                        "sourceId": "a2fb0571-7b77-421b-84c3-6a591bab2609",
-                        "targetId": "9db989ca-9f6a-4bda-98a4-53f80595e554",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "b8b9042c-845f-47bc-8f24-49339de63cc9",
-                        "type": "edge",
-                        "sourceId": "9db989ca-9f6a-4bda-98a4-53f80595e554",
-                        "targetId": "2cb316eb-d02c-4b34-8a9a-fb34713bb572",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "2f3f86d1-0e70-48ab-82d0-997446a8d6eb",
-                        "type": "edge",
-                        "sourceId": "9db989ca-9f6a-4bda-98a4-53f80595e554",
-                        "targetId": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "ebfe1e22-a4e6-4b17-bed0-5be45513b7b6",
-                        "type": "edge",
-                        "sourceId": "2cb316eb-d02c-4b34-8a9a-fb34713bb572",
-                        "targetId": "4d7a2a41-25a3-41d3-a20b-fafa4f93da8f",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "4b36f2ac-9fde-4dca-89a7-4bb3db3a2bef",
-                        "type": "edge",
-                        "sourceId": "5bd91d9d-9c1d-4001-a6aa-cc81e10aee28",
-                        "targetId": "b28ae42b-71f1-44d1-8c24-09d8695be837",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "probability": "medium",
-                        "id": "eda8f83b-79e6-491d-87a9-a7339364ea9b",
-                        "cssClasses": ["medium"],
-                        "type": "edge:weighted",
-                        "sourceId": "4d7a2a41-25a3-41d3-a20b-fafa4f93da8f",
-                        "targetId": "48152ab3-2630-40b3-9ff1-3a964131b593"
-                    },
-                    {
-                        "probability": "medium",
-                        "id": "cf31ffe3-1895-4567-be17-62790b58d153",
-                        "cssClasses": ["medium"],
-                        "type": "edge:weighted",
-                        "sourceId": "4d7a2a41-25a3-41d3-a20b-fafa4f93da8f",
-                        "targetId": "63b8d579-d2ef-4ccc-a0d5-2e924814409c"
-                    },
-                    {
-                        "probability": "medium",
-                        "id": "e9199e12-0f43-4e00-bde1-9d6de681c55e",
-                        "cssClasses": ["medium"],
-                        "type": "edge:weighted",
-                        "sourceId": "b28ae42b-71f1-44d1-8c24-09d8695be837",
-                        "targetId": "5ae63894-85ec-40bc-bacc-39bce29531ab"
-                    },
-                    {
-                        "probability": "medium",
-                        "id": "85b0a110-70c2-4b6f-b868-ef4eea904ead",
-                        "cssClasses": ["medium"],
-                        "type": "edge:weighted",
-                        "sourceId": "b28ae42b-71f1-44d1-8c24-09d8695be837",
-                        "targetId": "f569f70b-2bfa-4489-99c7-4b3fc96695b3"
-                    },
-                    {
-                        "id": "ba30ee14-e3c2-4512-ae72-bd55ee0ddecb",
-                        "type": "edge",
-                        "sourceId": "48152ab3-2630-40b3-9ff1-3a964131b593",
-                        "targetId": "252761dd-a50b-4638-859d-8012f89ab843",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "b157c7f9-dae5-4278-8c89-550c17bb738e",
-                        "type": "edge",
-                        "sourceId": "63b8d579-d2ef-4ccc-a0d5-2e924814409c",
-                        "targetId": "252761dd-a50b-4638-859d-8012f89ab843",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "4de775db-d484-47ac-b249-ba158b0c7732",
-                        "type": "edge",
-                        "sourceId": "f569f70b-2bfa-4489-99c7-4b3fc96695b3",
-                        "targetId": "d22424f2-2df8-4f3d-8296-6dc0d65cb1ce",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "6bcb95f9-f2eb-418e-b2bd-2b8dbc74662a",
-                        "type": "edge",
-                        "sourceId": "5ae63894-85ec-40bc-bacc-39bce29531ab",
-                        "targetId": "d22424f2-2df8-4f3d-8296-6dc0d65cb1ce",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "53d064de-d5dd-4521-89fe-d752a74158c3",
-                        "type": "edge",
-                        "sourceId": "252761dd-a50b-4638-859d-8012f89ab843",
-                        "targetId": "258564a2-a9f1-4d26-aa77-68cb46053bf4",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "b7560fd7-3508-42bd-b6ab-5dc7f1c0c61a",
-                        "type": "edge",
-                        "sourceId": "d22424f2-2df8-4f3d-8296-6dc0d65cb1ce",
-                        "targetId": "258564a2-a9f1-4d26-aa77-68cb46053bf4",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
-                    },
-                    {
-                        "id": "9e59c0a8-fb67-4180-95ab-dbb730b4d85e",
-                        "type": "edge",
-                        "sourceId": "258564a2-a9f1-4d26-aa77-68cb46053bf4",
-                        "targetId": "98928970-6db8-4f42-8adc-abc66d922a84",
-                        "args":
-                        {
-                            "edgePadding": 10.0
-                        }
+                        "width": 25.0,
+                        "height": 20.0
                     }
-                ],
-                "type": "graph",
-                "revision": 74
+                },
+                {
+                    "id": "c9e2a5af-4019-47bf-bcef-305347b90a77_comp",
+                    "children": [
+                        {
+                            "id": "c9e2a5af-4019-47bf-bcef-305347b90a77_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 45.0,
+                                "height": 16.0
+                            },
+                            "text": "ChkWt",
+                            "alignment":
+                            {
+                                "x": 22.0,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "c9e2a5af-4019-47bf-bcef-305347b90a77_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 27.5,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "c9e2a5af-4019-47bf-bcef-305347b90a77_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 27.5,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 55.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 740.0,
+                "y": 160.0
+            },
+            "size":
+            {
+                "width": 91.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 91.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "AutomatedTask1",
+            "taskType": "automated",
+            "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f_comp",
+                    "children": [
+                        {
+                            "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 45.0,
+                                "height": 16.0
+                            },
+                            "text": "ChkTp",
+                            "alignment":
+                            {
+                                "x": 22.0,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 27.5,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "1446e35a-eaa6-4734-832e-4fe50f65a51f_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 27.5,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 55.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 740.0,
+                "y": 280.0
+            },
+            "size":
+            {
+                "width": 91.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 91.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "AutomatedTask3",
+            "taskType": "automated",
+            "id": "47936163-bc7a-4748-808c-244555aa53d4",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "47936163-bc7a-4748-808c-244555aa53d4_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "47936163-bc7a-4748-808c-244555aa53d4_comp",
+                    "children": [
+                        {
+                            "id": "47936163-bc7a-4748-808c-244555aa53d4_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 53.0,
+                                "height": 16.0
+                            },
+                            "text": "KeepTp",
+                            "alignment":
+                            {
+                                "x": 26.0,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "47936163-bc7a-4748-808c-244555aa53d4_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 31.5,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "47936163-bc7a-4748-808c-244555aa53d4_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 31.5,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 63.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 920.0,
+                "y": 240.0
+            },
+            "size":
+            {
+                "width": 99.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 99.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "AutomatedTask4",
+            "taskType": "automated",
+            "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63_comp",
+                    "children": [
+                        {
+                            "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 54.0,
+                                "height": 16.0
+                            },
+                            "text": "PreHeat",
+                            "alignment":
+                            {
+                                "x": 26.5,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 32.0,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 32.0,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 64.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 920.0,
+                "y": 310.0
+            },
+            "size":
+            {
+                "width": 100.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 100.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "AutomatedTask5",
+            "taskType": "automated",
+            "id": "656e9cb3-c210-44f4-99cf-fefe59082350",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "656e9cb3-c210-44f4-99cf-fefe59082350_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "656e9cb3-c210-44f4-99cf-fefe59082350_comp",
+                    "children": [
+                        {
+                            "id": "656e9cb3-c210-44f4-99cf-fefe59082350_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 34.0,
+                                "height": 16.0
+                            },
+                            "text": "Brew",
+                            "alignment":
+                            {
+                                "x": 16.5,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "656e9cb3-c210-44f4-99cf-fefe59082350_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 22.0,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "656e9cb3-c210-44f4-99cf-fefe59082350_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 22.0,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 44.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 1160.0,
+                "y": 220.0
+            },
+            "size":
+            {
+                "width": 80.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 80.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "ManualTask6",
+            "taskType": "manual",
+            "id": "cb83b638-35a1-4780-beca-6d774c9e5471",
+            "cssClasses": ["task", "manual"],
+            "children": [
+                {
+                    "id": "cb83b638-35a1-4780-beca-6d774c9e5471_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "cb83b638-35a1-4780-beca-6d774c9e5471_comp",
+                    "children": [
+                        {
+                            "id": "cb83b638-35a1-4780-beca-6d774c9e5471_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 37.0,
+                                "height": 16.0
+                            },
+                            "text": "RflWt",
+                            "alignment":
+                            {
+                                "x": 18.0,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "cb83b638-35a1-4780-beca-6d774c9e5471_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 23.5,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: manual"
+                        },
+                        {
+                            "id": "cb83b638-35a1-4780-beca-6d774c9e5471_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 23.5,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 47.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:manual",
+            "position":
+            {
+                "x": 920.0,
+                "y": 120.0
+            },
+            "size":
+            {
+                "width": 83.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 83.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "ManualTask7",
+            "taskType": "manual",
+            "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35",
+            "cssClasses": ["task", "manual"],
+            "children": [
+                {
+                    "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35_comp",
+                    "children": [
+                        {
+                            "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 35.0,
+                                "height": 16.0
+                            },
+                            "text": "Push",
+                            "alignment":
+                            {
+                                "x": 17.0,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 22.5,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: manual"
+                        },
+                        {
+                            "id": "b5293cdb-f77f-4df7-8b5c-33678afe8b35_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 22.5,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 45.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:manual",
+            "position":
+            {
+                "x": 590.0,
+                "y": 220.0
+            },
+            "size":
+            {
+                "width": 81.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 81.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "name": "AutomatedTask7",
+            "taskType": "automated",
+            "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f",
+            "cssClasses": ["task", "automated"],
+            "children": [
+                {
+                    "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f_icon",
+                    "type": "icon",
+                    "position":
+                    {
+                        "x": 5.0,
+                        "y": 9.0
+                    },
+                    "size":
+                    {
+                        "width": 25.0,
+                        "height": 20.0
+                    }
+                },
+                {
+                    "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f_comp",
+                    "children": [
+                        {
+                            "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f_classname",
+                            "type": "label:heading",
+                            "position":
+                            {
+                                "x": 5.0,
+                                "y": 5.0
+                            },
+                            "size":
+                            {
+                                "width": 40.0,
+                                "height": 16.0
+                            },
+                            "text": "WtOK",
+                            "alignment":
+                            {
+                                "x": 19.5,
+                                "y": 13.0
+                            }
+                        },
+                        {
+                            "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f_type",
+                            "type": "label:type-text",
+                            "position":
+                            {
+                                "x": 25.0,
+                                "y": 22.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Type: automated"
+                        },
+                        {
+                            "id": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f_duration",
+                            "type": "label:text",
+                            "position":
+                            {
+                                "x": 25.0,
+                                "y": 23.0
+                            },
+                            "size":
+                            {
+                                "width": 0.0,
+                                "height": 0.0
+                            },
+                            "text": "Duration: 0"
+                        }
+                    ],
+                    "type": "comp:header",
+                    "position":
+                    {
+                        "x": 31.0,
+                        "y": 5.0
+                    },
+                    "size":
+                    {
+                        "width": 50.0,
+                        "height": 28.0
+                    },
+                    "layout": "vbox"
+                }
+            ],
+            "type": "task:automated",
+            "position":
+            {
+                "x": 920.0,
+                "y": 190.0
+            },
+            "size":
+            {
+                "width": 86.0,
+                "height": 38.0
+            },
+            "layoutOptions":
+            {
+                "prefWidth": 86.0,
+                "prefHeight": 38.0
+            },
+            "layout": "hbox",
+            "args":
+            {
+                "radiusBottomLeft": 5.0,
+                "radiusTopLeft": 5.0,
+                "radiusTopRight": 5.0,
+                "radiusBottomRight": 5.0
+            }
+        },
+        {
+            "nodeType": "mergeNode",
+            "id": "f7df9ac2-1aaf-4110-9890-2594fa491079",
+            "type": "activityNode:merge",
+            "position":
+            {
+                "x": 1050.0,
+                "y": 160.0
+            },
+            "size":
+            {
+                "width": 32.0,
+                "height": 32.0
+            }
+        },
+        {
+            "nodeType": "mergeNode",
+            "id": "1c767b28-7616-4ad4-bd09-641a51ae3a76",
+            "type": "activityNode:merge",
+            "position":
+            {
+                "x": 1050.0,
+                "y": 280.0
+            },
+            "size":
+            {
+                "width": 32.0,
+                "height": 32.0
+            }
+        },
+        {
+            "nodeType": "forkNode",
+            "id": "e4f0372e-3f8d-4ea2-875a-3fbe61de7fb7",
+            "cssClasses": ["forkOrJoin"],
+            "type": "activityNode:fork",
+            "position":
+            {
+                "x": 700.0,
+                "y": 210.0
+            },
+            "size":
+            {
+                "width": 10.0,
+                "height": 60.0
+            }
+        },
+        {
+            "nodeType": "joinNode",
+            "id": "5ab70342-750b-4eeb-ad48-7caa455b7dff",
+            "cssClasses": ["forkOrJoin"],
+            "type": "activityNode:join",
+            "position":
+            {
+                "x": 1120.0,
+                "y": 210.0
+            },
+            "size":
+            {
+                "width": 10.0,
+                "height": 60.0
+            }
+        },
+        {
+            "nodeType": "decisionNode",
+            "id": "2af50926-e0b0-429f-b9bc-0e4549c5b350",
+            "type": "activityNode:decision",
+            "position":
+            {
+                "x": 860.0,
+                "y": 160.0
+            },
+            "size":
+            {
+                "width": 32.0,
+                "height": 32.0
+            }
+        },
+        {
+            "nodeType": "decisionNode",
+            "id": "f24bd05f-cbfa-4d46-922b-6cbd5106ce74",
+            "type": "activityNode:decision",
+            "position":
+            {
+                "x": 860.0,
+                "y": 280.0
+            },
+            "size":
+            {
+                "width": 32.0,
+                "height": 32.0
+            }
+        },
+        {
+            "id": "f27a511c-273e-4ddb-964b-0dc889490688",
+            "type": "edge",
+            "sourceId": "b5293cdb-f77f-4df7-8b5c-33678afe8b35",
+            "targetId": "e4f0372e-3f8d-4ea2-875a-3fbe61de7fb7",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "3da80a79-bbad-4296-b755-68a8b1821963",
+            "type": "edge",
+            "sourceId": "e4f0372e-3f8d-4ea2-875a-3fbe61de7fb7",
+            "targetId": "c9e2a5af-4019-47bf-bcef-305347b90a77",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "b2f8309a-4557-4218-a525-f33093c37c47",
+            "type": "edge",
+            "sourceId": "e4f0372e-3f8d-4ea2-875a-3fbe61de7fb7",
+            "targetId": "1446e35a-eaa6-4734-832e-4fe50f65a51f",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "b3d1a0af-5a77-4eec-b801-3075789c8cfd",
+            "type": "edge",
+            "sourceId": "c9e2a5af-4019-47bf-bcef-305347b90a77",
+            "targetId": "2af50926-e0b0-429f-b9bc-0e4549c5b350",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "02b7f95b-8c74-4c53-8015-fb857fe68088",
+            "type": "edge",
+            "sourceId": "1446e35a-eaa6-4734-832e-4fe50f65a51f",
+            "targetId": "f24bd05f-cbfa-4d46-922b-6cbd5106ce74",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "3346370b-97b0-4d9d-bc36-d903db47267f",
+            "type": "edge",
+            "sourceId": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f",
+            "targetId": "f7df9ac2-1aaf-4110-9890-2594fa491079",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "271855e8-e18c-4585-b248-e80604580eeb",
+            "type": "edge",
+            "sourceId": "cb83b638-35a1-4780-beca-6d774c9e5471",
+            "targetId": "f7df9ac2-1aaf-4110-9890-2594fa491079",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "8955c117-200c-4170-9ca4-eca2e8969beb",
+            "type": "edge",
+            "sourceId": "47936163-bc7a-4748-808c-244555aa53d4",
+            "targetId": "1c767b28-7616-4ad4-bd09-641a51ae3a76",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "459c15cd-2c98-4814-a100-3a68be9a6701",
+            "type": "edge",
+            "sourceId": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63",
+            "targetId": "1c767b28-7616-4ad4-bd09-641a51ae3a76",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "557e23f6-ed49-452e-952e-287e52339b7c",
+            "type": "edge",
+            "sourceId": "1c767b28-7616-4ad4-bd09-641a51ae3a76",
+            "targetId": "5ab70342-750b-4eeb-ad48-7caa455b7dff",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "0c069ef1-20e5-4f65-8046-5fffa7eff891",
+            "type": "edge",
+            "sourceId": "f7df9ac2-1aaf-4110-9890-2594fa491079",
+            "targetId": "5ab70342-750b-4eeb-ad48-7caa455b7dff",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "id": "b4ef1040-588e-4c5e-933d-6161e561a881",
+            "type": "edge",
+            "sourceId": "5ab70342-750b-4eeb-ad48-7caa455b7dff",
+            "targetId": "656e9cb3-c210-44f4-99cf-fefe59082350",
+            "args":
+            {
+                "edgePadding": 10.0
+            }
+        },
+        {
+            "probability": "medium",
+            "id": "83c19e5f-1e8a-49a5-b72b-e7aa4c9ec67d",
+            "cssClasses": ["medium"],
+            "type": "edge:weighted",
+            "sourceId": "f24bd05f-cbfa-4d46-922b-6cbd5106ce74",
+            "targetId": "47936163-bc7a-4748-808c-244555aa53d4"
+        },
+        {
+            "probability": "medium",
+            "id": "c0220097-cc34-4a50-9323-0ceee51a3df7",
+            "cssClasses": ["medium"],
+            "type": "edge:weighted",
+            "sourceId": "f24bd05f-cbfa-4d46-922b-6cbd5106ce74",
+            "targetId": "bee11a3d-f804-44e5-9bd2-1d3836e6bb63"
+        },
+        {
+            "probability": "medium",
+            "id": "ed9e63f3-3cab-4c34-84b4-027d3c35bfa8",
+            "cssClasses": ["medium"],
+            "type": "edge:weighted",
+            "sourceId": "2af50926-e0b0-429f-b9bc-0e4549c5b350",
+            "targetId": "cb83b638-35a1-4780-beca-6d774c9e5471"
+        },
+        {
+            "probability": "medium",
+            "id": "36f2a527-51c6-4c2e-ae9c-e9d45f633130",
+            "cssClasses": ["medium"],
+            "type": "edge:weighted",
+            "sourceId": "2af50926-e0b0-429f-b9bc-0e4549c5b350",
+            "targetId": "55f0a1b4-812b-4c51-9b9f-4d57eb0f7c4f"
+        }
+    ],
+    "type": "graph",
+    "revision": 100
 }
