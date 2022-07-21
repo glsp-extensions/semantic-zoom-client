@@ -5,12 +5,28 @@ It is based on a fork of the original GLSP client on https://github.com/eclipse-
 
 ![Semantic Zoom](/documentation/video_prot1.gif)
 
-### Prerequisites:
+## Running the project with docker
+
+Prerequisites:
+
+- Docker 17.05 or higher
+- docker-compose
+
+In the root of this repository, run
+```bash
+docker-compose up
+```
+This may take a while. Once the containers has finished building, start the server which is available here: https://github.com/glsp-extensions/semantic-zoom-server. \
+NOTE: If the client was started with docker, the server should also be started with docker.
+
+Once the server is running, navigate to http://localhost:8080/diagram.html in your browser.
+
+## Running the project locally
+Prerequisites:
 
 -   Node 16 or higher
 -   Yarn 1.7.0 or higher
 
-### Running the project:
 In the root of this repository, run
 
 ```bash
@@ -18,4 +34,6 @@ yarn install
 ```
 
 Next, the server has to be started. Follow the instructions here: https://github.com/glsp-extensions/semantic-zoom-server. \
-Once the server is running, open the `glsp-client/examples/workflow-standalone/app/diagram.html` file in your favorite browser.
+NOTE: If the client was started locally, the server should also be started locally.
+
+Once the server is running, open the `glsp-client/examples/workflow-standalone/app/diagram.html` file in your browser.
