@@ -24,14 +24,29 @@ import {
     setAttr,
     ShapeView,
     svg,
-    toDegrees
+    toDegrees,
+    SGraphView,
+    SGraph
 } from '@eclipse-glsp/client';
 import { injectable } from 'inversify';
 import { VNode } from 'snabbdom';
 import { Icon, isTaskNode } from './model';
+import { Timer } from './timer';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const JSX = { createElement: svg };
+
+const timer = new Timer();
+
+@injectable()
+export class WorkflowSGraphView<IRenderingArgs> extends SGraphView<IRenderingArgs> {
+    override render(model: Readonly<SGraph>, context: RenderingContext, args?: IRenderingArgs): VNode {
+        timer.startTimer();
+        const r = super.render(model, context, args);
+        timer.endTimer();
+        return r;
+    }
+}
 
 @injectable()
 export class WorkflowEdgeView extends PolylineEdgeViewWithGapsOnIntersections {

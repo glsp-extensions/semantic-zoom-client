@@ -21,6 +21,7 @@ import {
     DeleteElementContextMenuItemProvider,
     DiamondNodeView,
     editLabelFeature,
+    GLSPGraph,
     GridSnapper,
     LogLevel,
     overrideViewerOptions,
@@ -42,7 +43,7 @@ import 'sprotty/css/edit-label.css';
 import '../css/diagram.css';
 import { directTaskEditor } from './direct-task-editing/di.config';
 import { ActivityNode, CategoryNode, Icon, TaskNode, WeightedEdge } from './model';
-import { IconView, WorkflowEdgeView } from './workflow-views';
+import { IconView, WorkflowEdgeView, WorkflowSGraphView } from './workflow-views';
 import { registerLevelOfDetailRule, registerLevelOfDetailRuleTrigger } from './level-of-detail/level-of-detail';
 import { LayoutRule } from './level-of-detail/model/rules/layout-rule';
 import { VisibilityRule } from './level-of-detail/model/rules/visibility-rule';
@@ -60,6 +61,7 @@ const workflowDiagramModule = new ContainerModule((bind, unbind, isBound, rebind
     const context = { bind, unbind, isBound, rebind };
 
     configureDefaultModelElements(context);
+    configureModelElement(context, DefaultTypes.GRAPH, GLSPGraph, WorkflowSGraphView);
     configureModelElement(context, 'task:automated', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'task:manual', TaskNode, RoundedCornerNodeView);
     configureModelElement(context, 'label:heading', SLabel, SLabelView, { enable: [editLabelFeature] });

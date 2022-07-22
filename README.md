@@ -5,23 +5,30 @@ It is based on a fork of the original GLSP client on https://github.com/eclipse-
 
 ![Semantic Zoom](/documentation/video_prot1.gif)
 
-## Running the project with docker
+## Performance evaluation
 
-Prerequisites:
+This branch requires the project to be run locally (instructions below).
 
-- Docker 17.05 or higher
-- docker-compose
+First, rebuild the project by running
 
-In the root of this repository, run
 ```bash
-docker-compose up
+yarn build
 ```
-This may take a while. Once the containers has finished building, start the server which is available here: https://github.com/glsp-extensions/semantic-zoom-server. \
-NOTE: If the client was started with docker, the server should also be started with docker.
 
-Once the server is running, navigate to http://localhost:8080/diagram.html in your browser.
+then open the file `glsp-client/examples/workflow-standalone/app/diagram.html` in your browser.
+
+This branch calculates and prints the average rendering time (in milliseconds) of all rendering executions that have been done in the last 5 seconds to the developer console (Shortcut `F12`) of your browser.
+
+Furthermore, it has three additional files inside the `glsp-client/examples/workflow-standalone/app` directory that can be used to evaluate the performance:
+
+-   `example1_10.wf`: 10 Tasks
+-   `example1_100.wf`: 100 Tasks
+-   `example1_500.wf`: 500 Tasks
+
+In order to run them, rename them to `example1.wf` and refresh your browser.
 
 ## Running the project locally
+
 Prerequisites:
 
 -   Node 16 or higher
