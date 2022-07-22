@@ -37,3 +37,8 @@ Next, the server has to be started. Follow the instructions here: https://github
 NOTE: If the client was started locally, the server should also be started locally.
 
 Once the server is running, open the `glsp-client/examples/workflow-standalone/app/diagram.html` file in your browser.
+
+
+## Performance evaluation
+
+Information about the performance evaluation can be found in the branch [performance-evaluation](https://github.com/glsp-extensions/semantic-zoom-client/tree/performance-evaluation).
